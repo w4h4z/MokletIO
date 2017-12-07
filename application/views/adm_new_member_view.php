@@ -14,7 +14,7 @@
               <h3 class="box-title">Data New Register Member</h3>
               <br>
               <br>
-              <button class="btn btn-success" data-toggle="modal" data-target="#modal_form"><span class="glyphicon glyphicon-plus"></span> Add New Member</button>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#modal_form"><span class="glyphicon glyphicon-plus"></span> Add New Member</button>
 <?php
                   $failed = $this->session->flashdata('failed');
                     if(!empty($failed)){
@@ -41,11 +41,12 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nama</th>
-                  <th>Angkatan</th>
-                  <th>No Hp</th>
+                  <th>Name</th>
+                  <th>Generation</th>
+                  <th>Class</th>
+                  <th>Phone Number</th>
                   <th>Email</th>
-                  <th>...</th>
+                  <th>Approval</th>
                   <th>Action</th>
                 </tr>
                 </thead>
@@ -58,10 +59,11 @@ foreach ($member as $data) {
                   <td>'.$i++.'</td>
                   <td>'.$data->NAMA_MEMBER.'</td>
                   <td>'.$data->ANGKATAN_MEMBER.'</td>
+                  <td>'.$data->KELAS_MEMBER.'</td>
                   <td>'.$data->NO_HP_MEMBER.'</td>
                   <td>'.$data->EMAIL_MEMBER.'</td>
-                  <td><button class="btn btn-primary btn-sm">...</button></td>
-                  <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                  <td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-check"></span> Approve</button></td>
+                  <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
                       <button class="btn btn-warning btn-sm"><span class="glyphicon glyphicon-pencil"></span></button>
                       <button class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-trash"></span></button>
                   </td>
@@ -102,9 +104,52 @@ foreach ($member as $data) {
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Angkatan *</label>
+              <label class="control-label col-md-3">Generation *</label>
               <div class="col-md-9">
-                <input name="angkatan" placeholder="Angkatan" class="form-control" type="number" required>
+                <input name="angkatan" placeholder="Generation" class="form-control" type="number" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Class *</label>
+              <div class="col-md-9">
+                <select class="form-control">
+                  <option value="XRPL1">XRPL1</option>
+                  <option value="XRPL2">XRPL2</option>
+                  <option value="XRPL3">XRPL3</option>
+                  <option value="XRPL4">XRPL4</option>
+                  <option value="XRPL5">XRPL5</option>
+                  <option value="XRPL6">XRPL6</option>
+                  <option value="XTKJ1">XTKJ1</option>            
+                  <option value="XTKJ2">XTKJ2</option>            
+                  <option value="XTKJ3">XTKJ3</option>            
+                  <option value="XTKJ4">XTKJ4</option>            
+                  <option value="XTKJ5">XTKJ5</option>            
+                  <option value="XTKJ6">XTKJ6</option> 
+                  <option value="XIRPL1">XIRPL1</option>
+                  <option value="XIRPL2">XIRPL2</option>
+                  <option value="XIRPL3">XIRPL3</option>
+                  <option value="XIRPL4">XIRPL4</option>
+                  <option value="XIRPL5">XIRPL5</option>
+                  <option value="XIRPL6">XIRPL6</option>
+                  <option value="XITKJ1">XITKJ1</option>            
+                  <option value="XITKJ2">XITKJ2</option>            
+                  <option value="XITKJ3">XITKJ3</option>            
+                  <option value="XITKJ4">XITKJ4</option>            
+                  <option value="XITKJ5">XITKJ5</option>            
+                  <option value="XITKJ6">XITKJ6</option> 
+                  <option value="XIIRPL1">XIIRPL1</option>
+                  <option value="XIIRPL2">XIIRPL2</option>
+                  <option value="XIIRPL3">XIIRPL3</option>
+                  <option value="XIIRPL4">XIIRPL4</option>
+                  <option value="XIIRPL5">XIIRPL5</option>
+                  <option value="XIIRPL6">XIIRPL6</option>
+                  <option value="XIITKJ1">XIITKJ1</option>            
+                  <option value="XIITKJ2">XIITKJ2</option>            
+                  <option value="XIITKJ3">XIITKJ3</option>            
+                  <option value="XIITKJ4">XIITKJ4</option>            
+                  <option value="XIITKJ5">XIITKJ5</option>            
+                  <option value="XIITKJ6">XIITKJ6</option>            
+                </select>
               </div>
             </div>
             <div class="form-group">
@@ -150,8 +195,11 @@ foreach ($member as $data) {
   <!-- End Bootstrap modal -->
 
 
-<!-- Bootstrap modal -->
-  <div class="modal fade" id="modal_detail" role="dialog">
+<?php
+foreach ($member as $data) {
+  echo '
+    <!-- Bootstrap modal -->
+  <div class="modal fade" id="modal_detail'.$data->ID_MEMBER.'" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -159,6 +207,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Detail New Member</h3>
       </div>
       <div class="modal-body form">
+        <img src="'.base_url().'uploads/'.$data->FOTO_MEMBER.'" class="form-control col-lg-offset-3 col-xs-offset-3" style="height: 50%;width: 50%">
         
           </div>
           <div class="modal-footer">
@@ -168,7 +217,10 @@ foreach ($member as $data) {
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
   <!-- End Bootstrap modal -->
+  ';
+}
 
+?>
 
 <script>
   function readURL(input) {

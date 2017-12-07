@@ -51,7 +51,7 @@
                       echo '</div>';
                   }
                 ?>
-              <button class="btn btn-success" data-toggle="modal" data-target="#addPhoto"><span class="glyphicon glyphicon-plus"></span> Add New Photo</button>
+              <button class="btn btn-primary" data-toggle="modal" data-target="#addPhoto"><span class="glyphicon glyphicon-plus"></span> Add New Photo</button>
               <hr>
               <div class="row">
               <?php

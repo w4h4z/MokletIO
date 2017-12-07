@@ -204,7 +204,27 @@
             <div class="form-group">
               <label class="control-label col-xs-2">Primary Color</label>
               <div class="col-xs-10">
-                <input type="text" required name="primaryCol" id="primaryCol" class="form-control my-colorpicker1" value="<?php echo $sub->PRIMARY_COLOR ;?>">
+                <?php
+                  if($sub->PRIMARY_COLOR == '#222222'){
+                    echo '
+                      <label class="radio-inline">
+                        <input type="radio" name="primaryCol" value="#222222" checked> Dark
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="primaryCol" value="#e9e9e9"> Light
+                      </label>
+                    ';
+                  } else {
+                    echo '
+                      <label class="radio-inline">
+                        <input type="radio" name="primaryCol" value="#222222"> Dark
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="primaryCol" value="#e9e9e9" checked> Light
+                      </label>
+                    ';
+                  }
+                ?>
               </div>
             </div>
             <div class="form-group">
