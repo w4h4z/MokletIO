@@ -27,6 +27,7 @@
   .inline-icon-picker{
   margin:16px 16px 16px 0px;
   height: 0px;
+  padding: 0px;
   overflow: hidden;
   transition: height 1s;
   }
@@ -143,14 +144,14 @@
                     <div class="box-body">
                       <div class="text-center">
                         <div>
-                          <span class="'.$data->ICON_FEATURE.' fa-3x"></span>
+                          <span class="'.$data->ICON_FEATURE.' fa-3x dataIcon"></span>
                         </div>
                         <div>
                           <h4><b>'.$data->NAMA_FEATURE.'</b></h4>
                           <p>'.$data->DESC_FEATURE.'</p>
                         </div>
                         <hr>
-                        <button class="btn btn-block btn-primary" id="editFeatureBtn" data-toggle="modal" data-target="#editFeature'.$data->ID_FEATURE.'">Edit</button>
+                        <button class="btn btn-block btn-primary editFeatureBtn"  data-toggle="modal" data-target="#editFeature">Edit</button>
                       </div>
                     </div>
                     <!-- /.box-body -->
@@ -256,12 +257,9 @@
   </div>
 </div>
 
-<?php 
-foreach ($feature as $data) {
-  //die($data->ICON_FEATURE);
-  echo '
+
     <!-- Modal -->
-<div id="editFeature'.$data->ID_FEATURE.'" class="modal fade" role="dialog">
+<div id="editFeature" class="modal fade" role="dialog">
   <div class="modal-dialog">
     <!-- Modal content-->
     <div class="modal-content">
@@ -275,13 +273,13 @@ foreach ($feature as $data) {
             <div class="form-group">
               <label class="control-label col-xs-2">Name</label>
               <div class="col-xs-10">
-                <input name="name" placeholder="Name" id="nama" class="form-control" type="text" value="'.$data->NAMA_FEATURE.'">
+                <input name="name" placeholder="Name" id="nama" class="form-control" type="text" value="">
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-xs-2">Desc</label>
               <div class="col-xs-10">
-                <textarea class="form-control" id="desc" rows="5" placeholder="Description">'.$data->DESC_FEATURE.'</textarea>
+                <textarea class="form-control" id="desc" rows="5" placeholder="Description"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -290,7 +288,7 @@ foreach ($feature as $data) {
                 <div class="row">
                   <div class="col-lg-9">
                     <div class="input-group mb-2 mb-sm-0">
-                      <div class="input-group-addon"><i id="preview-icon" class="'.$data->ICON_FEATURE.'"></i></div>
+                      <div class="input-group-addon"><i id="preview-icon" class=""></i></div>
                     <input type="text" class="icon-class-input form-control" id="icon-input" placeholder="Icon" value="'.$data->ICON_FEATURE.'"/>
                       </div>
                   </div>
@@ -353,11 +351,6 @@ foreach ($feature as $data) {
     </div>
   </div>
 </div>
-  ';
-}
-
-?>
-
 
 <script>
 
@@ -394,6 +387,19 @@ $('#editFeatureBtn').click(function(){
   $('#desc').val(dataFeature.desc);
   $('#icon-input').val(dataFeature.icon);
 });*/
+
+
+  $('.editFeatureBtn').click(function() {
+    var icon = $(this).siblings('div').children('span').attr('class').split(' ')[1];
+    var nama = $(this).siblings('div').children('h4').children('b').html();
+    var desc = $(this).siblings('div').children('p').html();
+    $('#nama').val(nama);
+    $('#desc').val(desc);
+    $('#preview-icon').addClass('fa ' + icon);
+    $('#icon-input').val(icon);
+  });
+
+
 
   function readURL(input) {
     if (input.files && input.files[0]) {
