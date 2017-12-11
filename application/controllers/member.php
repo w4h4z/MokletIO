@@ -14,7 +14,7 @@ class Member extends CI_Controller {
 		redirect('dashboard/newMember');
 	}
 
-	public function addMember()
+	public function EditMember()
 	{
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -28,10 +28,10 @@ class Member extends CI_Controller {
 				$upload = $this->upload->data();
 				$name = $upload['file_name'];
 				if($this->member_model->insertMemberPhoto($id,$name) == TRUE){
-					$this->session->set_flashdata('success', 'Add data success');
+					$this->session->set_flashdata('success', 'Edit data success');
 					redirect('dashboard/newMember');
 				} else {
-					$this->session->set_flashdata('failed', 'Add data failed');
+					$this->session->set_flashdata('failed', 'Edit data failed');
 					redirect('dashboard/newMember');
 				}
 			} else {
@@ -40,14 +40,68 @@ class Member extends CI_Controller {
 			}
 		} else {
 			if($this->member_model->insertMember($id) == TRUE){
-				$this->session->set_flashdata('success', 'Add data success');
+				$this->session->set_flashdata('success', 'Edit data success');
 				redirect('dashboard/newMember');
 			} else {
-				$this->session->set_flashdata('failed', 'Add data failed');
+				$this->session->set_flashdata('failed', 'Edit data failed');
 				redirect('dashboard/newMember');
 			}
+		}	
+	}
+
+	public function deleteNewMember($id)
+	{
+		if($this->member_model->deleteNewMember($id) == true){
+			$this->session->set_flashdata('success', 'Delete data success');
+			redirect('dashboard/newMember');
+		} else {
+			$this->session->set_flashdata('failed', 'Delete data failed');
+			redirect('dashboard/newMember');
 		}
-		
+	}
+
+	public function editNewMember($id)
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size']  = '2000';
+		$this->load->library('upload', $config);
+
+		if($_FILES['photoMember1']['error'] != UPLOAD_ERR_NO_FILE){
+			if($this->upload->do_upload('photoMember1')){
+				$upload = $this->upload->data();
+				$name = $upload['file_name'];
+				if($this->member_model->editNewMemberPhoto($id,$name) == TRUE){
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/newMember');
+				} else {
+					$this->session->set_flashdata('failed', 'Edit data failed');
+					redirect('dashboard/newMember');
+				}
+			} else {
+				$this->session->set_flashdata('failed', $this->upload->display_errors());
+			   	redirect('dashboard/newMember');
+			}
+		} else {
+			if($this->member_model->editNewMember($id) == TRUE){
+				$this->session->set_flashdata('success', 'Edit data success');
+				redirect('dashboard/newMember');
+			} else {
+				$this->session->set_flashdata('failed', 'Edit data failed');
+				redirect('dashboard/newMember');
+			}
+		}	
+	}
+
+	public function approveMember($id)
+	{
+		if($this->member_model->approveMember($id) == true){
+			$this->session->set_flashdata('success', 'Approve data success');
+			redirect('dashboard/newMember');
+		} else {
+			$this->session->set_flashdata('failed', 'Approve data failed');
+				redirect('dashboard/newMember');
+		}
 	}
 
 }

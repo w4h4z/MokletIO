@@ -25,7 +25,7 @@ class Dashboard extends CI_Controller {
 	{
 		if($this->session->userdata('logged')){
 			$id = $this->session->userdata('userId');
-			$data['member'] = $this->member_model->getNewMember();
+			$data['member'] = $this->member_model->getNewMember($id);
 			$data['main_view'] = 'adm_new_member_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
 			$this->load->view('adm_template', $data);
