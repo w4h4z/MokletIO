@@ -60,10 +60,10 @@
                                   <td class="data-kelas">'.$data->KELAS_MEMBER.'</td>
                                   <td>'.$data->NO_HP_MEMBER.'</td>
                                   <td>'.$data->EMAIL_MEMBER.'</td>
-                                  <td><a href="'.base_url('member/approveMember/'.$data->ID_MEMBER.'').'" class="btn btn-success btn-sm" id="approve"><span class="glyphicon glyphicon-check"></span> Approve</a></td>
+                                  <td><a href="#" data-toggle="modal" data-target="#modal_approve'.$data->ID_MEMBER.'" class="btn btn-success btn-sm" id="approve"><span class="glyphicon glyphicon-check"></span> Approve</a></td>
                                   <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
                                       <button  class="btn btn-warning btn-sm edit" data-toggle="modal" data-target="#modal_edit'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-pencil"></span></button>
-                                      <a href="'.base_url('member/deleteNewMember/'.$data->ID_MEMBER.'').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
+                                      <a href="'.base_url('member/deleteNewMember/'.$data->ID_MEMBER.'/0').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
                                   </td>
                                 </tr>
                   '; 
@@ -277,7 +277,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Edit New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="'.base_url('member/editNewMember/'.$data->ID_MEMBER.'').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="'.base_url('member/editNewMember/'.$data->ID_MEMBER.'/0').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">
@@ -380,6 +380,40 @@ foreach ($member as $data) {
 <!-- /.modal -->
 <!-- End Bootstrap modal -->
 
+  ';
+}
+
+foreach ($member as $data) {
+  echo '
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_approve'.$data->ID_MEMBER.'" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Approval Form</h3>
+      </div>
+      <div class="modal-body form">
+        <form action="'.base_url('member/approveMember/'.$data->ID_MEMBER.'').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+           <label class="control-label col-md-3">Tittle</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" value="Anggota" name="tittle" required>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- End Bootstrap modal -->
   ';
 }
 

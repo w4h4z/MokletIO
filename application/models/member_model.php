@@ -8,6 +8,11 @@ class Member_model extends CI_Model {
 		return $this->db->select('*')->from('member_sub')->where('STATUS_MEMBER', '0')->where('ID_SUB',$id)->order_by('ID_MEMBER', 'asc')->get()->result();
 	}
 
+	public function getMember($id)
+	{
+		return $this->db->select('*')->from('member_sub')->where('STATUS_MEMBER', '1')->where('ID_SUB',$id)->order_by('ID_MEMBER', 'asc')->get()->result();
+	}
+
 	public function insertMemberPhoto($id,$foto)
 	{
 		$data = array('ID_SUB'			=> $id,
@@ -100,7 +105,7 @@ class Member_model extends CI_Model {
 
 	public function approveMember($id)
 	{
-		$data = array('STATUS_MEMBER' => '1');
+		$data = array('STATUS_MEMBER' => '1', 'JABATAN_MEMBER' => $this->input->post('tittle'));
 		$this->db->where('ID_MEMBER', $id)->update('member_sub', $data);
 
 		if ($this->db->affected_rows() == 0) {

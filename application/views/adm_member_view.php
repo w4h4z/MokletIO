@@ -1,466 +1,88 @@
-  <section class="content-header">
-      <h1>
-        Manage  Member
-        <small><?php echo $sub->SINGKATAN_SUB ;?></small>
-      </h1>
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
-            <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data New Register Member</h3>
-              <br>
-              <br>
-              <button class="btn btn-success" onclick="add_member()"><span class="glyphicon glyphicon-plus"></span> Add New Member</button>
-            </div>
-
-            <!-- /.box-header -->
-            <div class="box-body table-responsive">
-              <table id="newMember" class="table table-bordered table-striped table-hover">
-                <thead>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.5
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 6
-                  </td>
-                  <td>Win 98+</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet Explorer 7</td>
-                  <td>Win XP SP2+</td>
-                  <td>7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>AOL browser (AOL desktop)</td>
-                  <td>Win XP</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 3.0</td>
-                  <td>Win 2k+ / OSX.3+</td>
-                  <td>1.9</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Camino 1.0</td>
-                  <td>OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Camino 1.5</td>
-                  <td>OSX.3+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape 7.2</td>
-                  <td>Win 95+ / Mac OS 8.6-9.2</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape Browser 8</td>
-                  <td>Win 98SE+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Netscape Navigator 9</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.1</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.2</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.2</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.3</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.4</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.4</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.5</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.6</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>1.6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.7</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Mozilla 1.8</td>
-                  <td>Win 98+ / OSX.1+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Seamonkey 1.1</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Epiphany 2.20</td>
-                  <td>Gnome</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 1.2</td>
-                  <td>OSX.3</td>
-                  <td>125.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 1.3</td>
-                  <td>OSX.3</td>
-                  <td>312.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 2.0</td>
-                  <td>OSX.4+</td>
-                  <td>419.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>Safari 3.0</td>
-                  <td>OSX.4+</td>
-                  <td>522.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>OmniWeb 5.5</td>
-                  <td>OSX.4+</td>
-                  <td>420</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>iPod Touch / iPhone</td>
-                  <td>iPod</td>
-                  <td>420.1</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Webkit</td>
-                  <td>S60</td>
-                  <td>S60</td>
-                  <td>413</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 7.0</td>
-                  <td>Win 95+ / OSX.1+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 7.5</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 8.0</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 8.5</td>
-                  <td>Win 95+ / OSX.2+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.0</td>
-                  <td>Win 95+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.2</td>
-                  <td>Win 88+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera 9.5</td>
-                  <td>Win 88+ / OSX.3+</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Opera for Wii</td>
-                  <td>Wii</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Nokia N800</td>
-                  <td>N800</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Presto</td>
-                  <td>Nintendo DS browser</td>
-                  <td>Nintendo DS</td>
-                  <td>8.5</td>
-                  <td>C/A<sup>1</sup></td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.1</td>
-                  <td>KDE 3.1</td>
-                  <td>3.1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.3</td>
-                  <td>KDE 3.3</td>
-                  <td>3.3</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>KHTML</td>
-                  <td>Konqureror 3.5</td>
-                  <td>KDE 3.5</td>
-                  <td>3.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 4.5</td>
-                  <td>Mac OS 8-9</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 5.1</td>
-                  <td>Mac OS 7.6-9</td>
-                  <td>1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Tasman</td>
-                  <td>Internet Explorer 5.2</td>
-                  <td>Mac OS 8-X</td>
-                  <td>1</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>NetFront 3.1</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>NetFront 3.4</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Dillo 0.8</td>
-                  <td>Embedded devices</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Links</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>Lynx</td>
-                  <td>Text only</td>
-                  <td>-</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>IE Mobile</td>
-                  <td>Windows Mobile 6</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>PSP browser</td>
-                  <td>PSP</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>U</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-          </div>     
+<section class="content-header">
+  <h1>
+    Manage Member
+    <small><?php echo $sub->SINGKATAN_SUB ;?></small>
+  </h1>
+</section>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+  <div class="col-xs-12">
+    <div class="box">
+      <div class="box-header">
+        <h3 class="box-title">Data Member</h3>
+        <br>
+        <br>
+        <?php
+          $failed = $this->session->flashdata('failed');
+            if(!empty($failed)){
+              echo '<div class="alert alert-danger alert-dismissable"  style="margin-top: 10px">';
+              echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+              echo '<i class="icon fa fa-warning"></i>';
+              echo $failed;
+              echo '</div>';
+            }
+          
+          $success = $this->session->flashdata('success');
+          if(!empty($success)){
+              echo '<div class="alert alert-success alert-dismissable"  style="margin-top: 10px">';
+              echo '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>';
+              echo '<i class="icon fa fa-check"></i>';
+              echo $success;
+              echo '</div>';
+          }
+          ?>
+        <!-- /.box-header -->
+        <div class="box-body table-responsive">
+          <table id="newMember" class="table table-bordered table-striped table-hover">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Generation</th>
+                <th>Class</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Tittle</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php 
+                $i = 1;
+                foreach ($member as $data) {
+                  echo '
+                      <tr>
+                                  <td>'.$i++.'</td>
+                                  <td>'.$data->NAMA_MEMBER.'</td>
+                                  <td>'.$data->ANGKATAN_MEMBER.'</td>
+                                  <td class="data-kelas">'.$data->KELAS_MEMBER.'</td>
+                                  <td>'.$data->NO_HP_MEMBER.'</td>
+                                  <td>'.$data->EMAIL_MEMBER.'</td>
+                                  <td>'.$data->JABATAN_MEMBER.'</td>
+                                  <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                      <button  class="btn btn-warning btn-sm edit" data-toggle="modal" data-target="#modal_edit'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-pencil"></span></button>
+                                      <a href="'.base_url('member/deleteNewMember/'.$data->ID_MEMBER.'/1').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
+                                  </td>
+                                </tr>
+                  '; 
+                }
+                  
+                ?>
+            </tbody>
+          </table>
+        </div>
+        <!-- /.box-body -->
       </div>
-      <!-- /.row -->
-  </section>
-    <!-- /.content -->
+      <!-- /.box -->
+    </div>
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->
 
-
-  <!-- Bootstrap modal -->
-  <div class="modal fade" id="modal_form" role="dialog">
+<!-- Bootstrap modal -->
+<div class="modal fade" id="modal_form" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -468,37 +90,86 @@
         <h3 class="modal-title">New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="#" id="form" class="form-horizontal">
+        <form action="<?php echo base_url('member/addMember');?>" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">
-              <label class="control-label col-md-3">Name</label>
+              <label class="control-label col-md-3">Name *</label>
               <div class="col-md-9">
-                <input name="name" placeholder="Name" class="form-control" type="text">
+                <input name="name" placeholder="Name" class="form-control" type="text" required>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Phone Number</label>
+              <label class="control-label col-md-3">Generation *</label>
               <div class="col-md-9">
-                <input name="phone" placeholder="Phone Number" class="form-control" type="text">
+                <input name="angkatan" placeholder="Generation" class="form-control" type="number" required>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Email</label>
+              <label class="control-label col-md-3">Class *</label>
               <div class="col-md-9">
-                <input name="email" placeholder="Email" class="form-control" type="email">
+                <select class="form-control" name="kelas">
+                  <option value="XRPL1">XRPL1</option>
+                  <option value="XRPL2">XRPL2</option>
+                  <option value="XRPL3">XRPL3</option>
+                  <option value="XRPL4">XRPL4</option>
+                  <option value="XRPL5">XRPL5</option>
+                  <option value="XRPL6">XRPL6</option>
+                  <option value="XTKJ1">XTKJ1</option>
+                  <option value="XTKJ2">XTKJ2</option>
+                  <option value="XTKJ3">XTKJ3</option>
+                  <option value="XTKJ4">XTKJ4</option>
+                  <option value="XTKJ5">XTKJ5</option>
+                  <option value="XTKJ6">XTKJ6</option>
+                  <option value="XIRPL1">XIRPL1</option>
+                  <option value="XIRPL2">XIRPL2</option>
+                  <option value="XIRPL3">XIRPL3</option>
+                  <option value="XIRPL4">XIRPL4</option>
+                  <option value="XIRPL5">XIRPL5</option>
+                  <option value="XIRPL6">XIRPL6</option>
+                  <option value="XITKJ1">XITKJ1</option>
+                  <option value="XITKJ2">XITKJ2</option>
+                  <option value="XITKJ3">XITKJ3</option>
+                  <option value="XITKJ4">XITKJ4</option>
+                  <option value="XITKJ5">XITKJ5</option>
+                  <option value="XITKJ6">XITKJ6</option>
+                  <option value="XIIRPL1">XIIRPL1</option>
+                  <option value="XIIRPL2">XIIRPL2</option>
+                  <option value="XIIRPL3">XIIRPL3</option>
+                  <option value="XIIRPL4">XIIRPL4</option>
+                  <option value="XIIRPL5">XIIRPL5</option>
+                  <option value="XIIRPL6">XIIRPL6</option>
+                  <option value="XIITKJ1">XIITKJ1</option>
+                  <option value="XIITKJ2">XIITKJ2</option>
+                  <option value="XIITKJ3">XIITKJ3</option>
+                  <option value="XIITKJ4">XIITKJ4</option>
+                  <option value="XIITKJ5">XIITKJ5</option>
+                  <option value="XIITKJ6">XIITKJ6</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Phone Number *</label>
+              <div class="col-md-9">
+                <input name="phone" placeholder="Phone Number" class="form-control" type="number" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Email *</label>
+              <div class="col-md-9">
+                <input name="email" placeholder="Email" class="form-control" type="email" required>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-md-3">Reason to Join</label>
               <div class="col-md-9">
-                <input name="reason" placeholder="Reason to Join" class="form-control" type="text">
+                <textarea class="form-control" name="reason" rows="4" placeholder="Reason to Join"></textarea>
               </div>
             </div>
             <div class="form-group">
               <label class="control-label col-md-3">Photo</label>
               <div class="col-md-9">
-                <input name="photo" class="form-control" type="file" id="imgInp">
+                <input name="photoMember" class="form-control" type="file" id="imgInp">
               </div>
             </div>
             <div class="form-group">
@@ -508,40 +179,258 @@
               </div>
             </div>
           </div>
-        </form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- End Bootstrap modal -->
+
+<?php
+  foreach ($member as $data) {
+    echo '
+      <!-- Bootstrap modal -->
+    <div class="modal fade" id="modal_detail'.$data->ID_MEMBER.'" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">Detail New Member</h3>
+        </div>
+        <div class="modal-body form">
+          <img src="'.base_url().'uploads/'.$data->FOTO_MEMBER.'" class="form-control col-lg-offset-3 col-xs-offset-3" style="height: 50%;width: 50%; margin-bottom: 20px">
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Name</label>
+                <div class="col-md-8">
+                  '.$data->NAMA_MEMBER.'
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Generation</label>
+                <div class="col-md-8">
+                  '.$data->ANGKATAN_MEMBER.'
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Class</label>
+                <div class="col-md-8">
+                  '.$data->KELAS_MEMBER.'
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Phone Number</label>
+                <div class="col-md-8">
+                  '.$data->NO_HP_MEMBER.'
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Email</label>
+                <div class="col-md-8">
+                  '.$data->EMAIL_MEMBER.'
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Reason to Join</label>
+                <div class="col-md-8">
+                  '.$data->ALASAN_MEMBER.'
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+    <!-- End Bootstrap modal -->
+    ';
+  }
+
+foreach ($member as $data) {
+  echo '
+  <!-- Bootstrap modal -->
+<div class="modal fade" id="modal_edit'.$data->ID_MEMBER.'" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title">Edit New Member Form</h3>
+      </div>
+      <div class="modal-body form">
+        <form action="'.base_url('member/editNewMember/'.$data->ID_MEMBER.'/1').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+          <input type="hidden" value="" name="member_id"/>
+          <div class="form-body">
+            <div class="form-group">
+              <label class="control-label col-md-3">Name *</label>
+              <div class="col-md-9">
+                <input name="name" placeholder="Name" class="form-control" type="text" required value="'.$data->NAMA_MEMBER.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Generation *</label>
+              <div class="col-md-9">
+                <input name="angkatan" placeholder="Generation" class="form-control" type="number" required value="'.$data->ANGKATAN_MEMBER.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Class *</label>
+              <div class="col-md-9">
+                <select class="form-control" id="kelas" name="kelas">
+                  <option value="XRPL1">XRPL1</option>
+                  <option value="XRPL2">XRPL2</option>
+                  <option value="XRPL3">XRPL3</option>
+                  <option value="XRPL4">XRPL4</option>
+                  <option value="XRPL5">XRPL5</option>
+                  <option value="XRPL6">XRPL6</option>
+                  <option value="XTKJ1">XTKJ1</option>
+                  <option value="XTKJ2">XTKJ2</option>
+                  <option value="XTKJ3">XTKJ3</option>
+                  <option value="XTKJ4">XTKJ4</option>
+                  <option value="XTKJ5">XTKJ5</option>
+                  <option value="XTKJ6">XTKJ6</option>
+                  <option value="XIRPL1">XIRPL1</option>
+                  <option value="XIRPL2">XIRPL2</option>
+                  <option value="XIRPL3">XIRPL3</option>
+                  <option value="XIRPL4">XIRPL4</option>
+                  <option value="XIRPL5">XIRPL5</option>
+                  <option value="XIRPL6">XIRPL6</option>
+                  <option value="XITKJ1">XITKJ1</option>
+                  <option value="XITKJ2">XITKJ2</option>
+                  <option value="XITKJ3">XITKJ3</option>
+                  <option value="XITKJ4">XITKJ4</option>
+                  <option value="XITKJ5">XITKJ5</option>
+                  <option value="XITKJ6">XITKJ6</option>
+                  <option value="XIIRPL1">XIIRPL1</option>
+                  <option value="XIIRPL2">XIIRPL2</option>
+                  <option value="XIIRPL3">XIIRPL3</option>
+                  <option value="XIIRPL4">XIIRPL4</option>
+                  <option value="XIIRPL5">XIIRPL5</option>
+                  <option value="XIIRPL6">XIIRPL6</option>
+                  <option value="XIITKJ1">XIITKJ1</option>
+                  <option value="XIITKJ2">XIITKJ2</option>
+                  <option value="XIITKJ3">XIITKJ3</option>
+                  <option value="XIITKJ4">XIITKJ4</option>
+                  <option value="XIITKJ5">XIITKJ5</option>
+                  <option value="XIITKJ6">XIITKJ6</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Phone Number *</label>
+              <div class="col-md-9">
+                <input name="phone" placeholder="Phone Number" class="form-control" type="number" required value="'.$data->NO_HP_MEMBER.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Email *</label>
+              <div class="col-md-9">
+                <input name="email" placeholder="Email" class="form-control" type="email" required value="'.$data->EMAIL_MEMBER.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Reason to Join</label>
+              <div class="col-md-9">
+                <textarea class="form-control" name="reason" rows="4" placeholder="Reason to Join">'.$data->ALASAN_MEMBER.'</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Photo</label>
+              <div class="col-md-9">
+                <input name="photoMember1" class="form-control" type="file" id="imgInp1">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Preview</label>
+              <div class="col-md-9">
+                <img src="'.base_url().'uploads/'.$data->FOTO_MEMBER.'" class="user-image form-control" alt="Photo Preview" id="preview1" style="height: 100%">
+              </div>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
-  <!-- End Bootstrap modal -->
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+      <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+<!-- End Bootstrap modal -->
+
+  ';
+}
+
+  ?>
+
 
 <script>
-  var save_method;
-
-  function add_member(){
-    save_method = 'add'
-    $('#form')[0].reset();
-    $('#modal_form').modal('show');
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+  
+      reader.onload = function(e) {
+        $('#preview').attr('src', e.target.result);
+      }
+  
+      reader.readAsDataURL(input.files[0]);
+    }
   }
+  
+  $("#imgInp").change(function() {
+    readURL(this);
+  });
 
   function readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
-
+  
       reader.onload = function(e) {
-        $('#preview').attr('src', e.target.result);
+        $('#preview1').attr('src', e.target.result);
       }
-
+  
       reader.readAsDataURL(input.files[0]);
     }
   }
-
-  $("#imgInp").change(function() {
+  
+  $("#imgInp1").change(function() {
     readURL(this);
   });
+
+  $('.edit').click(function() {
+    var kelas = $(this).parent('td').siblings('.data-kelas').html()
+    $('#kelas option[value="'+kelas+'"').attr('selected', true);
+  });
+
+  function confirmDelete() {
+    var txt;
+    var r = confirm("Are you sure want to Delete?");
+    if (r) {
+        return true;
+    } else {
+        return false;
+    }
+  }
 
 </script>

@@ -14,7 +14,7 @@ class Member extends CI_Controller {
 		redirect('dashboard/newMember');
 	}
 
-	public function EditMember()
+	public function addMember()
 	{
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -28,10 +28,14 @@ class Member extends CI_Controller {
 				$upload = $this->upload->data();
 				$name = $upload['file_name'];
 				if($this->member_model->insertMemberPhoto($id,$name) == TRUE){
-					$this->session->set_flashdata('success', 'Edit data success');
+					/*if($this->uri->segment(3) == 'listMember'){
+						$this->session->set_flashdata('success', 'Edit data success');
+						redirect('dashboard/listMember');
+					}*/
+					$this->session->set_flashdata('success', 'Add data success');
 					redirect('dashboard/newMember');
 				} else {
-					$this->session->set_flashdata('failed', 'Edit data failed');
+					$this->session->set_flashdata('failed', 'Add data failed');
 					redirect('dashboard/newMember');
 				}
 			} else {
@@ -40,10 +44,10 @@ class Member extends CI_Controller {
 			}
 		} else {
 			if($this->member_model->insertMember($id) == TRUE){
-				$this->session->set_flashdata('success', 'Edit data success');
+				$this->session->set_flashdata('success', 'Add data success');
 				redirect('dashboard/newMember');
 			} else {
-				$this->session->set_flashdata('failed', 'Edit data failed');
+				$this->session->set_flashdata('failed', 'Add data failed');
 				redirect('dashboard/newMember');
 			}
 		}	
@@ -52,15 +56,23 @@ class Member extends CI_Controller {
 	public function deleteNewMember($id)
 	{
 		if($this->member_model->deleteNewMember($id) == true){
+			if($url == '1'){
+				$this->session->set_flashdata('success', 'Delete data success');
+				redirect('dashboard/listMember');
+			}
 			$this->session->set_flashdata('success', 'Delete data success');
 			redirect('dashboard/newMember');
 		} else {
+			if($url == '1'){
+				$this->session->set_flashdata('failed', 'Delete data failed');
+				redirect('dashboard/listMember');
+			}
 			$this->session->set_flashdata('failed', 'Delete data failed');
 			redirect('dashboard/newMember');
 		}
 	}
 
-	public function editNewMember($id)
+	public function editNewMember($id,$url)
 	{
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
@@ -72,21 +84,42 @@ class Member extends CI_Controller {
 				$upload = $this->upload->data();
 				$name = $upload['file_name'];
 				if($this->member_model->editNewMemberPhoto($id,$name) == TRUE){
-					$this->session->set_flashdata('success', 'Edit data success');
-					redirect('dashboard/newMember');
+					if($url == '1'){
+						$this->session->set_flashdata('success', 'Edit data success');
+						redirect('dashboard/listMember');
+					} else {
+						$this->session->set_flashdata('success', 'Edit data success');
+						redirect('dashboard/newMember');
+					}
 				} else {
+					if($url == '1'){
+						$this->session->set_flashdata('failed', 'Edit data failed');
+						redirect('dashboard/listMember');
+					}
 					$this->session->set_flashdata('failed', 'Edit data failed');
 					redirect('dashboard/newMember');
 				}
 			} else {
+				if($url == '1'){
+					$this->session->set_flashdata('failed',  $this->upload->display_errors());
+					redirect('dashboard/listMember');
+				}
 				$this->session->set_flashdata('failed', $this->upload->display_errors());
 			   	redirect('dashboard/newMember');
 			}
 		} else {
 			if($this->member_model->editNewMember($id) == TRUE){
+				if($url == '1'){
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/listMember');
+				}
 				$this->session->set_flashdata('success', 'Edit data success');
 				redirect('dashboard/newMember');
 			} else {
+				if($url == '1'){
+					$this->session->set_flashdata('failed', 'Edit data failed');
+					redirect('dashboard/listMember');
+				}
 				$this->session->set_flashdata('failed', 'Edit data failed');
 				redirect('dashboard/newMember');
 			}
@@ -100,7 +133,7 @@ class Member extends CI_Controller {
 			redirect('dashboard/newMember');
 		} else {
 			$this->session->set_flashdata('failed', 'Approve data failed');
-				redirect('dashboard/newMember');
+			redirect('dashboard/newMember');
 		}
 	}
 
