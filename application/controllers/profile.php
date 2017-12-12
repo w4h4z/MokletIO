@@ -90,28 +90,17 @@ class Profile extends CI_Controller {
 			    redirect('dashboard/profile');
 			}
 		}
+	}
 
-		/*if($this->upload->do_upload('headerPhoto')){
-			$uploadHeader = $this->upload->data();
-			$nameHeader = $uploadHeader['file_name'];
-			if( $this->upload->do_upload('logoPhoto')){
-				$uploadLogo = $this->upload->data();
-				$nameLogo = $uploadLogo['file_name'];
-				if($this->profile_model->editProfile($id, $nameHeader, $nameLogo) == TRUE){
-					$this->session->set_flashdata('success', 'Edit data success');
-					redirect('dashboard/profile');
-				} else {
-					$this->session->set_flashdata('failed', 'Edit data failed');
-					redirect('dashboard/profile');
-				}
-			} else {
-				$this->session->set_flashdata('failed', $this->upload->display_errors());
-		    	redirect('dashboard/profile');
-			}
+	public function editFeature($id)
+	{
+		if($this->profile_model->editFeature($id) == true){
+			$this->session->set_flashdata('success', 'Edit data success');
+			redirect('dashboard/profile');
 		} else {
-			$this->session->set_flashdata('failed', $this->upload->display_errors());
-		    redirect('dashboard/profile');
-		}*/
+			$this->session->set_flashdata('failed', 'Edit data failed');
+			redirect('dashboard/profile');
+		}
 	}
 
 }

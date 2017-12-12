@@ -80,6 +80,21 @@ class Profile_model extends CI_Model {
 		return true;
 	}
 
+	public function editFeature($id)
+	{
+		$data = array('NAMA_FEATURE' => $this->input->post('name'), 
+					  'DESC_FEATURE' => $this->input->post('desc'),
+					  'ICON_FEATURE' => $this->input->post('icon')
+					);
+
+		$this->db->where('ID_FEATURE', $id)->update('feature', $data);
+
+		if($this->db->affected_rows() == 0){
+			return false;
+		}	
+		return true;
+	}
+
 }
 
 /* End of file profile_model.php */

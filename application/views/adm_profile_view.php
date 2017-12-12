@@ -145,6 +145,7 @@
                       <div class="text-center">
                         <div>
                           <span class="'.$data->ICON_FEATURE.' fa-3x dataIcon"></span>
+                          <span class="idFeature" style="display: none">'.$data->ID_FEATURE.'</span>
                         </div>
                         <div>
                           <h4><b>'.$data->NAMA_FEATURE.'</b></h4>
@@ -268,28 +269,28 @@
         <h4 class="modal-title">Edit Data Feature</h4>
       </div>
       <div class="modal-body">
-        <form action="#" id="form" class="form-horizontal">
+        <form action="" id="formFeature" class="form-horizontal" method="post" enctype="multipart/form-data">
           <div class="form-body">
             <div class="form-group">
-              <label class="control-label col-xs-2">Name</label>
-              <div class="col-xs-10">
+              <label class="control-label col-lg-2 col-xs-12 col-md-2" style="text-align: left">Name</label>
+              <div class="col-lg-10 col-xs-12 col-md-10">
                 <input name="name" placeholder="Name" id="nama" class="form-control" type="text" value="">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-xs-2">Desc</label>
-              <div class="col-xs-10">
-                <textarea class="form-control" id="desc" rows="5" placeholder="Description"></textarea>
+              <label class="control-label col-lg-2 col-xs-12 col-md-2" style="text-align: left">Desc</label>
+              <div class="col-lg-10 col-xs-12 col-md-10">
+                <textarea class="form-control" id="desc" name="desc" rows="5" placeholder="Description"></textarea>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-lg-2">Icon</label>
-              <div class="col-lg-10">
+              <label class="control-label col-lg-2 col-xs-12 col-md-2" style="text-align: left">Icon</label>
+              <div class="col-lg-10 col-xs-12 col-md-10">
                 <div class="row">
                   <div class="col-lg-9">
-                    <div class="input-group mb-2 mb-sm-0">
+                    <div class="input-group">
                       <div class="input-group-addon"><i id="preview-icon" class=""></i></div>
-                    <input type="text" class="icon-class-input form-control" id="icon-input" placeholder="Icon" value="'.$data->ICON_FEATURE.'"/>
+                        <input type="text" class="icon-class-input form-control" name="icon" id="icon-input" placeholder="Icon" value="">
                       </div>
                   </div>
                   <div class="col-lg-3">
@@ -313,11 +314,11 @@
               </div>
             </div>
           </div>
-        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+        <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+        </form>
       </div>
     </div>
     <div id="iconPicker" class="modal fade">
@@ -331,7 +332,7 @@
             <div>
               <ul class="icon-picker-list">
                 <li>
-                  <a  id="itemObject" data-class="{{item}} {{activeState}}" data-index="{{index}}">
+                  <a id="itemObject" data-class="{{item}} {{activeState}}" data-index="{{index}}">
                   <span class="{{item}}"></span>
                   <span class="name-class">{{item}}</span>
                   </a>
@@ -393,10 +394,13 @@ $('#editFeatureBtn').click(function(){
     var icon = $(this).siblings('div').children('span').attr('class').split(' ')[1];
     var nama = $(this).siblings('div').children('h4').children('b').html();
     var desc = $(this).siblings('div').children('p').html();
+    var action = '<?php echo base_url('profile/editFeature/');?>';
+    var id = $(this).siblings('div').children('.idFeature').html();
     $('#nama').val(nama);
     $('#desc').val(desc);
     $('#preview-icon').addClass('fa ' + icon);
     $('#icon-input').val(icon);
+    $('#formFeature').attr('action', action+id);
   });
 
 
