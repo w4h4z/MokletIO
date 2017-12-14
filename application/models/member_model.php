@@ -68,12 +68,17 @@ class Member_model extends CI_Model {
 
 	public function editNewMember($id)
 	{
+		$jabatan = $this->input->post('jabatan');
+		if($this->input->post('jabatan') == null){
+			$jabatan = 'Anggota';
+		} 
 		$data = array('NAMA_MEMBER' 	=> $this->input->post('name'),
 					  'ANGKATAN_MEMBER'	=> $this->input->post('angkatan'),
 					  'KELAS_MEMBER'	=> $this->input->post('kelas'),
 					  'NO_HP_MEMBER'	=> $this->input->post('phone'),
 					  'EMAIL_MEMBER'	=> $this->input->post('email'),
 					  'ALASAN_MEMBER'	=> $this->input->post('reason'),
+					  'JABATAN_MEMBER'	=> $jabatan
 					 );
 
 		$this->db->where('ID_MEMBER', $id)->update('member_sub', $data);

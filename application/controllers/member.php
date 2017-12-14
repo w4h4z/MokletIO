@@ -53,7 +53,7 @@ class Member extends CI_Controller {
 		}	
 	}
 
-	public function deleteNewMember($id)
+	public function deleteNewMember($url,$id)
 	{
 		if($this->member_model->deleteNewMember($id) == true){
 			if($url == '1'){
@@ -72,7 +72,7 @@ class Member extends CI_Controller {
 		}
 	}
 
-	public function editNewMember($id,$url)
+	public function editNewMember($url,$id)
 	{
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';

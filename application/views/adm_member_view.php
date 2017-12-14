@@ -62,7 +62,7 @@
                                   <td>'.$data->JABATAN_MEMBER.'</td>
                                   <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
                                       <button  class="btn btn-warning btn-sm edit" data-toggle="modal" data-target="#modal_edit'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-pencil"></span></button>
-                                      <a href="'.base_url('member/deleteNewMember/'.$data->ID_MEMBER.'/1').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
+                                      <a href="'.base_url('member/deleteNewMember/1/'.$data->ID_MEMBER.'').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
                                   </td>
                                 </tr>
                   '; 
@@ -248,6 +248,14 @@
             </div>
             <div class="row">
               <div class="form-group col-lg-offset-2 col-xs-offset-2">
+                <label class="control-label col-md-4 text-right">Tittle</label>
+                <div class="col-md-8">
+                  '.$data->JABATAN_MEMBER.'
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-offset-2 col-xs-offset-2">
                 <label class="control-label col-md-4 text-right">Reason to Join</label>
                 <div class="col-md-8">
                   '.$data->ALASAN_MEMBER.'
@@ -276,7 +284,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Edit New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="'.base_url('member/editNewMember/'.$data->ID_MEMBER.'/1').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="'.base_url('member/editNewMember/1/'.$data->ID_MEMBER.'').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">
@@ -344,6 +352,12 @@ foreach ($member as $data) {
               <label class="control-label col-md-3">Email *</label>
               <div class="col-md-9">
                 <input name="email" placeholder="Email" class="form-control" type="email" required value="'.$data->EMAIL_MEMBER.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Tittle *</label>
+              <div class="col-md-9">
+                <input name="jabatan" placeholder="Tittle" class="form-control" type="text" required value="'.$data->JABATAN_MEMBER.'">
               </div>
             </div>
             <div class="form-group">

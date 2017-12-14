@@ -63,7 +63,7 @@
                                   <td><a href="#" data-toggle="modal" data-target="#modal_approve'.$data->ID_MEMBER.'" class="btn btn-success btn-sm" id="approve"><span class="glyphicon glyphicon-check"></span> Approve</a></td>
                                   <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
                                       <button  class="btn btn-warning btn-sm edit" data-toggle="modal" data-target="#modal_edit'.$data->ID_MEMBER.'"><span class="glyphicon glyphicon-pencil"></span></button>
-                                      <a href="'.base_url('member/deleteNewMember/'.$data->ID_MEMBER.'/0').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
+                                      <a href="'.base_url('member/deleteNewMember/0/'.$data->ID_MEMBER.'/0').'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a>
                                   </td>
                                 </tr>
                   '; 
@@ -277,7 +277,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Edit New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="'.base_url('member/editNewMember/'.$data->ID_MEMBER.'/0').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="'.base_url('member/editNewMember/0/'.$data->ID_MEMBER.'/0').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">

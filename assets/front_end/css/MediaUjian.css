@@ -1,0 +1,64 @@
+
+@media (max-width:320px) {
+    .intro-message > h1{
+      font-size: 12pt;
+      margin: 3px;
+    }
+
+    .topnav{
+      padding: 2px;
+      font-size: 8pt;
+    }
+
+    .topnav ul{
+      font-size: 8pt;
+    }
+
+    hr{
+      margin-top: 1px;
+      margin-bottom: 1px;
+    }
+
+    .intro-message > h3{
+      font-size: 7pt;
+      margin: 3px;
+    }
+
+    .navbar-brand{
+      font-size: 12pt;
+    }
+}
+
+
+
+@media (max-width:360px) {
+    .intro-message > h1{
+      font-size: 14pt;
+      margin: 3px;
+    }
+
+    .intro-message > h3{
+      font-size: 8pt;
+      margin: 3px;
+    }
+}
+
+
+
+@media (min-width:480px) {
+    .intro-message > h1{
+      font-size: 24pt;
+    }
+
+    .intro-message > h3{
+      font-size: 14pt;
+    }
+}
+
+@media (min-width:720px) {
+    .intro-message > h1{
+      font-size: 24pt;
+    }
+
+    .intro-message > h3{
+      font-size: 14pt;
