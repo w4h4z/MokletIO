@@ -7,66 +7,137 @@
 	<title><?php echo $data->SINGKATAN_SUB; ?> - SMK TELKOM</title>
 
 	<link href="<?php echo base_url(); ?>assets/front_end/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/home_white.css"  type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/home_view.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/animate.css"  type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/navigation_white.css"  type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/navigation_home_view.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.theme.default.min.css">
 </head>
 <style>
 	.nav-scroll{
-		background-color: white;
+		background-color: <?php echo $data->PRIMARY_COLOR; ?>;
 		z-index: 2;
 	}
+	.nav-active{
+		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?>
+	}
+	.nav-onscroll{
+		color: #222222 !important;
+	}
+	.nav-onscroll:hover{
+		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?> !important;
+	}
+	.navbar-nav li a:not(.nav-brand){
+		color: #9A9A9A;
+	}
+	.navbar-nav li a:not(.nav-brand):hover{
+		color: white;
+	}
+    .modal-header{
+     background-color: <?php echo $data->SECONDARY_COLOR;  ?>;
+    }
+
 	.intro1-desc p:first-child:first-letter{
-	  color: <?php echo $data->SECONDARY_COLOR; ?>;
+	  color: <?php echo $data->SECONDARY_COLOR; ?> !important;
 	}
-	#ardown{
+
+	.ardown, .brand-scroll, hr:not(.hr-gallery), .picture-gallery, .caption-button {
 		background-color: <?php echo $data->SECONDARY_COLOR; ?>;
 	}
-	.brand-scroll{
-		background-color: <?php echo $data->SECONDARY_COLOR; ?>;
-	}/*
+
+	.feature-icon span, .modal-intro1-desc p:first-child:first-letter{
+		color: <?php echo $data->SECONDARY_COLOR; ?>;
+	}
+
+	.schedule-navigation a:hover{
+	  border-bottom: 2px solid <?php echo $data->SECONDARY_COLOR; ?>;
+	}
+	/*
 	html , body{
 	  background-color: #222222;
 	}*/
 	.mini-title{
     	color: black;
 	}
-	hr{
-  		background-color: <?php echo $data->SECONDARY_COLOR; ?> !important;
-	}
-	.intro1-desc p:first-child:first-letter{
-  		color: #9E0707;
-	}
-	.picture-gallery{
-	  	background-color: <?php echo $data->SECONDARY_COLOR; ?>;
-	}
-	.caption-button{
-	  background-color: <?php echo $data->SECONDARY_COLOR; ?>;
-	}
 
-	.footer{
-	  	background-color: <?php echo $data->SECONDARY_COLOR; ?>;
-	}
-	.feature{
-  	  	background-color: <?php echo $data->PRIMARY_COLOR; ?>;
-	}
+
+	 <?php 
+  	  	if ($data->PRIMARY_COLOR == '#e9e9e9') {
+  	  		echo '
+  	  			.feature{
+	  	  			background-color:#E1E1E1;
+	  	  		}
+	  	  		.footer{
+					background-color: #D9D9D9;
+				}
+				.about, .schedule{
+					background-color: #212121>
+				}
+				.intro1-message, .intro1-desc, .mini-title:not(.mini-title-gallery), .about-message, .feature-content, .schedule-message, .schedule-, .schedule-navigation a, .footer a{
+					color: #222222 !important ;
+				}
+				.schedule-table tr{
+				  background-image: -webkit-linear-gradient(top, #323232, #222222);
+				  background-image:    -moz-linear-gradient(top, #323232, #222222);
+				  background-image:     -ms-linear-gradient(top, #323232, #222222);
+				  background-image:      -o-linear-gradient(top, #323232, #222222);
+				  background-image:         linear-gradient(top, #323232, #222222);
+				  -webkit-transition: all .4s ease;
+				     -moz-transition: all .4s ease;
+				      -ms-transition: all .4s ease;
+				       -o-transition: all .4s ease;
+				          transition: all .4s ease;
+				}
+				.schedule-table tr:hover{
+				  background-image: -webkit-linear-gradient(top, #222222, #323232);
+				  background-image:    -moz-linear-gradient(top, #222222, #323232);
+				  background-image:     -ms-linear-gradient(top, #222222, #323232);
+				  background-image:      -o-linear-gradient(top, #222222, #323232);
+				  background-image:         linear-gradient(top, #222222, #323232);
+				}
+  	  		';
+  	  	}else{
+  	  		echo '
+	  	  		.feature{
+	  	  			background-color:#1D1D1D;
+	  	  		}
+	  	  		.footer{
+					background-color: #1A1A1A;
+				}
+				.about, .schedule{
+					background-color: #212121>
+				}
+				.intro1-message, .intro1-desc, .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
+					color: #C5C5C5 !important ;
+				}
+				.schedule-table tr{
+				  background-image: -webkit-linear-gradient(top, #323232, #222222);
+				  background-image:    -moz-linear-gradient(top, #323232, #222222);
+				  background-image:     -ms-linear-gradient(top, #323232, #222222);
+				  background-image:      -o-linear-gradient(top, #323232, #222222);
+				  background-image:         linear-gradient(top, #323232, #222222);
+				  -webkit-transition: all .4s ease;
+				     -moz-transition: all .4s ease;
+				      -ms-transition: all .4s ease;
+				       -o-transition: all .4s ease;
+				          transition: all .4s ease;
+				}
+				.schedule-table tr:hover{
+				  background-image: -webkit-linear-gradient(top, #222222, #323232);
+				  background-image:    -moz-linear-gradient(top, #222222, #323232);
+				  background-image:     -ms-linear-gradient(top, #222222, #323232);
+				  background-image:      -o-linear-gradient(top, #222222, #323232);
+				  background-image:         linear-gradient(top, #222222, #323232);
+				}
+			';
+  	  	}; 
+  	  ?>
+	
 		/* INTRO 1 */
-	}
+	
 /*	.feature-icon span {
 	  color: red !important; 
 	}*/
-	.intro1-message h1, .intro1-message h4, .intro1-desc{
-	  	color: black;
-	}
-	.intro1-content{
-	  	color: #A5A4A4;
-	}
-	.intro1-desc p {
-	  	font-family: calibri;
-	  	font-size: 1.3em;
-	}
 
 
 </style>
@@ -80,11 +151,11 @@
 		</ul>
 	    <ul class="navbar-nav">
 	        <li><a href="#" class="nav-brand"><?php echo $data->SINGKATAN_SUB; ?></a></li><!--
-	     --><li><a href="#">Home</a></li><!--
+	     --><li><a href="<?php echo base_url('index.php/page/') ?>">Home</a></li><!--
 	     --><li><a class="nav-link js-scroll-trigger" href="#event">Event</a></li><!--
 	     --><li><a class="nav-link js-scroll-trigger" href="#member">Member</a></li><!--
 	     --><li><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-	     	<li class="daftar"><a class="nav-link js-scroll-trigger" href="#form">Daftar</a></li>
+	     	<li class="daftar"><a class="nav-link" href="#form">Daftar</a></li>
 	    </ul>
 	</nav>
 	<div class="container">
@@ -93,10 +164,10 @@
 				<div class="landing2-message">
 					<h1><?php echo $data->NAMA_SUB; ?></h1>
 				</div>
-				<a id="ardown" class="fa fa-angle-down" href="#about"></a>
+				<a class="ardown fa fa-angle-down" href="#explain"></a>
 			</div>		
 		</div>
-		<div class="row">
+		<div class="row" id="explain">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title">THE chairman</p>
@@ -124,11 +195,11 @@
 						<h1>Pengibaran 2018</h1>
 						<h4>lorem ipsum dolor sit amet monggo sampean terusno aku ora apal bos</h4>
 					</div>
-					<a id="ardown" class="fa fa-angle-down" href="#explain"></a>
+					<a class="ardown fa fa-angle-down" href="#explain2"></a>
 				</div>		
 			</div>
 		</section>
-		<div class="row">
+		<div class="row" id="explain2">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title">THE Commander</p>
@@ -157,7 +228,7 @@
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
-				   		<a href="" class="caption-button">Info Lengkap</a>
+				   		<div class="caption-button">Info Lengkap</div>
 			      	</div>
 			      </div>
 			      <div class="item">
@@ -165,7 +236,7 @@
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
-				   		<a href="" class="caption-button">Info Lengkap</a>
+				   		<div class="caption-button">Info Lengkap</div>
 			      	</div>
 			      </div>
 			      <div class="item">
@@ -173,7 +244,7 @@
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
-				   		<a href="" class="caption-button">Info Lengkap</a>
+				   		<div  class="caption-button">Info Lengkap</div>
 			      	</div>
 			      </div>
 			    </div>
@@ -183,9 +254,9 @@
 			<div class="picture-gallery">
 				<div>
 					<div class="picture-gallery-message">
-						<p class="mini-title">DOKUMENTASI</p>
+						<p class="mini-title mini-title-gallery">DOKUMENTASI</p>
 						<h1>Pengibaran</h1>
-							<hr>
+							<hr class="hr-gallery">
 						<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>
 					</div>
 				</div>
@@ -399,12 +470,9 @@
 	</div>
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
-	<script src="<?php echo base_url(); ?>assets/front_end/js/home_white.js"></script>
+	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
-    <script src="<?php echo base_url(); ?>assets/front_end/js/jquery-easing/jquery.easing.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/front_end/js/scrolling-nav.js"></script>
-
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 </body>
 </html>
@@ -434,9 +502,21 @@
 	  var owl = $('.owl-carousel');
 	owl.owlCarousel();
 	});
+	//Scrolling ke id element
+	var $root = $('html, body');
+	$('a').click(function() {
+	    var href = $.attr(this, 'href');
+	    $root.animate({
+	        scrollTop: $(href).offset().top - 0
+	    }, 1000, function () {
+	        window.location.hash = href;
+	    });
+	    return false;
+	});
 
 	//Navigasi
 	$(window).scroll(function() {
+		
 	    if ($(document).scrollTop() > 0) {
 	    	$('nav').addClass('nav-scroll');
 	    	$('.navbar-nav li:first-Child').addClass('brand-scroll');
@@ -444,16 +524,25 @@
 	    		color: 'white',
 	    		border: '4px solid transparent'
 	    	});
-	    	$('.navbar-nav li > a:not(.nav-brand)').css('color' ,'black');
-	    	$('.navbar-nav li > a:not(.nav-brand)').css('border-color' ,'#BD0000');
-
+	    	$('.navbar-nav li a:not(.nav-brand)').addClass('nav-onscroll');
 	    } else {
 	    	$('nav').removeClass('nav-scroll');
+	    	$('.navbar-nav li a:not(.nav-brand)').removeClass('nav-onscroll')
 	    	$('.navbar-nav li > a:not(.nav-brand)').css('color' , '');
 	    	$('.navbar-nav li:first-Child').removeClass('brand-scroll');
 	    	$('.navbar-nav li > a:not(.nav-brand)').css('border-color' ,'transparent');
 
 	    }
   	});
+
+
+	//Modal
+
+	$('.caption-button').click(function() {
+		$('.modal-background').fadeIn('slow');
+	});
+	$('.modal-close').click(function() {
+		$('.modal-background').fadeOut('slow');
+	});
 
 </script>
