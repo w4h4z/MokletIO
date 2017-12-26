@@ -152,10 +152,10 @@
 	    <ul class="navbar-nav">
 	        <li><a href="#" class="nav-brand"><?php echo $data->SINGKATAN_SUB; ?></a></li><!--
 	     --><li><a href="<?php echo base_url('index.php/page/') ?>">Home</a></li><!--
-	     --><li><a class="nav-link js-scroll-trigger" href="#event">Event</a></li><!--
-	     --><li><a class="nav-link js-scroll-trigger" href="#member">Member</a></li><!--
-	     --><li><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
-	     	<li class="daftar"><a class="nav-link" href="#form">Daftar</a></li>
+	     --><li><a class="nav-active" href="#section-1">Event</a></li><!--
+	     --><li><a class="" href="#section-2">Member</a></li><!--
+	     --><li><a class="" href="#section-3">About</a></li>
+	     	<li class="daftar"><a class="" href="#form">Daftar</a></li>
 	    </ul>
 	</nav>
 	<div class="container">
@@ -188,7 +188,7 @@
 				</div>
 			</div>
 		</div>
-		<section id="event">
+		<section id="section-1">
 			<div class="row">
 				<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg')">
 					<div class="landing2-message">
@@ -336,7 +336,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" id="member">
+		<div class="row" id="section-2">
 			<div class="schedule">
 				<div class="schedule-message">
 					<p class="mini-title">PASKIBRA</p>
@@ -378,7 +378,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" id="about">
+		<div class="row" id="section-3">
 			<div class="about">
 				<div class="about-message">
 					<span class="mini-title" id="about">about</span>
@@ -471,8 +471,8 @@
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
-	<script src="<?php echo base_url(); ?>assets/front_end/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
+	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.nav.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 </body>
 </html>
@@ -480,9 +480,16 @@
 
 <script>
 
+	$(document).ready(function() {
+		
+  	  $('.navbar-nav').onePageNav({
+  	  	currentClass: 'nav-active'
+	  });
+
+	});
+
 
 	$(document).ready(function() {
-	 
 	  $("#owl-home").owlCarousel({
 	      slideSpeed : 1000,
 	      paginationSpeed : 1000,
@@ -501,17 +508,6 @@
 	  });
 	  var owl = $('.owl-carousel');
 	owl.owlCarousel();
-	});
-	//Scrolling ke id element
-	var $root = $('html, body');
-	$('a').click(function() {
-	    var href = $.attr(this, 'href');
-	    $root.animate({
-	        scrollTop: $(href).offset().top - 0
-	    }, 1000, function () {
-	        window.location.hash = href;
-	    });
-	    return false;
 	});
 
 	//Navigasi

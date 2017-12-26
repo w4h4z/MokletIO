@@ -40,6 +40,11 @@
   <!-- Bootstrap 3.3.7 -->
   <script src="<?php echo base_url('assets/');?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   
+<style >
+  .appear{
+    display: block;
+  }
+</style>
 </head>
 <body class="hold-transition skin-blue sidebar-mini fixed">
 <div class="wrapper">
@@ -65,17 +70,9 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
            <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#">Page 1-1</a></li>
-          <li><a href="#">Page 1-2</a></li>
-          <li><a href="#">Page 1-3</a></li>
-        </ul>
-      </li>
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="dropdown-sub">
               <img src="<?php echo base_url();?>/uploads/<?php echo $sub->LOGO_SUB ;?>" class="user-image" alt="User Image">
               <span class="hidden-xs"><?php echo $sub->NAMA_SUB ;?></span>
             </a>
@@ -192,6 +189,17 @@
 <script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 <!-- page script -->
 <script>
+
+
+  /*Drop Down*/
+  $('#dropdown-sub').click(function() {
+    $(this).siblings('.dropdown-menu').toggleClass('appear');
+  });
+  $('.content-wrapper, .sidebar, .main-footer').click(function() {
+    if ($('#dropdown-sub').siblings('.dropdown-menu').hasClass('appear')) {
+      $('#dropdown-sub').siblings('.dropdown-menu').removeClass('appear');
+    }
+  });
   $(function () {
     $('#newMember').DataTable({
       'paging'      : true,
