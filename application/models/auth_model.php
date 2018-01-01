@@ -26,6 +26,24 @@ class Auth_model extends CI_Model {
 		return true;
 	}
 	
+	public function getAccount($id)
+	{
+		return $this->db->select('*')->from('user_account')->where('ID_SUB',$id)->get()->row();
+	}
+
+	public function changePass($id)
+	{
+		$data = array('USERNAME' => $this->input->post('username'), 
+					  'PASSWORD' => md5($this->input->post('password'))
+					);
+
+		$this->db->where('ID_SUB', $id)->update('user_account', $data);
+
+		if($this->db->affected_rows() == 0){
+			return false;
+		} 
+		return true;
+	}
 
 }
 

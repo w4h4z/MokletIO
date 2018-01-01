@@ -221,28 +221,28 @@
         <h3 class="modal-title">Account Setting</h3>
       </div>
       <div class="modal-body form">
-        <form action="#" id="form" class="form-horizontal">
+        <form action="<?php echo base_url('auth/changePass');?>" id="form" method="post" class="form-horizontal">
           <input type="hidden" value="" name="akun_id"/>
           <div class="form-body">
             <div class="form-group">
               <label class="control-label col-md-3">Username</label>
               <div class="col-md-9">
-                <input name="username" value="" class="form-control" type="text">
+                <input name="username" value="<?php echo $account->USERNAME ;?>" class="form-control" type="text" required>
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Password</label>
+              <label class="control-label col-md-3">New Password</label>
               <div class="col-md-9">
-                <input name="password" value="" class="form-control" type="Password">
+                <input name="password" value="" class="form-control" type="Password" required>
               </div>
             </div>
           </div>
-        </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+            <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
           </div>
+          </form>
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->

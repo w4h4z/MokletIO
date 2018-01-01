@@ -10,6 +10,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('profile_model');
 		$this->load->model('gallery_model');
 		$this->load->model('member_model');
+		$this->load->model('auth_model');
 	}
 
 	public function index()
@@ -28,6 +29,7 @@ class Dashboard extends CI_Controller {
 			$data['member'] = $this->member_model->getNewMember($id);
 			$data['main_view'] = 'adm_new_member_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
+			$data['account'] = $this->auth_model->getAccount($id);
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');
@@ -41,6 +43,7 @@ class Dashboard extends CI_Controller {
 			$data['member'] = $this->member_model->getMember($id);
 			$data['main_view'] = 'adm_member_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
+			$data['account'] = $this->auth_model->getAccount($id);
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');
@@ -54,6 +57,7 @@ class Dashboard extends CI_Controller {
 			$data['feature'] = $this->profile_model->feature($id);
 			$data['main_view'] = 'adm_profile_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
+			$data['account'] = $this->auth_model->getAccount($id);
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');
@@ -67,6 +71,7 @@ class Dashboard extends CI_Controller {
 			$data['gallery'] = $this->gallery_model->getGallery($id);
 			$data['main_view'] = 'adm_gallery_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
+			$data['account'] = $this->auth_model->getAccount($id);
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');
@@ -80,6 +85,7 @@ class Dashboard extends CI_Controller {
 			$id = $this->session->userdata('userId');
 			$data['main_view'] = 'adm_event_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
+			$data['account'] = $this->auth_model->getAccount($id);
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');

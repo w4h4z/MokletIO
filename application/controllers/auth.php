@@ -44,6 +44,18 @@ class Auth extends CI_Controller {
 		redirect('auth');
 	}
 
+	public function changePass()
+	{
+		$id = $this->session->userdata('userId');
+		if($this->auth_model->changePass($id) == true){
+			$this->session->set_flashdata('success', 'Edit data success');
+			redirect('dashboard/profile');
+		} else {
+			$this->session->set_flashdata('failed', 'Edit data failed');
+			redirect('dashboard/profile');
+		}
+	}
+
 }
 
 /* End of file auth.php */
