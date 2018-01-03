@@ -46,7 +46,7 @@
   }
 </style>
 </head>
-<body class="hold-transition skin-blue sidebar-mini fixed">
+<body class="hold-transition skin-blue sidebar-mini fixed" style="padding-right: 0px;">
 <div class="wrapper">
 
   <header class="main-header">
@@ -189,8 +189,10 @@
 <script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 <!-- page script -->
 <script>
-
-
+//Modal Fix
+$('#editFeature, #editProfile').on('show.bs.modal', function () {
+  $('body').css("padding-right", "0px");
+});
   /*Drop Down*/
   $('#dropdown-sub').click(function() {
     $(this).siblings('.dropdown-menu').toggleClass('appear');

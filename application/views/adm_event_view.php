@@ -18,6 +18,9 @@
     .event-id{
       display: none;
     }
+    .modal-open{
+      padding-right: 0px;
+    }
     .event-title{
       color: white;
       font-family: aharoni;
