@@ -11,7 +11,10 @@
   float: left;
   width: 20%;
   }
-  .icon-picker-list a {
+  .modal-open, .modal-open .navbar-fixed-top {
+  margin-right: 0 !important;
+  }
+  -picker-list a {
   background-color: #f9f9f9;
   border: 1px solid #fff;
   color: black;
@@ -32,7 +35,7 @@
   transition: height 1s;
   }
   .inline-icon-picker-show{
-  height: 210px;
+  height: 170px;
   overflow: auto;
   }
   .icon-picker-list a.active{
@@ -61,7 +64,7 @@
 <!-- Main content -->
 <section class="content">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-lg-12">
       <div class="box">
         <div class="box-header">
           <!--          <h3 class="box-title"></h3> -->
