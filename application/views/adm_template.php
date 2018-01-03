@@ -200,13 +200,10 @@
 
 <!-- page script -->
 <script>
-<<<<<<< HEAD
-=======
-//Modal Fix
-$('#editFeature, #editProfile').on('show.bs.modal', function () {
-  $('body').css("padding-right", "0px");
-});
->>>>>>> 359cbd5a356f496f5df56b8a4bf4d4f76d84d2e0
+  //Modal Fix
+  $('#editFeature, #editProfile').on('show.bs.modal', function () {
+    $('body').css("padding-right", "0px");
+  });
   /*Drop Down*/
   $('#dropdown-sub').click(function() {
     $(this).siblings('.dropdown-menu').toggleClass('appear');

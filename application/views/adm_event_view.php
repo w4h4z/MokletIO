@@ -1,46 +1,4 @@
-<<<<<<< HEAD
-=======
-  <style>
-    .item{
-      background-color: #3C8DBC;
-      text-align: center;
-      height: 200px;
-      position: relative;
-      padding-top: 22%;
-    }
-    .past-event{
-      position: absolute;
-      top: 0;
-      padding: auto;
-      width :100%;
-      height: 0%;
-      overflow: hidden;
-      background-color: rgba(44,44,44,0.5);
-    }
-    .event-id{
-      display: none;
-    }
-    .modal-open{
-      padding-right: 0px;
-    }
-    .event-title{
-      color: white;
-      font-family: aharoni;
-      font-size: 2em;
-    }
-    .btn-past-event-edit, .btn-past-event-delete{
-      margin-top: 25%;
-    }
-    .item:hover .past-event{
-      height: 100%;
-    }
-    .live-preview{
-      width: 100%;
-      height: 500px;
-    }
-  </style>
 
->>>>>>> 359cbd5a356f496f5df56b8a4bf4d4f76d84d2e0
   <section class="content-header">
       <h1>
         Event
@@ -125,6 +83,12 @@
               <label class="control-label col-md-3">Sub Title</label>
               <div class="col-md-9">
                 <input name="title" placeholder="Title" class="form-control" type="text" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Desc Event</label>
+              <div class="col-md-9">
+                <textarea class="form-control" placeholder="Desc" name="desc" required></textarea>
               </div>
             </div>
           </div>
