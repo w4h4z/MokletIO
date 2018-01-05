@@ -11,12 +11,11 @@ class Event_model extends CI_Model {
 		return $this->db->get()->result();
 	}
 
-
-	public function insertEvent($banner,$poster)
+	public function insertEvent($idSub,$banner,$poster)
 	{
-		$data1 = array('ID_SUB' 		=> , 
-					  'NAMA_EVENT'		=> ,
-					  'SUB_NAMA_EVENT'	=> 
+		$data1 = array('ID_SUB' 		=> $idSub, 
+					   'NAMA_EVENT'		=> $this->input->post('name'),
+					   'SUB_NAMA_EVENT'	=> $this->input->post('title')
 					);
 
 		$this->db->insert('event_sub', $data1);
@@ -24,12 +23,12 @@ class Event_model extends CI_Model {
 		$lastIdEvent = $this->db->insert_id();
 
 		$data2 = array('ID_EVENT' 			=> $lastIdEvent, 
-					  'NAMA_DETAIL'			=> ,
-					  'NAMA_MINI_TITLE'		=> ,
-					  'SUB_NAMA_TITLE'		=> ,
-					  'DESC_DETAIL'			=> ,
-					  'BANNER_DETAIL'		=> $banner,
-					  'POSTER_DETAIL'		=> $poster
+					   'NAMA_DETAIL'		=> $this->input->post('detail'),
+					   'NAMA_MINI_TITLE'	=> $this->input->post('miniName'),
+					   'SUB_NAMA_TITLE'		=> $this->input->post('subName'),
+					   'DESC_DETAIL'		=> $this->input->post('desc'),
+					   'BANNER_DETAIL'		=> $banner,
+					   'POSTER_DETAIL'		=> $poster
 					);
 
 		$this->db->insert('detail_event', $data2);
@@ -38,13 +37,25 @@ class Event_model extends CI_Model {
 
 		$data3 = array('ID_DETAIL' => $lastIdDetail );
 		
-		$this->db->update('event_sub', $data3)->where('ID_EVENT', $lastIdEvent);
+		$this->db->where('ID_EVENT', $lastIdEvent)->update('event_sub', $data3);
 
 		if($this->db->affected_rows() == 0){
 			return false;
 		}
 
 		return true;
+	}
+
+	public function deleteEvent($idDetail,$idEvent)
+	{
+		$this->db->where('ID_DETAIL', $idDetail)->delete('detail_event');
+		$this->db->where('ID_EVENT', $idEvent)->delete('event_sub');
+
+		if($this->db->affected_rows() == 0){
+			return false;
+		}
+
+		return true;	
 	}
 
 }

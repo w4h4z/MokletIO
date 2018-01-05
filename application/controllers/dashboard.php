@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller {
 		$this->load->model('gallery_model');
 		$this->load->model('member_model');
 		$this->load->model('auth_model');
+		$this->load->model('event_model');
 	}
 
 	public function index()
@@ -86,6 +87,7 @@ class Dashboard extends CI_Controller {
 			$data['main_view'] = 'adm_event_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
 			$data['account'] = $this->auth_model->getAccount($id);
+			$data['event'] = $this->event_model->getEvent();
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');

@@ -1,4 +1,3 @@
-
   <section class="content-header">
       <h1>
         Event
@@ -43,13 +42,25 @@
                 <th>No</th>
                 <th>Event Name</th>
                 <th>Desc Event</th>
-                <th>Poster</th>
-                <th>Banner</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              
+              <?php 
+              $i = 1;
+                foreach ($event as $data) {
+                  echo '
+                  <tr>
+                    <td>'.$i++.'</td>
+                    <td>'.$data->NAMA_EVENT.'</td>
+                    <td style="max-width:100px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">'.$data->DESC_DETAIL.'</td>
+                    <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail"><span class="glyphicon glyphicon-zoom-in"></span></button>
+                                      <button class="btn btn-warning btn-sm edit" data-toggle="modal" data-target="#modal_edit'.$data->ID_EVENT.'"><span class="glyphicon glyphicon-pencil"></span></button>
+                                      <a href="'.base_url('/event/deleteEvent/').''.$data->ID_DETAIL.'/'.$data->ID_EVENT.'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a></td>
+                  </tr>
+                  ';
+                }
+              ?>
             </tbody>
           </table>
         </div>
@@ -71,7 +82,7 @@
           <h3 class="modal-title">Add New Event</h3>
         </div>
         <div class="modal-body form">
-          <form action="#" id="formEvent" class="form-horizontal" method="post" enctype="multipart/form-data">
+          <form action="<?php echo base_url('event/addEvent'); ?>" id="formEvent" class="form-horizontal" method="post" enctype="multipart/form-data">
           <div class="form-body">
             <div class="form-group">
               <label class="control-label col-md-3">Event Title</label>
@@ -86,9 +97,39 @@
               </div>
             </div>
             <div class="form-group">
+              <label class="control-label col-md-3">Detail Name</label>
+              <div class="col-md-9">
+                <input name="detail" placeholder="Detail Name" class="form-control" type="text" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Mini Name</label>
+              <div class="col-md-9">
+                <input name="miniName" placeholder="Mini Name" class="form-control" type="text" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Sub Detail Name</label>
+              <div class="col-md-9">
+                <input name="subName" placeholder="Sub Detail Name" class="form-control" type="text" required>
+              </div>
+            </div>
+            <div class="form-group">
               <label class="control-label col-md-3">Desc Event</label>
               <div class="col-md-9">
                 <textarea class="form-control" placeholder="Desc" name="desc" required></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Banner Photo</label>
+              <div class="col-md-9">
+                <input name="photoBanner" class="form-control" type="file" id="imgInp" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Poster Photo</label>
+              <div class="col-md-9">
+                <input name="photoPoster" class="form-control" type="file" id="imgInp1" required>
               </div>
             </div>
           </div>
@@ -103,10 +144,11 @@
     </div><!-- /.modal -->
     <!-- End Bootstrap modal -->
     
-
-
-    <!-- Bootstrap modal -->
-    <div class="modal fade" id="modal_detail" role="dialog">
+<?php 
+foreach ($event as $data) {
+  echo '
+      <!-- Bootstrap modal -->
+    <div class="modal fade" id="modal_edit'.$data->ID_EVENT.'" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -123,3 +165,19 @@
         </div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
     <!-- End Bootstrap modal -->
+  ';
+}
+
+?>
+
+    <script type="text/javascript">
+      function confirmDelete() {
+        var txt;
+        var r = confirm("Are you sure want to Delete?");
+        if (r) {
+            return true;
+        } else {
+            return false;
+        }
+      }
+    </script>
