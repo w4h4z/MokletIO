@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 07 Des 2017 pada 15.31
+-- Generation Time: 05 Jan 2018 pada 08.49
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 7.1.7
 
@@ -35,8 +35,16 @@ CREATE TABLE `detail_event` (
   `NAMA_MINI_TITLE` varchar(50) DEFAULT NULL,
   `SUB_NAMA_TITLE` varchar(50) DEFAULT NULL,
   `DESC_DETAIL` text,
-  `FOTO_DETAIL` text
+  `BANNER_DETAIL` text,
+  `POSTER_DETAIL` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `detail_event`
+--
+
+INSERT INTO `detail_event` (`ID_DETAIL`, `ID_EVENT`, `NAMA_DETAIL`, `NAMA_MINI_TITLE`, `SUB_NAMA_TITLE`, `DESC_DETAIL`, `BANNER_DETAIL`, `POSTER_DETAIL`) VALUES
+(2, 2, 'a', 'a', 'a', 'avuadsbbbbbbbbbbbbbbbbbbkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk', '391.png', 'saitama1.jpg');
 
 -- --------------------------------------------------------
 
@@ -49,9 +57,15 @@ CREATE TABLE `event_sub` (
   `ID_DETAIL` int(11) DEFAULT NULL,
   `ID_SUB` int(11) DEFAULT NULL,
   `NAMA_EVENT` varchar(100) DEFAULT NULL,
-  `SUB_NAMA_EVENT` varchar(50) DEFAULT NULL,
-  `FOTO_EVENT` text
+  `SUB_NAMA_EVENT` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `event_sub`
+--
+
+INSERT INTO `event_sub` (`ID_EVENT`, `ID_DETAIL`, `ID_SUB`, `NAMA_EVENT`, `SUB_NAMA_EVENT`) VALUES
+(2, 2, 1, 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -72,8 +86,8 @@ CREATE TABLE `feature` (
 --
 
 INSERT INTO `feature` (`ID_FEATURE`, `ID_SUB`, `NAMA_FEATURE`, `DESC_FEATURE`, `ICON_FEATURE`) VALUES
-(1, 1, 'a', 'lorem ipsum dolor sit amet terusno dewe aku ora apal', 'fa fa-users'),
-(2, 1, 'b', 'lorem ipsum dolor sit amet terusno dewe aku ora apal', 'fa fa-users'),
+(1, 1, 'a', 'lorem ipsuma', 'fa fa-user'),
+(2, 1, 'bb', 'lorem ipsum dolor sit amet terusno dewe aku ora apal', 'fa fa-star'),
 (3, 1, 'c', 'lorem ipsum dolor sit amet terusno dewe aku ora apal', 'fa fa-users');
 
 -- --------------------------------------------------------
@@ -99,8 +113,7 @@ INSERT INTO `gallery_sub` (`ID_GAL`, `ID_SUB`, `FOTO_GAL`) VALUES
 (20, 1, '4_Wakil_ketua8.png'),
 (21, 1, '5_Sekretaris9.png'),
 (22, 1, '6_Bendahara11.png'),
-(23, 1, 'Anggota6.png'),
-(24, 1, 'SIE_amil5.png');
+(23, 1, 'Anggota6.png');
 
 -- --------------------------------------------------------
 
@@ -127,11 +140,9 @@ CREATE TABLE `member_sub` (
 --
 
 INSERT INTO `member_sub` (`ID_MEMBER`, `ID_SUB`, `NAMA_MEMBER`, `ANGKATAN_MEMBER`, `KELAS_MEMBER`, `NO_HP_MEMBER`, `EMAIL_MEMBER`, `ALASAN_MEMBER`, `FOTO_MEMBER`, `STATUS_MEMBER`, `JABATAN_MEMBER`) VALUES
-(1, 1, 'Muhammad Salim Aiman', 24, 'XIIRPL2', '082230914134', 'salimaiman@gmail.com', 'Ingin memiliki pengalaman aktif dalam berorganisasi di SMK Telkom Malang', '83900a5b6d403ddbfd4e843ea70828f4.jpg', 0, 'Anggota'),
-(2, 1, 'Miftakhul Eza Alfandy', 24, 'XIITKJ1', '082235918560', 'ezaalfandy@gmail.com', 'Ingin menambah relasi melalui sub organisasi ', '83900a5b6d403ddbfd4e843ea70828f4.jpg', 0, 'Anggota'),
-(3, 2, 'a', 25, 'XIRPL5', '90', 'ajdnsjnd@jd.com', '', '83900a5b6d403ddbfd4e843ea70828f4.jpg', 0, 'Anggota'),
-(4, 1, 'ksm', 26, 'XTKJ4', '34', 'ajdnsjnd@jd.com', 'dsd', '83900a5b6d403ddbfd4e843ea70828f4.jpg', 0, 'Anggota'),
-(5, 1, 'js dj', 27, 'XIRPL3', '99', 'ajdnsjnd@jd.com', 'sds', 'Adobe_Premiere_Pro_CS6_Icon.png', 0, 'Anggota');
+(3, 1, 'aaaabbbbb', 25, 'XIRPL5', '90', 'ajdnsjnd@jd.com', 'jnjn', '83900a5b6d403ddbfd4e843ea70828f4.jpg', 1, 'Anggota'),
+(4, 1, 'aa', 21, 'XRPL3', '12', 'ajdnsjnd@jd.com', 'asa', NULL, 0, 'Anggota'),
+(5, 1, 'Miftakhul Eza Alfandy', 1, 'XRPL6', '3', 'wahaz@gmail.com', 'asas', 'XIIR2.JPG', 0, 'Anggota');
 
 -- --------------------------------------------------------
 
@@ -156,7 +167,7 @@ CREATE TABLE `sub_organ` (
 --
 
 INSERT INTO `sub_organ` (`ID_SUB`, `ID_USER`, `NAMA_SUB`, `SINGKATAN_SUB`, `DESC_SUB`, `FOTO_HEADER_SUB`, `LOGO_SUB`, `PRIMARY_COLOR`, `SECONDARY_COLOR`) VALUES
-(1, 1, 'Badan Dakwah Islam', 'BDI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis, est in vehicula eleifend, leo urna fermentum tellus, non tempor nulla nisi id ligula. Ut convallis tincidunt tellus sit amet placerat. Curabitur dictum egestas erat, at tempus nibh sagittis non. Morbi semper lacus vel tortor vulputate mattis. Morbi at erat sed sapien pharetra bibendum at et elit. Sed sapien nisl, malesuada non consequat vel, semper ut ipsum. Vestibulum pretium justo vel molestie rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sed arcu non mauris lobortis condimentum. Pellentesque aliquam tortor nec quam tristique fermentum consectetur quis justo. Vivamus venenatis magna venenatis mi rhoncus, id hendrerit orci vestibulum. Nulla ac mauris magna. Sed non pellentesque erat. Fusce ac imperdiet tellus. Aliquam rutrum enim velit, ut vestibulum odio tincidunt nec. Nulla lorem lacus, euismod vel congue non, viverra a libero.', 'SIE_inventaris.png', 'logo_bdi4.jpg', '#e9e9e9', '#29d1b3'),
+(1, 1, 'Badan Dakwah Islam', 'BDI', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam mattis, est in vehicula eleifend, leo urna fermentum tellus, non tempor nulla nisi id ligula. Ut convallis tincidunt tellus sit amet placerat. Curabitur dictum egestas erat, at tempus nibh sagittis non. Morbi semper lacus vel tortor vulputate mattis. Morbi at erat sed sapien pharetra bibendum at et elit. Sed sapien nisl, malesuada non consequat vel, semper ut ipsum. Vestibulum pretium justo vel molestie rhoncus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut sed arcu non mauris lobortis condimentum. Pellentesque aliquam tortor nec quam tristique fermentum consectetur quis justo. Vivamus venenatis magna venenatis mi rhoncus, id hendrerit orci vestibulum. Nulla ac mauris magna. Sed non pellentesque erat. Fusce ac imperdiet tellus. Aliquam rutrum enim velit, ut vestibulum odio tincidunt nec. Nulla lorem lacus, euismod vel congue non, viverra a libero.', 'SIE_inventaris.png', 'logo_bdi4.jpg', '#e9e9e9', '#22e386'),
 (2, 2, 'Moklet Education Technology Informatic Club', 'METIC', 'lorem ipsum dolor sit amet', NULL, NULL, '', '0');
 
 -- --------------------------------------------------------
@@ -196,8 +207,8 @@ ALTER TABLE `detail_event`
 --
 ALTER TABLE `event_sub`
   ADD PRIMARY KEY (`ID_EVENT`),
-  ADD KEY `ID_DETAIL` (`ID_DETAIL`),
-  ADD KEY `ID_SUB` (`ID_SUB`);
+  ADD KEY `ID_SUB` (`ID_SUB`),
+  ADD KEY `event_sub_ibfk_1` (`ID_DETAIL`);
 
 --
 -- Indexes for table `feature`
@@ -242,12 +253,12 @@ ALTER TABLE `user_account`
 -- AUTO_INCREMENT for table `detail_event`
 --
 ALTER TABLE `detail_event`
-  MODIFY `ID_DETAIL` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_DETAIL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `event_sub`
 --
 ALTER TABLE `event_sub`
-  MODIFY `ID_EVENT` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID_EVENT` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `feature`
 --
@@ -257,7 +268,7 @@ ALTER TABLE `feature`
 -- AUTO_INCREMENT for table `gallery_sub`
 --
 ALTER TABLE `gallery_sub`
-  MODIFY `ID_GAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `ID_GAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT for table `member_sub`
 --
@@ -281,7 +292,7 @@ ALTER TABLE `user_account`
 -- Ketidakleluasaan untuk tabel `event_sub`
 --
 ALTER TABLE `event_sub`
-  ADD CONSTRAINT `event_sub_ibfk_1` FOREIGN KEY (`ID_DETAIL`) REFERENCES `detail_event` (`ID_DETAIL`),
+  ADD CONSTRAINT `event_sub_ibfk_1` FOREIGN KEY (`ID_DETAIL`) REFERENCES `detail_event` (`ID_DETAIL`) ON DELETE SET NULL,
   ADD CONSTRAINT `event_sub_ibfk_2` FOREIGN KEY (`ID_SUB`) REFERENCES `sub_organ` (`ID_SUB`);
 
 --
