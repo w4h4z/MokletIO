@@ -6,7 +6,7 @@ class Page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('dashboard_model');
+		$this->load->model('Frontend_model');
 	}
 
 	public function index()
@@ -14,12 +14,15 @@ class Page extends CI_Controller {
 		$this->load->view('home');
 	}
 
-	public function bdi()
+	public function sub_index()
 	{
-		$id=1;
-		$data['data'] = $this->dashboard_model->getSubById($id);
-		$this->load->view('home_view', $data);
+		$singkatan_sub = $this->uri->segment(3);
+		$data['data'] = $this->Frontend_model->getSubBySingkatan($singkatan_sub);
+		$data['anggota'] = $this->Frontend_model->getAnggota($singkatan_sub);
+		$data['jumlahAnggota'] = $this->Frontend_model->getJumlahAnggota($singkatan_sub);
+		$this->load->view('experiment', $data);
 	}
+
 
 }
 

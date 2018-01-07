@@ -169,7 +169,7 @@ hr{
 
 .intro1-content{
   text-align: justify;
-  overflow: auto;
+  overflow: hidden;
   padding-top: 
   margin:0;
   padding-top: 7%;
@@ -354,8 +354,8 @@ hr{
 }
 .owl-caption{
   margin: 0% 10% 0% 10%;
-  padding-top: 5%;
-  padding-bottom: 5%; 
+  padding-top: 20%;
+  padding-bottom: 20%; 
   height: 100%;
   width: 80%;
   position: absolute;
@@ -710,9 +710,13 @@ hr{
 .schedule-table tr th{
   text-align: center;
 }
-.schedule-table tr td{
+.schedule-table tbody tr td{
   vertical-align: top;
-  padding: 3%;
+  padding: 1.5%;
+}
+.schedule-table thead tr th{
+  vertical-align: top;
+  padding: 2%;
 }
 
 

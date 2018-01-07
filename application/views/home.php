@@ -127,7 +127,7 @@
 	     --><li><a href="pustel.html">Pustel</a></li><!--
 	     --><li id="sub"><a href="#">Sub Organisasi <span class="fa fa-caret-down"></span></a>
 	     		<div class="dropdown">
-	     		    <a href="bdi.html">BDI</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/BDI') ?>">BDI</a>
 	     		    <a href="paskibra.html">Paskibra</a>
 	     		    <a href="palwaga.html">Palwaga</a>
 	     		    <a href="">PMR</a>
@@ -141,7 +141,6 @@
 	     		    <a href="memo.html">Memo</a>
 	     		</div>
 	     	</li>
-	     	<li class="daftar"><a href="#form">Daftar</a></li>
 	    </ul>
 	</nav>
 	<div class="container">

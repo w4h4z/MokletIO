@@ -8,28 +8,28 @@
 
 	<link href="<?php echo base_url(); ?>assets/front_end/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/home_view.css"  type="text/css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/jquery.fullpage.min.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/animate.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/navigation_home_view.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.theme.default.min.css">
 </head>
 <style>
-
-	.nav-scroll, {
+	.navigation{
+		z-index: 999;
+	}
+	.nav-scroll{
 		background-color: <?php echo $data->PRIMARY_COLOR; ?>;
 		z-index: 2;
 	}
 	.nav-active{
 		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?>
 	}
-	.nav-onscroll:not(.nav-active):hover{
-		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?> !important;
+	.nav-onscroll{
+		color: #222222 !important;
 	}
 	.navbar-nav li a:not(.nav-brand){
 		color: #9A9A9A;
-	}
-	.navbar-nav li a:not(.nav-brand):hover{
-		color: white;
 	}
     .modal-header{
      background-color: <?php echo $data->SECONDARY_COLOR;  ?>;
@@ -41,10 +41,6 @@
 
 	.ardown, .brand-scroll, hr:not(.hr-gallery), .picture-gallery, .caption-button {
 		background-color: <?php echo $data->SECONDARY_COLOR; ?>;
-	}
-
-	.section{
-		padding-top: 0px;
 	}
 
 	.feature-icon span, .modal-intro1-desc p:first-child:first-letter{
@@ -61,11 +57,23 @@
 	.mini-title{
     	color: black;
 	}
+	@media only screen 
+	and (min-width : 1224px) {
 
+		.nav-onscroll:not(.nav-active):hover{
+			border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?> !important;
+		}	
+	}
 
+	#menu li a.active{
+		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?>;
+	}
 	 <?php 
   	  	if ($data->PRIMARY_COLOR == '#e9e9e9') {
   	  		echo '
+  	  			.navbar-nav li a:not(.nav-brand):hover{
+					color: black;
+				}
   	  			.feature{
 	  	  			background-color:#E1E1E1;
 	  	  		}
@@ -109,7 +117,7 @@
 				.about, .schedule{
 					background-color: #212121>
 				}
-				.intro1-message, .intro1-desc , .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
+				.intro1-message, .intro1-desc, .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
 					color: #C5C5C5 !important ;
 				}
 				.schedule-table tr{
@@ -151,25 +159,26 @@
 		    	<span class="fa fa-bars"></span>
 		    </button>
 		</ul>
-	    <ul class="navbar-nav">
-	        <li><a href="#" class="nav-brand"><?php echo $data->SINGKATAN_SUB; ?></a></li><!--
+		  <ul class="navbar-nav" id="menu">
+	        <li><a class="nav-brand" data-menuanchor="home" href="#home"><?php echo $data->SINGKATAN_SUB; ?></a></li><!--
 	     --><li><a href="<?php echo base_url('index.php/page/') ?>">Home</a></li><!--
-	     --><li><a class="nav-active" href="#section-1">Event</a></li><!--
-	     --><li><a class="" href="#section-2">Member</a></li><!--
-	     --><li><a class="" href="#section-3">About</a></li>
-	     	<li class="daftar"><a class="" href="#form">Daftar</a></li>
+	     --><li><a class="dont-return" data-menuanchor="event" href="#event">Event</a></li><!--
+	     --><li><a class="dont-return" data-menuanchor="member" href="#member">Member</a></li><!--
+	     --><li><a class="dont-return" data-menuanchor="about" href="#about">About</a></li>
+	     	<li class="daftar dont-return"><a class="" data-menuanchor="form" href="#form">Daftar</a></li>
 	    </ul>
 	</nav>
-	<div class="container">
-		<div class="row">
+	<div class="container" id="fullpage">
+
+		<div class="row section">
 			<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra6.jpg')">
 				<div class="landing2-message">
 					<h1><?php echo $data->NAMA_SUB; ?></h1>
 				</div>
-				<a class="ardown fa fa-angle-down" href="#explain"></a>
+				<a class="ardown fa fa-angle-down" data-menuanchor="home-explain" href="#home-explain"></a>
 			</div>		
 		</div>
-		<div class="row" id="explain">
+		<div class="row section">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title">THE chairman</p>
@@ -190,18 +199,18 @@
 				</div>
 			</div>
 		</div>
-		<section id="section-1">
+		<div  class="section"><!-- Event -->
 			<div class="row">
 				<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg')">
 					<div class="landing2-message">
 						<h1>Pengibaran 2018</h1>
 						<h4>lorem ipsum dolor sit amet monggo sampean terusno aku ora apal bos</h4>
 					</div>
-					<a class="ardown fa fa-angle-down" href="#explain2"></a>
+					<a class="ardown fa fa-angle-down" data-menuanchor="detail-event" href="#detail-event"></a>
 				</div>		
 			</div>
-		</section>
-		<div class="row" id="explain2">
+		</div>
+		<div class="row section" id="explain2">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title">THE Commander</p>
@@ -222,11 +231,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" id="carousel">
+		<div class="row section" id="carousel"> <!-- Carousel -->
 			<div style="position: relative;" id="carousel-container">				
 			    <div id="owl-home" class="owl-carousel owl-theme">
 			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/fullimage1.jpg" alt="The Last of us">
+			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="The Last of us">
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
@@ -234,7 +243,7 @@
 			      	</div>
 			      </div>
 			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/fullimage2.jpg" alt="GTA V">
+			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="GTA V">
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
@@ -242,7 +251,7 @@
 			      	</div>
 			      </div>
 			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/fullimage3.jpg" alt="Mirror Edge">
+			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="Mirror Edge">
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
@@ -252,7 +261,7 @@
 			    </div>
 			</div>
 		</div>
-		<div class="row">
+		<div class="row section"><!-- Picture Gallery -->
 			<div class="picture-gallery">
 				<div>
 					<div class="picture-gallery-message">
@@ -282,8 +291,8 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="form-pendaftaran" id="form">
+		<div class="row section">
+			<div class="form-pendaftaran">
 				<div class="form-message">
 					<p class="mini-title">PASKIBRA</p>
 					<h1>Form Pendaftaran Anggota</h1>
@@ -338,7 +347,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row" id="section-2">
+		<div class="row section">
 			<div class="schedule">
 				<div class="schedule-message">
 					<p class="mini-title">PASKIBRA</p>
@@ -360,35 +369,29 @@
 							<tr>
 								<th>No</th>
 								<th>Nama</th>
-								<th>Keterangan</th>
+								<th>Angkatan</th>
 							</tr>
 						</thead>
-						<tbody>
+						<?php $a = 1; ?>
+						<?php foreach ($anggota as $anggota): ?>
 							<tr>
-								<td>1</td>
-								<td>Dummy</td>
-								<td>Anggota</td>
+								<td><?php echo $a; ?></td>
+								<td><?php echo $anggota->NAMA_MEMBER ?></td>
+								<td><?php echo $anggota->ANGKATAN_MEMBER ?></td>
 							</tr>
-							<tr>
-								<td>1</td>
-								<td>Dummy</td>
-								<td>Anggota</td>
-							</tr>
-							<tr>
-								<td>1</td>
-								<td>Dummy</td>
-								<td>Anggota</td>
-							</tr>
-						</tbody>
+						<?php $a++; endforeach ?>
+						<tr>
+							<td><?php echo $jumlahAnggota ?></td>
+						</tr>
 						
 					</table>
 				</div>
 			</div>
 		</div>
-		<div class="row" id="section-3">
+		<div class="row section">
 			<div class="about">
 				<div class="about-message">
-					<span class="mini-title" id="about">about</span>
+					<span class="mini-title">about</span>
 					<h1>Paskibra
 					</h1>
 						<hr>
@@ -439,47 +442,10 @@
 		</div>
 	</div>
 
-	<div class="modal-background">
-		<div class="modal">
-			<div class="modal-header">
-				<p class="modal-title">Past Event</p>				
-				<span class="modal-close">&times;</span>
-			</div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="modal-intro1">
-						<div class="modal-intro1-message">
-							<p class="mini-title">THE Commander</p>
-							<h1>Abel Lagi</h1>
-							<hr>
-							<h4>Komandan Pasukan Pengibar Bendera 2018</h4>
-						</div>
-						<div class="modal-intro1-content">
-							<div class="modal-intro1-img">
-								<img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="">
-							</div>
-							<div class="modal-intro1-desc">
-								<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-								Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-								<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-								<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
-
-								<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-								Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-								<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-								<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
-	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.nav.js"></script>
+	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.fullpage.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 </body>
 </html>
@@ -487,6 +453,41 @@
 
 <script>
 
+	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
+
+var jumlahAnggota =10
+	var jumlahTabel = jumlahAnggota / 10;
+	var currentTabel = 1;
+	var i;
+	alert(jumlahTabel)
+	for(i ==1; i < jumlahAnggota; i++){
+		/*if (i <= currentTabel*10) {
+			//$(' .schedule-table tbody tr:nth-child('+i+')').addClass('bro')
+			alert("message?: DOMString")
+		}else{
+			$(' .schedule-table tbody tr:nth-child('+i+')').css('display', 'none');
+		}*/
+		alert(i)
+	}
+$(document).ready(function() {
+	
+
+			$(' .schedule-table tbody tr:nth-child(1)').addClass('bro')
+    $('#fullpage').fullpage({
+        menu: '#menu',
+        anchors: ['home', 'home-explain', 'event', 'detail-event', 'past-event', 'picture-gallery', 'form', 'member', 'about'],
+        autoScrolling: false,
+        responsiveWidth: 479,
+		afterResponsive: function(isResponsive){
+			
+		}
+    });
+
+
+	$('.dont-return').click(function(e){
+		    e.preventDefault();
+		    $.fn.fullpage.moveTo($(this).attr('href').replace('#', ''));
+		});
 
 	$(document).ready(function() {
 	  $("#owl-home").owlCarousel({
@@ -509,7 +510,23 @@
 	owl.owlCarousel();
 	});
 
+
 	//Navigasi
+
+
+	if ($warnaPrimer == "#e9e9e9") { //Mengganti tombol dan tulisan navbar-responsive
+		$('.nav-toggle span').css('color', 'black');
+		$('.navbar-responsive li a').css('color', 'black');
+	}else{
+		$('.nav-toggle span').css('color', 'white');
+		$('.navbar-responsive li a').css('color', 'white');
+	}
+		
+
+	$('nav-toggle').click(function() {
+	   $('.navigation').addClass('nav-scroll');
+	   $('.navbar-nav li a:not(.nav-brand)').addClass('nav-onscroll');
+	});
 	$(window).scroll(function() {
 		
 	    if ($(document).scrollTop() > 0) {
@@ -520,8 +537,11 @@
 	    		border: '4px solid transparent'
 	    	});
 	    	$('.navbar-nav li a:not(.nav-brand)').addClass('nav-onscroll');
+	    	$('.navbar-nav li > a:not(.nav-brand)').attr('style', '');
 	    } else {
-	    	$('nav').removeClass('nav-scroll');
+	    	if ($(window).width() > 480) {
+	    		$('nav').removeClass('nav-scroll');
+	    	}
 	    	$('.navbar-nav li a:not(.nav-brand)').removeClass('nav-onscroll')
 	    	$('.navbar-nav li > a:not(.nav-brand)').css('color' , '');
 	    	$('.navbar-nav li:first-Child').removeClass('brand-scroll');
@@ -529,12 +549,6 @@
 
 	    }
   	});
-  	if (Modernizr.mq('(max-width: 767px)')) {
-  		$('#mainNav').css('background-color', 'red');
-	} else {
-
-  		$('#mainNav').css('background-color', 'blue');
-	}
 
 
 	//Modal
@@ -545,5 +559,9 @@
 	$('.modal-close').click(function() {
 		$('.modal-background').fadeOut('slow');
 	});
+
+
+  });
+		
 
 </script>
