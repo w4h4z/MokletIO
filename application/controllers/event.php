@@ -57,6 +57,77 @@ class Event extends CI_Controller {
 		}
 	}
 
+	public function editEvent($idEvent)
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size']  = '2000';
+		$this->load->library('upload', $config);
+
+		if($_FILES['photoBanner']['error'] == UPLOAD_ERR_NO_FILE && $_FILES['photoPoster']['error'] == UPLOAD_ERR_NO_FILE){
+			if($this->event_model->updateEventWithoutPhoto($idEvent) == true){
+				$this->session->set_flashdata('success', 'Edit data success');
+				redirect('dashboard/event');
+			} else {
+				$this->session->set_flashdata('success', 'Edit data success');
+				redirect('dashboard/event');
+			}
+		} elseif($_FILES['photoBanner']['error'] != UPLOAD_ERR_NO_FILE){
+			if($this->upload->do_upload('photoBanner')){
+				$uploadBanner = $this->upload->data();
+				$banner = $uploadBanner['file_name'];
+				if($this->event_model->updateEventBanner($idEvent,$banner) == true){
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/event');
+				} else {
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/event');
+				}
+			} else {
+				$this->session->set_flashdata('failed',  $this->upload->display_errors());
+				redirect('dashboard/event');
+			}
+		} elseif($_FILES['photoPoster']['error'] != UPLOAD_ERR_NO_FILE){
+			if($this->upload->do_upload('photoPoster')){
+				$uploadPoster = $this->upload->data();
+				$poster = $uploadPoster['file_name'];
+				if($this->event_model->updateEventPoster($idEvent,$poster) == true){
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/event');
+				} else {
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/event');
+				}
+			} else {
+				$this->session->set_flashdata('failed',  $this->upload->display_errors());
+				redirect('dashboard/event');
+			}
+		} elseif ($_FILES['photoBanner']['error'] != UPLOAD_ERR_NO_FILE && $_FILES['photoPoster']['error'] != UPLOAD_ERR_NO_FILE) {
+			if($this->upload->do_upload('photoPoster')){
+				$uploadPoster = $this->upload->data();
+				$poster = $uploadPoster['file_name'];
+				if($this->upload->do_upload('photoBanner')){
+					$uploadBanner = $this->upload->data();
+					$banner = $uploadBanner['file_name'];
+					if($this->event_model->updateEventPoster($idEvent,$banner,$poster) == true){
+						$this->session->set_flashdata('success', 'Edit data success');
+						redirect('dashboard/event');
+					} else {
+						$this->session->set_flashdata('success', 'Edit data success');
+						redirect('dashboard/event');
+					} 
+				} else {
+					$this->session->set_flashdata('failed',  $this->upload->display_errors());
+					redirect('dashboard/event');
+				}
+			} else {
+				$this->session->set_flashdata('failed',  $this->upload->display_errors());
+				redirect('dashboard/event');
+			}
+		}
+
+	}
+
 }
 
 /* End of file event.php */

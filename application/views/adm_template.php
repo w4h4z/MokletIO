@@ -23,7 +23,7 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/css/buttons.dataTables.min.css">
   <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="<?php echo base_url('assets/');?>bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
 
@@ -187,14 +187,14 @@
 <!-- DataTables -->
 <script src="<?php echo base_url('assets/');?>bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.colVis.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/jszip.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/pdfmake.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/vfs_fonts.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/buttons.print.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/js/buttons.colVis.min.js"></script>
 <!-- Owl Carousel -->
 <script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 
