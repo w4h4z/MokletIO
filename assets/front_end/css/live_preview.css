@@ -69,7 +69,6 @@ hr{
 .intro1-content{
   text-align: justify;
   overflow: hidden;
-  padding-top: 
   margin:0;
   padding-top: 7%;
 }
@@ -77,6 +76,7 @@ hr{
 .intro1-desc{
   max-width: 50%;
   float: left;
+  word-wrap: break-word;
 }
 .intro1-desc p {
   font-family: calibri;
