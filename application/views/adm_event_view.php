@@ -1,3 +1,10 @@
+  
+<style>
+  .intro1-desc blockquote {
+    padding-left: 1.5rem;
+    border-left: 5px solid red/*<?php echo $data->SECONDARY_COLOR; ?>*/;
+  }
+</style>
   <section class="content-header">
       <h1>
         Event
@@ -135,6 +142,7 @@
           </div>
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-info" id="btnlivePreview">Preview</button>
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
           <button type="submit" class="btn btn-primary">Save</button>
         </form>
@@ -143,7 +151,60 @@
     </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <!-- End Bootstrap modal -->
-    
+
+
+
+    <!-- Modal -->
+<div id="modal-livePreview" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Live review</h4>
+      </div>
+      <div class="modal-body" style="height: 500px;overflow-y: scroll;">
+        <div  class="section"><!-- Event -->
+          <div class="row">
+            <div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg')">
+              <div class="landing2-message">
+                <h1>Event Title</h1>
+                <h4>Event Subtitle is Here</h4>
+              </div>
+              <a class="ardown fa fa-angle-down" data-menuanchor="detail-event" href="#detail-event"></a>
+            </div>    
+          </div>
+        </div>
+        <div class="row section" id="explain2">
+          <div class="intro1">
+            <div class="intro1-message">
+              <p class="mini-title">mini-title</p>
+              <h1>Detail Title</h1>
+              <hr>
+              <h4>Detail-subtitle</h4>
+            </div>
+            <div class="intro1-content">
+              <div class="intro1-desc">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                <blockquote>This is Description</blockquote>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
+              </div>
+              <div class="intro1-img">
+                <img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <?php 
 foreach ($event as $data) {
   echo '
@@ -169,8 +230,20 @@ foreach ($event as $data) {
 }
 
 ?>
-
+  
     <script type="text/javascript">
+
+      jQuery(document).ready(function() {
+        $('#btnlivePreview').click(function() {
+          $event_title= $([name=""])
+          $event_subtitle=
+          $detail_title =
+          $detail_subtitle =
+          $description=
+           $('#modal-livePreview').modal();
+        });
+
+      });
       function confirmDelete() {
         var txt;
         var r = confirm("Are you sure want to Delete?");
