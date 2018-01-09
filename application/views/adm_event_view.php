@@ -238,17 +238,69 @@ foreach ($event as $data) {
   echo '
       <!-- Bootstrap modal -->
     <div class="modal fade" id="modal_edit'.$data->ID_EVENT.'" role="dialog">
-    <div class="modal-dialog" style="z-index:100">
+    <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h3 class="modal-title">Edit Event</h3>
         </div>
         <div class="modal-body form">
-          
+          <form action="'.base_url().'event/editEvent/'.$data->ID_EVENT.'" id="formEvent" class="form-horizontal" method="post" enctype="multipart/form-data">
+          <div class="form-body">
+            <div class="form-group">
+              <label class="control-label col-md-3">Event Title</label>
+              <div class="col-md-9">
+                <input name="name" placeholder="Event Name" class="form-control" type="text" required value="'.$data->NAMA_EVENT.'">
+              </div>
             </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Sub Title</label>
+              <div class="col-md-9">
+                <input name="title" placeholder="Title" class="form-control" type="text" required value="'.$data->SUB_NAMA_EVENT.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Detail Name</label>
+              <div class="col-md-9">
+                <input name="detail" placeholder="Detail Name" class="form-control" type="text" required value="'.$data->NAMA_DETAIL.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Mini Name</label>
+              <div class="col-md-9">
+                <input name="miniName" placeholder="Mini Name" class="form-control" type="text" required value="'.$data->NAMA_MINI_TITLE.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Sub Detail Name</label>
+              <div class="col-md-9">
+                <input name="subName" placeholder="Sub Detail Name" class="form-control" type="text" required value="'.$data->SUB_NAMA_TITLE.'">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Desc Event</label>
+              <div class="col-md-9">
+                <textarea class="form-control" placeholder="Desc" name="desc" required style="height:150px">'.$data->DESC_DETAIL.'</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Banner Photo</label>
+              <div class="col-md-9">
+                <input name="photoBanner" class="form-control" type="file" id="imgInp">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Poster Photo</label>
+              <div class="col-md-9">
+                <input name="photoPoster" class="form-control" type="file" id="imgInp1">
+              </div>
+            </div>
+          </div>
+        </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-primary">Save</button>
+              </form>
             </div>
           </div><!-- /.modal-content -->
         </div><!-- /.modal-dialog -->
@@ -256,8 +308,8 @@ foreach ($event as $data) {
     <!-- End Bootstrap modal -->
   ';
 }
-
 ?>
+
   
     <script type="text/javascript">
       //CKEDITOR.replace( 'detail_desc' );
