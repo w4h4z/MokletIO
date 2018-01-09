@@ -25,6 +25,10 @@
 	.nav-active{
 		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?>
 	}
+	blockquote {
+		padding-left: 1.5rem;
+ 		border-left: 5px solid <?php echo $data->SECONDARY_COLOR; ?>;
+	}
 	.nav-onscroll{
 		color: #222222 !important;
 	}
@@ -49,6 +53,9 @@
 
 	.schedule-navigation a:hover{
 	  border-bottom: 2px solid <?php echo $data->SECONDARY_COLOR; ?>;
+	}
+	.schedule-navigation-active{
+	  border-bottom: 2px solid <?php echo $data->SECONDARY_COLOR; ?>!important;
 	}
 	/*
 	html , body{
@@ -358,10 +365,6 @@
 
 				<div class="schedule-content">
 					<div class="schedule-navigation">
-						<a href="">Table 1</a>
-						<a href="">Table 2</a>
-						<a href="">Table 3</a>
-						<a href="">Table 4</a>
 					</div>
 
 					<table class="schedule-table" id="schedule">
@@ -380,9 +383,6 @@
 								<td><?php echo $anggota->ANGKATAN_MEMBER ?></td>
 							</tr>
 						<?php $a++; endforeach ?>
-						<tr>
-							<td><?php echo $jumlahAnggota ?></td>
-						</tr>
 						
 					</table>
 				</div>
@@ -452,27 +452,41 @@
 
 
 <script>
-
-	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
-
-var jumlahAnggota =10
-	var jumlahTabel = jumlahAnggota / 10;
-	var currentTabel = 1;
-	var i;
-	alert(jumlahTabel)
-	for(i ==1; i < jumlahAnggota; i++){
-		/*if (i <= currentTabel*10) {
-			//$(' .schedule-table tbody tr:nth-child('+i+')').addClass('bro')
-			alert("message?: DOMString")
-		}else{
-			$(' .schedule-table tbody tr:nth-child('+i+')').css('display', 'none');
-		}*/
-		alert(i)
-	}
 $(document).ready(function() {
 	
+	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
 
-			$(' .schedule-table tbody tr:nth-child(1)').addClass('bro')
+
+	/*SCHEDULE */
+	var jumlahAnggota ="<?php echo $jumlahAnggota ?>"
+	var jumlahTabel = (jumlahAnggota / 7)+1;
+	var currentTabel = 1;
+	var i;
+	for(i =1; i <= jumlahAnggota; i++){
+		if (i <= currentTabel*7) {
+			$(' .schedule-table tbody tr:nth-child('+i+')').addClass('tabel-'+currentTabel)
+		}else{
+			currentTabel++;
+			$(' .schedule-table tbody tr:nth-child('+i+')').addClass('tabel-'+currentTabel)
+		}
+	}
+	//untuk mengatur navigasi
+	for(i = 2; i <= jumlahTabel+1; i++){
+		$('.tabel-'+i).css('display', 'none');;
+		$('.schedule-navigation').append('<a href="" id="member-nav'+(i-1)+'">Tabel '+(i-1)+'</a>');
+	}
+	$('#member-nav1').addClass('schedule-navigation-active');
+	// koding untuk memfungsikan schedule-naigation
+	$('[id*="member-nav"]').click(function(event) {
+		event.preventDefault();
+		$id = $(this).attr('id').slice(-1);
+		$('[id*="member-nav"]').removeClass('schedule-navigation-active')
+		$(this).addClass('schedule-navigation-active')
+		$('[class*="tabel-"]').fadeOut('400');
+		$('.tabel-'+$id).fadeIn('400');
+	});
+
+/*FULLPAGE JS*/
     $('#fullpage').fullpage({
         menu: '#menu',
         anchors: ['home', 'home-explain', 'event', 'detail-event', 'past-event', 'picture-gallery', 'form', 'member', 'about'],
@@ -481,13 +495,13 @@ $(document).ready(function() {
 		afterResponsive: function(isResponsive){
 			
 		}
-    });
+    });/*SCHEDULE*/
 
 
-	$('.dont-return').click(function(e){
+/*	$('.dont-return').click(function(e){
 		    e.preventDefault();
 		    $.fn.fullpage.moveTo($(this).attr('href').replace('#', ''));
-		});
+		});*/
 
 	$(document).ready(function() {
 	  $("#owl-home").owlCarousel({

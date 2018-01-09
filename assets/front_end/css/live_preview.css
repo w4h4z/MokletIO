@@ -1,0 +1,110 @@
+.mini-title{
+  font-size: 0.8em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: calibri;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+hr{
+  border:none;
+  height: 7px;
+  width: 10%;
+  margin: auto;
+  margin-bottom: 10px;
+  margin-top: 7px;
+}
+/* LANDING 2 */
+.landing2{
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+.landing2-message {
+  padding: 17% 5% 15% 5%;
+}
+.landing2-message h1{
+  color: white;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-size: 4em;
+  margin: 0;
+}
+.landing2-message h4{
+  color: white;
+  font-weight: 300;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.5em;
+}
+.landing2-message a{
+  margin-top: 5%;
+}
+
+/* INTRO 1 */
+.intro1{
+  text-align: center;
+  background-size: cover;
+  background-position: center center;
+  padding-top: 10%;
+  padding-right: 15%;
+  padding-bottom: 10%;
+  padding-left: 15%;
+}
+.intro1-message h1{
+  font-size: 3em;
+  margin: 0;
+}
+.intro1-message h4{
+  font-weight: 300;
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.intro1-content{
+  text-align: justify;
+  overflow: hidden;
+  padding-top: 
+  margin:0;
+  padding-top: 7%;
+}
+
+.intro1-desc{
+  max-width: 50%;
+  float: left;
+}
+.intro1-desc p {
+  font-family: calibri;
+  font-size: 1.3em;
+}
+
+
+.intro1-desc p:first-child:first-letter{
+  float: left;
+  font-size: 3em;
+  line-height: 0.5;
+  font-weight: bold;
+  margin-right: 1%;
+  margin-top: 2%;
+  text-shadow: 1px 1px 2px black;
+}
+.intro1-img{
+  padding: 3% 0% 5% 5%;
+  width: 50%;
+  text-align: center;
+  float: left;
+
+}
+
+.ardown{
+  color: white;
+  padding: 10px !important;
+  text-decoration: none;
+  z-index: 200;
+  text-decoration: none;
+}

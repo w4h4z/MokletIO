@@ -1075,7 +1075,7 @@ and (max-device-width : 480px) {
     font-size: 0.8em;
   }
 
-  .intro1-message h1, .intro2-message h1, .schedule-message h1, .about-message h1,  .picture-gallery-message h1 , .speaker-message h1, .form-message h1{
+  .intro1-message h1, .intro2-message h1, .owl-caption h1 , .schedule-message h1, .about-message h1,  .picture-gallery-message h1 , .form-message h1{
     font-size: 1.7em;
   }
   .intro1-message h4, .intro2-message h4, .schedule-message h4, .about-message h4, .picture-gallery-message h4, .speaker-message h4, .form-message h4{
@@ -1163,9 +1163,9 @@ and (max-device-width : 480px) {
   #carousel{
     display: none;
   }
-  .owl-caption h1{
+/*  .owl-caption h1{
       font-size: 2em;
-  }
+  }*/
   .owl-caption h4{
       font-size: 0.7em;
     margin: 10px 0px 10px 0px;

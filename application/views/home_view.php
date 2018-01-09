@@ -529,13 +529,7 @@
 
 	    }
   	});
-  	if (Modernizr.mq('(max-width: 767px)')) {
-  		$('#mainNav').css('background-color', 'red');
-	} else {
-
-  		$('#mainNav').css('background-color', 'blue');
-	}
-
+  	
 
 	//Modal
 
