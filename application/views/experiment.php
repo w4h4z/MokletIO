@@ -450,6 +450,43 @@
 				<a href="">&copy; 2018 SMK Telkom Malang</a>		
 			</div>
 		</div>
+
+			<div class="modal-background">
+			<div class="modal">
+				<div class="modal-header">
+					<p class="modal-title">Past Event</p>				
+					<span class="modal-close">&times;</span>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="modal-intro1">
+							<div class="modal-intro1-message">
+								<p class="mini-title">THE Commander</p>
+								<h1>Abel Lagi</h1>
+								<hr>
+								<h4>Komandan Pasukan Pengibar Bendera 2018</h4>
+							</div>
+							<div class="modal-intro1-content">
+								<div class="modal-intro1-img">
+									<img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="">
+								</div>
+								<div class="modal-intro1-desc">
+									<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
+									Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
+									<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
+									<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+
+									<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
+									Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
+									<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
+									<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
