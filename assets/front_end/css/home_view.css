@@ -70,6 +70,104 @@ hr{
   display: block;
 }
 
+
+/*PREELOADER*/
+#preloader{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding-top: 20%;
+    padding-bottom: 20%;
+    background-image: -webkit-linear-gradient(to bottom right, #222222, #000000, #222222);
+      background-image:    -moz-linear-gradient(to bottom right, #222222, #000000, #222222);
+        background-image:     -ms-linear-gradient(to bottom right, #222222, #000000, #222222);
+        background-image:      -o-linear-gradient(to bottom right, #222222, #000000, #222222);
+      background-image:         linear-gradient(to bottom right, #222222, #000000, #222222);
+    z-index: 1000;
+    -webkit-transition: all 1s ease;
+       -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+         -o-transition: all 1s ease;
+            transition: all 1s ease;
+  }
+  .loader-title{
+    display: block;
+    overflow: auto;
+    padding-left: 34%;
+    padding-right: 34%;
+  }
+  .loader-group{
+    float: left;
+    overflow: auto;
+  }
+  #loader-circle {
+    border: 10px solid #CFCFCF;
+    border-radius: 50%;
+    border-top: 10px solid #890108;
+    width: 80px;
+    position: absolute;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+    float: left
+  }
+  #loader-circle-mini {
+    border: 10px solid #CFCFCF;
+    border-radius: 50%;
+    border-top: 10px solid #890108;
+    width: 50px;
+    position: absolute;
+    height: 50px;
+    margin: 15px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin_left 2s linear infinite;
+    float: left
+  }
+  #preloader h1{
+    color: #CFCFCF;
+    font-family: aharoni;
+    font-size: 6em;
+    float: left;
+    margin: 0px;
+    text-shadow: -10px 0px 10px black; 
+  }
+  #preloader p{
+    color: white;
+    font-family: caibri;
+    font-style: italic;
+    font-weight: lighter;
+    font-size: 1em;
+    text-align: center;
+    margin: 0px;
+    display: block;
+  }
+  .load-success{
+    height: 0% !important;
+    overflow: hidden !important;
+    padding: 0% !important;
+  }
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @-webkit-keyframes spin_left {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(-360deg); }
+  }
+
+  @keyframes spin_left {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+
+
 /* LANDING */
 .landing1{
   text-align: center;
@@ -751,6 +849,7 @@ hr{
 
 .footer{
   text-align: center;
+  overflow: hidden;
 }
 .footer a{
   display: inline-block;
@@ -1065,6 +1164,39 @@ and (max-device-width : 480px) {
     width: 50% !important;
     margin-top: 50px !important;
   }
+  /*PRELOADER*/
+    #preloader{
+        padding-top: 70%;
+      padding-bottom: 40%;
+    }
+    .loader-title{
+      padding-left: 21%;
+      padding-right: 21%;
+    }
+    #loader-circle {
+      border: 4px solid #CFCFCF;
+      border-top: 4px solid #890108;
+      width: 35px;
+      height: 35px;
+    }
+    #loader-circle-mini {
+      border: 4px solid #CFCFCF;
+      border-top: 4px solid #890108;
+      width: 21px;
+      height: 21px;
+      margin: 7px;
+    }
+    #preloader h1{
+      color: #CFCFCF;
+          font-family: aharoni;
+      font-size: 2.5em;
+      float: left;
+      margin: 0px;
+      text-shadow: -10px 0px 10px black; 
+    }
+    #preloader p{
+      font-size: 0.7em;
+    }
  
   .landing1-message h1 , .landing2-message h1 {
     font-size: 2em;
@@ -1364,6 +1496,39 @@ and (max-device-width : 768px) {
     margin-top: 3px !important;
   }
 
+
+
+    /*PRELOADER*/
+
+    #preloader{
+        padding-top: 20%;
+      padding-bottom: 20%;
+    }
+    .loader-title{
+      padding-left: 29%;
+      padding-right: 29%;
+    }
+    #loader-circle {
+      border: 7px solid #CFCFCF;
+      border-top: 7px solid #890108;
+      width: 55px;
+      height: 55px;
+    }
+    #loader-circle-mini {
+      border: 7px solid #CFCFCF;
+      border-top: 7px solid #890108;
+      width: 31px;
+      height: 31px;
+      margin: 12px;
+    }
+    #preloader h1{
+      color: #CFCFCF;
+          font-family: aharoni;
+      font-size: 4em;
+      float: left;
+      margin: 0px;
+      text-shadow: -10px 0px 10px black; 
+    }
 
   /* Landing */
 

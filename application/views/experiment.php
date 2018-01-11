@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow:hidden;">
 <head>
 <meta charset=utf-8>
 <meta name=description content="">
@@ -158,7 +158,17 @@
 
 
 </style>
-<body style="background-color: <?php echo $data->PRIMARY_COLOR; ?>;;">
+<body style="background-color: <?php echo $data->PRIMARY_COLOR; ?>;overflow:hidden;">
+	<div id="preloader">
+		<div class="loader-title">
+			<h1 style="margin-right:10px">Loading </h1>
+			<div class="loader-group">
+				<div id="loader-circle" style="border-top-color:<?php echo $data->SECONDARY_COLOR;?>"></div>
+				<div id="loader-circle-mini" style="border-top-color:<?php echo $data->SECONDARY_COLOR;?>"></div>
+			</div>
+		</div>
+		<p><?php echo $data->NAMA_SUB; ?></p>
+	</div>
 	<nav class="navigation" id="mainNav">
 		<ul class="navbar-responsive">
 		    <li><a href=""><?php echo $data->SINGKATAN_SUB; ?></a></li>
@@ -452,6 +462,16 @@
 
 
 <script>
+	$(window).on('load', function(){ 
+		setTimeout(function(){
+			$('#preloader').delay(4000).addClass('load-success');
+			setTimeout(function(){
+				//$('html').attr('style', '');
+			}, 1000);
+		 }, 3000);
+	});
+
+
 $(document).ready(function() {
 	
 	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
@@ -498,12 +518,7 @@ $(document).ready(function() {
     });/*SCHEDULE*/
 
 
-/*	$('.dont-return').click(function(e){
-		    e.preventDefault();
-		    $.fn.fullpage.moveTo($(this).attr('href').replace('#', ''));
-		});*/
 
-	$(document).ready(function() {
 	  $("#owl-home").owlCarousel({
 	      slideSpeed : 1000,
 	      paginationSpeed : 1000,
@@ -522,8 +537,6 @@ $(document).ready(function() {
 	  });
 	  var owl = $('.owl-carousel');
 	owl.owlCarousel();
-	});
-
 
 	//Navigasi
 

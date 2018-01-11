@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="overflow:hidden;">
 <head>
 <meta charset=utf-8>
 <meta name=description content="">
@@ -102,16 +102,19 @@
 	  background-image:      -o-linear-gradient(top, #222222, #323232);
 	  background-image:         linear-gradient(top, #222222, #323232);
 	}
-	
-		/* INTRO 1 */
-	
-/*	.feature-icon span {
-	  color: red !important; 
-	}*/
-
 
 </style>
 <body>
+	<div id="preloader">
+		<div class="loader-title">
+			<h1>MokletI</h1>
+			<div class="loader-group">
+				<div id="loader-circle"></div>
+				<div id="loader-circle-mini"></div>
+			</div>
+		</div>
+		<p>Loading your web page</p>
+	</div>
 	<nav class="navigation">
 		<ul class="navbar-responsive">
 		    <li><a href="">Telkom School</a></li>
@@ -125,7 +128,7 @@
 	     --><li><a href="#">MPK</a></li><!--
 	     --><li><a href="#">DA</a></li><!--
 	     --><li><a href="pustel.html">Pustel</a></li><!--
-	     --><li id="sub"><a href="#">Sub Organisasi <span class="fa fa-caret-down"></span></a>
+	     --><li id="sub"><a>Sub Organisasi <span class="fa fa-caret-down"></span></a>
 	     		<div class="dropdown">
 	     		    <a href="<?php echo base_url('index.php/page/sub_index/BDI') ?>">BDI</a>
 	     		    <a href="paskibra.html">Paskibra</a>
@@ -411,8 +414,17 @@
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 <script>
+
+$(window).on('load', function(){ 
+	setTimeout(function(){
+		$('#preloader').delay(4000).addClass('load-success');
+		setTimeout(function(){
+			$('html').attr('style', '');
+		}, 1000);
+	 }, 3000);
+});
+
 $(document).ready(function() {
- 
   $("#owl-home").owlCarousel({
       slideSpeed : 1000,
       paginationSpeed : 1000,
@@ -466,6 +478,14 @@ $(window).scroll(function() {
     	$('.dropdown > a').removeClass('dropdown-onscroll');
 
     }
+	});
+	$('#sub').hover(function() {
+		$('nav').addClass('nav-scroll');
+		$('.navbar-nav li:not(#sub) > a:not(.nav-brand)').addClass('nav-onscroll');
+    	$('.dropdown > a').addClass('dropdown-onscroll');
+    	$('.navbar-nav li:first-Child').addClass('brand-scroll');
+	}, function() {
+
 	});
 
 	///modal

@@ -25,7 +25,7 @@
   <!-- DataTables -->
   <link rel="stylesheet" href="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"> -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/');?>bower_components/datatables.net-bs/css/buttons.dataTables.min.css">
   <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="<?php echo base_url('assets/');?>bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css">
 
