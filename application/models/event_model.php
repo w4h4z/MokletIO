@@ -3,10 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Event_model extends CI_Model {
 
-	public function getEvent()
+	public function getEvent($id_sub)
 	{
 		$this->db->select('*')->from('event_sub')
+							  ->where('ID_SUB', $id_sub)
 							  ->join('detail_event', 'detail_event.ID_DETAIL=event_sub.ID_DETAIL');
+
 
 		return $this->db->get()->result();
 	}

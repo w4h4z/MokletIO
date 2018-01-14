@@ -72,14 +72,6 @@
 }
 
 
-.daftar{
-	float: right;
-}
-.daftar a{
-	cursor: pointer;
-	margin-top: 4px;
-}
-
 .navbar-nav li a.nav-brand{
 	background-color: transparent;
 	color: white;
@@ -144,6 +136,16 @@
 	max-height: 300px;
 }
 #sub a > span{
+	-webkit-transition: transform .3s linear;
+	   -moz-transition: transform .3s linear;
+	    -ms-transition: transform .3s linear;
+	     -o-transition: transform .3s linear;
+	        transition: transform .3s linear;
+}
+#organ:hover .dropdown{
+	max-height: 250px;
+}
+#organ a > span{
 	-webkit-transition: transform .3s linear;
 	   -moz-transition: transform .3s linear;
 	    -ms-transition: transform .3s linear;

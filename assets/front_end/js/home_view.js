@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
 	/* ANIMASI AWAL MUNCUL */
-	$('h3, hr, input, .intro1-img img, .intro1-desc > p, .speaker-img img ,  textarea').addClass("hidden").viewportChecker({
+	$('h3, hr, input, .intro1-img img, .speaker-photo, .intro1-desc > p, .speaker-img img ,  textarea').addClass("hidden").viewportChecker({
 	    classToAdd: 'visible animated fadeIn', // Class to add to the elements when they are visible
 	    offset: 100    
 	});
@@ -26,7 +26,7 @@ $(document).ready(function(){
 	    offset: 100    
 	});
 
-	$('.about-message p, .intro1-desc > blockquote').addClass("hidden").viewportChecker({
+	$('.about-message p, .intro1-desc > blockquote, .speaker-row:nth-child(even) .speaker-content ').addClass("hidden").viewportChecker({
 	    classToAdd: 'visible animated slideInLeft', // Class to add to the elements when they are visible
 	    offset: 0    
 	});
@@ -37,7 +37,7 @@ $(document).ready(function(){
 	});
 
 
-	$('.footer a , .footer span, .about-content img').addClass("hidden").viewportChecker({
+	$('.footer a , .footer span, .about-content img, .speaker-row:nth-child(odd) .speaker-content ').addClass("hidden").viewportChecker({
 	    classToAdd: 'visible animated slideInRight', // Class to add to the elements when they are visible
 	    offset: 0    
 	});

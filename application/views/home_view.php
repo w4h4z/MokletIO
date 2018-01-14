@@ -263,21 +263,11 @@
 					</div>
 				</div>
 				<div class="picture-gallery-content">
-					<div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div>
-					<div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div><div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div>
-
+					<!-- <div class="pct-container">
+						<?php foreach ($gallery as $gallerys): ?>
+							<img  src="<?php echo base_url(); ?>uploads/<?php echo $gallerys->FOTO_GAL?>" class="pct thumbnail" alt="">
+						<?php endforeach ?>
+					</div> -->
 				</div>
 			</div>
 		</div>

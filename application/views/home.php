@@ -123,26 +123,33 @@
 		    </button>
 		</ul>
 	    <ul class="navbar-nav">
-	        <li><a href="#" class="nav-brand">Telkom School</a></li>
-	        <li><a href="osis.html">OSIS</a></li><!--
-	     --><li><a href="#">MPK</a></li><!--
-	     --><li><a href="#">DA</a></li><!--
-	     --><li><a href="pustel.html">Pustel</a></li><!--
-	     --><li id="sub"><a>Sub Organisasi <span class="fa fa-caret-down"></span></a>
+	        <li><a href="#" class="nav-brand">Telkom School</a></li><!--
+	     --><li id="organ"><a>Sub Organisasi <span class="fa fa-caret-down"></span></a>
 	     		<div class="dropdown">
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/BDI') ?>">BDI</a>
-	     		    <a href="paskibra.html">Paskibra</a>
-	     		    <a href="palwaga.html">Palwaga</a>
-	     		    <a href="">PMR</a>
-	     		    <a href="">Comet</a>
-	     		    <a href="metic.html">Metic</a>
-	     		    <a href="">TSBC</a>
-	     		    <a href="">TSCC</a>
-	     		    <a href="">TSFC</a>
-	     		    <a href="">TSVC</a>
-	     		    <a href="mac.html">MAC</a>
-	     		    <a href="memo.html">Memo</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/BDI/moklet') ?>">BDI</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PASKIBRA/moklet') ?>">Paskibra</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PALWAGA/moklet') ?>">Palwaga</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PMR/moklet') ?>">PMR</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/COMET/moklet') ?>">Comet</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/METIC/moklet') ?>l">Metic</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TSBC/moklet') ?>">TSBC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TScC/moklet') ?>">TSCC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TSFC/moklet') ?>">TSFC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TSVC/moklet') ?>">TSVC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/MAC/moklet') ?>">MAC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/MEMO/moklet') ?>">Memo</a>
 	     		</div>
+	     	</li><!--
+	     --><li id="organ"><a>Organisasi <span class="fa fa-caret-down"></span></a>
+	     		<div class="dropdown">
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/OSIS/moklet') ?>">OSIS</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/MPK/moklet') ?>">MPK</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/DA/moklet') ?>">DA</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PUSTEL/moklet') ?>">PUSTEL</a>
+	     		</div>
+	     	</li><!-- 
+	     --><li>
+	     		<a href="<?php echo base_url('index.php/page/about') ?>">About</a>
 	     	</li>
 	    </ul>
 	</nav>
@@ -212,7 +219,7 @@
 		<div class="row">
 			<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/MokletLeague.jpg')">
 				<div class="landing2-message">
-					<h1>Moket League</h1>
+					<h1>Moklet League</h1>
 					<h4>Liga Futsal SMK Telkom Malang</h4>
 					<a href="www.google.com" class="button">
 						Standing
@@ -410,7 +417,7 @@ owl.owlCarousel();
 });
 
 //Scrolling ke id element
-var $root = $('html, body');
+/*var $root = $('html, body');
 $('a').click(function() {
     var href = $.attr(this, 'href');
     $root.animate({
@@ -420,7 +427,7 @@ $('a').click(function() {
     });
     return false;
 });
-
+*/
 //Navigasi
 $(window).scroll(function() {
 	
@@ -431,11 +438,11 @@ $(window).scroll(function() {
     		color: 'white',
     		border: '4px solid transparent'
     	});
-    	$('.navbar-nav li:not(#sub) > a:not(.nav-brand)').addClass('nav-onscroll');
+    	$('.navbar-nav li:not(#sub, #organ) > a:not(.nav-brand)').addClass('nav-onscroll');
     	$('.dropdown > a').addClass('dropdown-onscroll');
     } else {
     	$('nav').removeClass('nav-scroll');
-    	$('.navbar-nav li a:not(.nav-brand) , .navbar-nav li > a:not(#sub)').removeClass('nav-onscroll')
+    	$('.navbar-nav li a:not(.nav-brand) , .navbar-nav li > a:not(#sub, #organ)').removeClass('nav-onscroll')
     	$('.navbar-nav li > a:not(.nav-brand)').css('color' , '');
     	$('.navbar-nav li:first-Child').removeClass('brand-scroll');
     	$('.navbar-nav li > a:not(.nav-brand)').css('border-color' ,'transparent');
@@ -443,9 +450,9 @@ $(window).scroll(function() {
 
     }
 	});
-	$('#sub').hover(function() {
+	$('#sub, #organ').hover(function() {
 		$('nav').addClass('nav-scroll');
-		$('.navbar-nav li:not(#sub) > a:not(.nav-brand)').addClass('nav-onscroll');
+		$('.navbar-nav li:not(#sub, #organ) > a:not(.nav-brand)').addClass('nav-onscroll');
     	$('.dropdown > a').addClass('dropdown-onscroll');
     	$('.navbar-nav li:first-Child').addClass('brand-scroll');
 	}, function() {

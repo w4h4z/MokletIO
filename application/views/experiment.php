@@ -25,6 +25,10 @@
 	.nav-active{
 		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?>
 	}
+	.pagination-active{
+		background-color: #F7F7F7 !important;
+		color: <?php echo $data->SECONDARY_COLOR; ?> !important;
+	}
 	blockquote {
 		padding-left: 1.5rem;
  		border-left: 5px solid <?php echo $data->SECONDARY_COLOR; ?>;
@@ -90,8 +94,11 @@
 				.about, .schedule{
 					background-color: #212121>
 				}
-				.intro1-message, .intro1-desc, .mini-title:not(.mini-title-gallery), .schedule-table ,.about-message, .feature-content, .schedule-message, .schedule-, .schedule-navigation a, .footer a{
+				.intro1-message, .schedule-content , .intro1-desc, .mini-title:not(.mini-title-gallery, mini-title-form), .schedule-table ,.about-message, .feature-content, .schedule-message, .schedule-navigation a, .footer a{
 					color: #222222 !important ;
+				}
+				.form-message{
+					color: #C5C5C5 !important ;
 				}
 				.schedule-table tr{
 				  background-image: -webkit-linear-gradient(top, #DEDEDE, #BDBDBD);
@@ -121,11 +128,17 @@
 	  	  		.footer{
 					background-color: #1A1A1A;
 				}
+				.form-message{
+					color: #C5C5C5 !important ;
+				}
 				.about, .schedule{
 					background-color: #212121>
 				}
-				.intro1-message, .intro1-desc, .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
+				.intro1-message, .schedule-content , .intro1-desc, .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
 					color: #C5C5C5 !important ;
+				}
+				.mini-title-gallery{
+					color: white !important;
 				}
 				.schedule-table tr{
 				  background-image: -webkit-linear-gradient(top, #323232, #222222);
@@ -188,7 +201,7 @@
 	<div class="container" id="fullpage">
 
 		<div class="row section">
-			<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra6.jpg')">
+			<div class="landing2" style="background-image: url('<?php echo base_url('uploads/').$data->FOTO_HEADER_SUB; ?>')">
 				<div class="landing2-message">
 					<h1><?php echo $data->NAMA_SUB; ?></h1>
 				</div>
@@ -198,30 +211,27 @@
 		<div class="row section">
 			<div class="intro1">
 				<div class="intro1-message">
-					<p class="mini-title">THE chairman</p>
-					<h1>Abel Bima Wiratama</h1>
+					<p class="mini-title"><?php echo $data->SINGKATAN_SUB; ?></p>
+					<h1><?php echo $data->NAMA_SUB ?></h1>
 					<hr>
-					<h4>Ketua PASKIBRA Periode 2018/2019</h4>
+					<h4>Sub Organisasi SMK Telkom Malang</h4>
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-						Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-						<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-						<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+						<?php echo $data->DESC_SUB ?>
 					</div>
 					<div class="intro1-img">
-						<img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="">
+						<img src="<?php echo base_url('uploads/').$data->LOGO_SUB; ?>" class="img-responsive thumbnail" alt="">
 					</div>
 				</div>
 			</div>
 		</div>
 		<div  class="section"><!-- Event -->
 			<div class="row">
-				<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg')">
+				<div class="landing2" style="background-image: url('<?php echo base_url('uploads/').$event->BANNER_DETAIL; ?>')">
 					<div class="landing2-message">
-						<h1>Pengibaran 2018</h1>
-						<h4>lorem ipsum dolor sit amet monggo sampean terusno aku ora apal bos</h4>
+						<h1><?php echo $event->NAMA_EVENT ?></h1>
+						<h4><?php echo $event->SUB_NAMA_EVENT ?></h4>
 					</div>
 					<a class="ardown fa fa-angle-down" data-menuanchor="detail-event" href="#detail-event"></a>
 				</div>		
@@ -230,20 +240,17 @@
 		<div class="row section" id="explain2">
 			<div class="intro1">
 				<div class="intro1-message">
-					<p class="mini-title">THE Commander</p>
-					<h1>Abel Lagi</h1>
+					<p class="mini-title"><?php echo $event->NAMA_MINI_TITLE ?></p>
+					<h1><?php echo $event->NAMA_DETAIL ?></h1>
 					<hr>
-					<h4>Komandan Pasukan Pengibar Bendera 2018</h4>
+					<h4><?php echo $event->SUB_NAMA_TITLE ?></h4>
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-						Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-						<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-						<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+						<?php echo '<p>'.$event->DESC_DETAIL.'</p>' ?>	
 					</div>
 					<div class="intro1-img">
-						<img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="">
+						<img src="<?php echo base_url('uploads/').$event->POSTER_DETAIL; ?>" class="img-responsive thumbnail" alt="">
 					</div>
 				</div>
 			</div>
@@ -280,30 +287,20 @@
 		</div>
 		<div class="row section"><!-- Picture Gallery -->
 			<div class="picture-gallery">
-				<div>
-					<div class="picture-gallery-message">
-						<p class="mini-title mini-title-gallery">DOKUMENTASI</p>
-						<h1>Pengibaran</h1>
-							<hr class="hr-gallery">
-						<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>
-					</div>
+				<div class="picture-gallery-message">
+					<p class="mini-title mini-title-gallery">DOKUMENTASI</p>
+					<h1><?php echo $data->NAMA_SUB?></h1>
+						<hr class="hr-gallery">
+					<h4>Dokumentasi Kegiatan <?php echo $data->NAMA_SUB?></h4>
 				</div>
 				<div class="picture-gallery-content">
-					<div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div>
-					<div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div><div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div>
+					<div class="picture-gallery-content">
+						<div class="pct-container">
 
+						</div>
+						<div class="gallery-pagination">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -311,7 +308,7 @@
 		<div class="row section">
 			<div class="form-pendaftaran">
 				<div class="form-message">
-					<p class="mini-title">PASKIBRA</p>
+					<p class="mini-title mini-title-form">PASKIBRA</p>
 					<h1>Form Pendaftaran Anggota</h1>
 						<hr>
 					<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>
@@ -402,11 +399,11 @@
 			<div class="about">
 				<div class="about-message">
 					<span class="mini-title">about</span>
-					<h1>Paskibra
+					<h1><?php echo $data->NAMA_SUB ?>
 					</h1>
 						<hr>
 					<p>
-						&emsp; Satuan Paskibra Telkom School Malang adalah  sub organ yg bergerak di bidang Kepaskibraan yang dibawah Osis SMK Telkom Malang, sub ini dibimbing dan dilatih oleh Gilang Agung Prabowo. <br>&emsp;Satuan kami menggunakan skep Perpang tahun 2014 yang sibuat oleh TENTARA NASIONAL INDONESIA PERATURAN PANGLIMA TENTARA NASIONAL INDONESIA NOMOR 46 TAHUN 2014.
+						&emsp; <?php echo $data->DESC_SUB ?>
 					</p>
 				</div>
 				<div class="about-content">
@@ -414,35 +411,17 @@
 				</div>
 			</div>
 			<div class="feature">
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-calendar fa-3x"></span>
+				<?php foreach ($feature as $features): ?>
+					<div class="feature-item">
+						<div class="feature-icon">
+							<span class="fa <?php echo $features->ICON_FEATURE ?> fa-3x"></span>
+						</div>
+						<div class="feature-content">
+							<h4><?php echo $features->NAMA_FEATURE ?></h4>
+							<p> <?php echo $features->DESC_FEATURE ?></p>
+						</div>
 					</div>
-					<div class="feature-content">
-						<h4>Leadership</h4>
-						<p> kami juga mengajarkan cara menjadi seorang leader yang memiliki sifat sopan, santun, ramah, selalu siap dan juga cekatan dalam berbagai situasi</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-comments fa-3x"></span>
-					</div>
-
-					<div class="feature-content">
-						<h4>Q&A Sessions</h4>
-						<p>Would you like to have the Psd file of this Template? Sure! You can download it too.</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-volume-up fa-3x"></span>
-					</div>
-
-					<div class="feature-content">
-						<h4>Live Training</h4>
-						<p>Do you like the dual tone effect on the images? Download that too!</p>
-					</div>
-				</div>
+				<?php endforeach ?>
 			</div>
 		</div>
 		<div class="row">
@@ -451,7 +430,7 @@
 			</div>
 		</div>
 
-			<div class="modal-background">
+		<div class="modal-background">
 			<div class="modal">
 				<div class="modal-header">
 					<p class="modal-title">Past Event</p>				
@@ -501,18 +480,59 @@
 <script>
 	$(window).on('load', function(){ 
 		setTimeout(function(){
-			$('#preloader').delay(4000).addClass('load-success');
+			$('#preloader').addClass('load-success');
 			setTimeout(function(){
 				//$('html').attr('style', '');
 			}, 1000);
-		 }, 3000);
+		 }, 1000);
 	});
 
 
 $(document).ready(function() {
-	
-	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
+	/*PAGINATION*/
+	$current_page = 1;
+	$gallery_totalrow = <?php echo $jumlahGallery; ?>;
+	$gallery_totalPage = ($gallery_totalrow/9); /// JUMLAH RECORD PER PAGE
+	galleryPagination(0);
+	for (var i = 1; i <= $gallery_totalPage+2; i++) {
+	 		$('.gallery-pagination').append('<a id="gallery-nav-'+(i-1)+'">'+i+'</a>');
+	 }
+	 $('#gallery-nav-0').addClass('pagination-active')
+	function galleryPagination(start){
+		 $('.pct-container').load("<?php echo site_url('index.php/page/galleryPagination/')?>",{
+		 startPage: start},
+		 	function(){
+		 		animateImg()
+		 });
+		
+	}
+	function animateImg(){
+		$('.pct-container img').addClass("hideme").viewportChecker({
+			    classToAdd: 'visible animated fadeInDownBig', // Class to add to the elements when they are visible
+			    offset: -20    
+		});
+	}
+	/*MEMFUNGSIKAN NAVIGASI*/
+	$('.gallery-pagination a').click(function(event) {
+		event.preventDefault();
+		$start = $(this).attr("id").slice(-1) * 9;
+		$('[id*="gallery-nav"]').removeClass('pagination-active');
+		$(this).addClass('pagination-active')
+		galleryPagination($start);
+	});
 
+
+
+
+
+
+
+
+
+
+
+
+	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
 
 	/*SCHEDULE */
 	var jumlahAnggota ="<?php echo $jumlahAnggota ?>"

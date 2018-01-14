@@ -2,7 +2,6 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Dashboard extends CI_Controller {
-
 	public function __construct()
 	{
 		parent::__construct();
@@ -87,7 +86,7 @@ class Dashboard extends CI_Controller {
 			$data['main_view'] = 'adm_event_view';
 			$data['sub'] = $this->dashboard_model->getSubById($id);
 			$data['account'] = $this->auth_model->getAccount($id);
-			$data['event'] = $this->event_model->getEvent();
+			$data['event'] = $this->event_model->getEvent($data['sub']->ID_SUB);
 			$this->load->view('adm_template', $data);
 		} else {
 			redirect('auth');

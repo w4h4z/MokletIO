@@ -92,7 +92,7 @@
                     <td>'.$data->NAMA_EVENT.'</td>
                     <td style="max-width:100px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">'.$data->DESC_DETAIL.'</td>
                     <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail_'.$data->ID_EVENT.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
-                                      <button class="btn btn-warning btn-sm edit" data-toggle="modal" id="modal1" ><span class="glyphicon glyphicon-pencil"></span></button>
+                                      <button class="btn btn-warning btn-sm edit" data-toggle="modal" id="modal1"  data-target="#modal_edit_'.$data->ID_EVENT.'"><span class="glyphicon glyphicon-pencil"></span></button>
                                       <a href="'.base_url('/event/deleteEvent/').''.$data->ID_DETAIL.'/'.$data->ID_EVENT.'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a></td>
                   </tr>
                   ';
@@ -281,11 +281,12 @@
     </div>
 <?php endforeach ?>
 
+
 <?php 
 foreach ($event as $data) {
   echo '
       <!-- Bootstrap modal -->
-    <div class="modal fade" id="modal_edit'.$data->ID_EVENT.'" role="dialog">
+    <div class="modal fade" id="modal_edit_'.$data->ID_EVENT.'" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -328,7 +329,7 @@ foreach ($event as $data) {
             <div class="form-group">
               <label class="control-label col-md-3">Desc Event</label>
               <div class="col-md-9">
-                <textarea class="form-control" placeholder="Desc" name="desc" required style="height:150px">'.$data->DESC_DETAIL.'</textarea>
+                <textarea class="form-control ckeditor" placeholder="Desc" name="desc" required style="height:150px">'.$data->DESC_DETAIL.'</textarea>
               </div>
             </div>
             <div class="form-group">

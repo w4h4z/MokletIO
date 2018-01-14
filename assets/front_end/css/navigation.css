@@ -141,6 +141,7 @@
 	     -o-transition: transform .3s linear;
 	        transition: transform .3s linear;
 }
+
 .caret-down{
 	-webkit-transform: rotate(90deg);
 	   -moz-transform: rotate(90deg);
@@ -214,6 +215,9 @@ and (max-device-width : 768px) {
 		display: block;
 	}
 	#sub:hover .dropdown{
+		max-height: 250px;
+	}
+	#organ:hover .dropdown{
 		max-height: 250px;
 	}
 	.dropdown a{

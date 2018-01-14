@@ -8,12 +8,12 @@ $(document).ready(function(){
 	});
 	
 
-	$('.intro1-message h1, .form-message h1 , .intro2-message h1 , .about-message h1, landing2-message h1, .picture-gallery-message h1, .landing2-message h1, .slide-show-message h1, .speaker-message h1, .speaker-desc h1').addClass("hidden").viewportChecker({
+	$('.intro1-message h1, .speaker-content h1, .form-message h1 , .intro2-message h1 , .about-message h1, landing2-message h1, .picture-gallery-message h1, .landing2-message h1, .slide-show-message h1, .speaker-message h1, .speaker-desc h1').addClass("hidden").viewportChecker({
 	    classToAdd: 'visible animated bounceIn', // Class to add to the elements when they are visible
 	    offset: 0    
 	});
 
-	$('.footer a , .footer span').addClass("hidden").viewportChecker({
+	$('.footer a , .footer span, .speaker-row:nth-child(odd)').addClass("hidden").viewportChecker({
 	    classToAdd: 'visible animated slideInRight', // Class to add to the elements when they are visible
 	    offset: 0    
 	});
