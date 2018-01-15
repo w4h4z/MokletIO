@@ -25,6 +25,8 @@ class Page extends CI_Controller {
 		$data['jumlahGallery'] = $this->Frontend_model->getJumlahGallery($this->id_sub);
 		$data['feature'] = $this->Frontend_model->getFeature($this->id_sub);
 		$data['event'] = $this->Frontend_model->getEvent($this->id_sub);
+		//event past
+		$data['eventPast'] = $this->Frontend_model->getLast3Event($this->id_sub);
 		$this->load->view('experiment', $data);
 
 		$front = array(
@@ -32,7 +34,6 @@ class Page extends CI_Controller {
 		);
 		
 		$this->session->set_userdata( $front );
-		 
 	}
 
 	public function about(){
@@ -50,9 +51,6 @@ class Page extends CI_Controller {
 		//echo json_encode($data);
 		//echo json_encode(array("status" => TRUE));
 	}
-
-
-	
 
 }
 

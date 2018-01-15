@@ -64,6 +64,10 @@
 <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js');?>"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
+
+<!-- Sweet Alert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 <script type="text/javascript">
   function login() {
     event.preventDefault();
@@ -76,17 +80,22 @@
       data : data,
       success: function(r) {
         if(r){
-          $('#success').slideUp();
+          /*$('#success').slideUp();
           $('#success').slideDown();
-          $('#failed').css('display','none');
+          $('#failed').css('display','none');*/
+
+          swal("Login Success", "You will redirect soon!", "success");
 
           setTimeout(function(){
             location.reload();
           },500);
         } else {
-          $('#failed').slideUp();
+          /*$('#failed').slideUp();
           $('#failed').slideDown();
-          $('#success').css('display','none');
+          $('#success').css('display','none');*/
+
+          swal("Login Failed", "Username or Password Wrong!", "error");
+          
         }
       }
     });
