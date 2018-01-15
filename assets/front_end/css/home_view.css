@@ -546,14 +546,19 @@ hr{
 .pct{
   display: inline-block;
   margin:10px;
-  max-width: 28%;
-  max-height: 28%;
+  width: 28%;
+  height: 280px;
+  background-size: cover;
+  background-size: cover;
+  background-position: center center;
   filter: grayscale(100%);
   -webkit-transition: filter .5s ease;
      -moz-transition: filter .5s ease;
       -ms-transition: filter .5s ease;
        -o-transition: filter .5s ease;
           transition: filter .5s ease;
+
+  box-shadow: 7px 7px 7px #222222;
 }
 .pct:hover{
   filter: grayscale(0%);
@@ -1433,9 +1438,10 @@ and (max-device-width : 480px) {
     padding: 0;
   }
   .pct{
-    max-width: 100%;
+    width: 100%;
+    display: block;
     margin: 0px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
 

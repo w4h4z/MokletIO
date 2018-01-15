@@ -44,7 +44,8 @@ class Page extends CI_Controller {
 		//echo $this->input->post('startPage');
 		$data = $this->Frontend_model->getGallery($this->input->post('startPage'));
 		foreach ($data as $Gallery) {
-				echo '<img  src="'. base_url(); ?>uploads/<?php echo $Gallery->FOTO_GAL.'" class="pct thumbnail" alt="no-image">';
+
+				echo '<div style="background-image:url('. base_url(); ?>uploads/<?php echo $Gallery->FOTO_GAL.')" class="pct"></div>';
 			}		
 			//$this->output->enable_profiler(TRUE);
 		//echo json_encode($data);

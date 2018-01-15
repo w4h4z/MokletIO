@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="overflow:hidden;">
+<html>
 <head>
 <meta charset=utf-8>
 <meta name=description content="">
@@ -203,7 +203,6 @@
 	    </ul>
 	</nav>
 	<div class="container" id="fullpage">
-
 		<div class="row section">
 			<div class="landing2" style="background-image: url('<?php echo base_url('uploads/').$data->FOTO_HEADER_SUB; ?>')">
 				<div class="landing2-message">
@@ -212,7 +211,7 @@
 				<a class="ardown fa fa-angle-down" data-menuanchor="home-explain" href="#home-explain"></a>
 			</div>		
 		</div>
-		<div class="row section">
+		<div class="row section" id="">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title"><?php echo $data->SINGKATAN_SUB; ?></p>
@@ -221,8 +220,7 @@
 					<h4>Sub Organisasi SMK Telkom Malang</h4>
 				</div>
 				<div class="intro1-content">
-					<div class="intro1-desc">
-						<?php echo $data->DESC_SUB ?>
+					<div class="intro1-desc" id="sub-desc">
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url('uploads/').$data->LOGO_SUB; ?>" class="img-responsive thumbnail" alt="">
@@ -230,7 +228,7 @@
 				</div>
 			</div>
 		</div>
-		<div  class="section"><!-- Event -->
+		<div  class="section" id="event"><!-- Event -->
 			<div class="row">
 				<div class="landing2" style="background-image: url('<?php echo base_url('uploads/').$event->BANNER_DETAIL; ?>')">
 					<div class="landing2-message">
@@ -241,7 +239,7 @@
 				</div>		
 			</div>
 		</div>
-		<div class="row section" id="explain2">
+		<div class="row section" id="detail-event">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title"><?php echo $event->NAMA_MINI_TITLE ?></p>
@@ -250,8 +248,7 @@
 					<h4><?php echo $event->SUB_NAMA_TITLE ?></h4>
 				</div>
 				<div class="intro1-content">
-					<div class="intro1-desc">
-						<?php echo $event->DESC_DETAIL ?>
+					<div class="intro1-desc" id="event-desc">
 
 					</div>
 					<div class="intro1-img">
@@ -299,18 +296,16 @@
 					<h4>Dokumentasi Kegiatan <?php echo $data->NAMA_SUB?></h4>
 				</div>
 				<div class="picture-gallery-content">
-					<div class="picture-gallery-content">
-						<div class="pct-container">
+					<div class="pct-container">
 
-						</div>
-						<div class="gallery-pagination">
-						</div>
+					</div>
+					<div class="gallery-pagination">
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="row section">
+		<div class="row section" id="form">
 			<div class="form-pendaftaran">
 				<div class="form-message">
 					<p class="mini-title mini-title-form">PASKIBRA</p>
@@ -366,7 +361,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row section">
+		<div class="row section" id="member">
 			<div class="schedule">
 				<div class="schedule-message">
 					<p class="mini-title"><?php echo $data->SINGKATAN_SUB; ?></p>
@@ -400,7 +395,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="row section">
+		<div class="row section" id="about">
 			<div class="about">
 				<div class="about-message">
 					<span class="mini-title">about</span>
@@ -412,7 +407,7 @@
 					</p>
 				</div>
 				<div class="about-content">
-					<img src="<?php echo base_url('uploads/').$data->FOTO_HEADER_SUB; ?>" class="img-responsive thumbnail" alt="">
+					<img src="<?php echo base_url('uploads/').$data->FOTO_HEADER_SUB; ?>" class="img-responsive" alt="">
 				</div>
 			</div>
 			<div class="feature">
@@ -479,7 +474,13 @@
 		  document.write('<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.fullpage.min.js"><\/script>');
 		  document.write('<script src="<?php echo base_url(); ?>assets/front_end/js/fullpage-home.js"><\/script>');
 		  $('body').css('overflow', 'hidden');
-		}
+		  $('#event').removeAttr('id');
+		  $('#form').removeAttr('id');
+		  $('#detail-event').removeAttr('id');
+		  $('#member').removeAttr('id');
+		  $('#home-explain').removeAttr('id');
+		  $('#about').removeAttr('id');
+		} 
 	</script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
@@ -500,6 +501,9 @@
 
 
 $(document).ready(function() {
+	/*LOADING DATA*/
+	$('#sub-desc').html('<?php echo $data->DESC_SUB ?>')
+	$('event-desc').html('<?php echo $event->DESC_DETAIL ?>')
 	/*PAGINATION*/
 	$current_page = 1;
 	$gallery_totalrow = <?php echo $jumlahGallery; ?>;
