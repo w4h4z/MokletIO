@@ -173,10 +173,7 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>MokletIO  so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-						Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-						<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-						<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p><blockquote>ut aliquip ex ea commodo consequat. Duis aute irure dolor</blockquote> <p>in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url(); ?>assets/front_end/images/alllogo.png" style="background-color: transparent;" class="img-responsive" alt="">
@@ -252,7 +249,7 @@
 					</h1>
 						<hr>
 					<p>
-						Make sure to visit the Instructions and Resources Page of this template to get the most of it. Don't forget that you can reach us in case you need help	
+						ut aliquip ex ea commodo consequat. Duis aute irure dolorut aliquip ex ea commodo consequat. Duis aute irure dolorut aliquip ex ea commodo consequat. Duis aute irure dolorut aliquip ex ea commodo consequat. Duis aute irure dolor
 					</p>
 				</div>
 				<div class="about-content">
@@ -266,7 +263,7 @@
 					</div>
 					<div class="feature-content">
 						<h4>Daily Workshop</h4>
-						<p>This template comes with 40 pre build gradient icons, choose the one you like more!</p>
+						<p>ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -276,7 +273,7 @@
 
 					<div class="feature-content">
 						<h4>Q&A Sessions</h4>
-						<p>Would you like to have the Psd file of this Template? Sure! You can download it too.</p>
+						<p>ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -286,7 +283,7 @@
 
 					<div class="feature-content">
 						<h4>Live Training</h4>
-						<p>Do you like the dual tone effect on the images? Download that too!</p>
+						<p>ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
 					</div>
 				</div>
 			</div>

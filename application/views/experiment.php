@@ -8,7 +8,11 @@
 
 	<link href="<?php echo base_url(); ?>assets/front_end/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/home_view.css"  type="text/css">
-	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/jquery.fullpage.min.css"  type="text/css">
+	<script>
+		if (screen && screen.width > 480) {
+		  document.write('<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/jquery.fullpage.min.css"  type="text/css">');
+		}
+	</script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/animate.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/navigation_home_view.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.css">
@@ -171,7 +175,7 @@
 
 
 </style>
-<body style="background-color: <?php echo $data->PRIMARY_COLOR; ?>;overflow:hidden;">
+<body style="background-color: <?php echo $data->PRIMARY_COLOR; ?>">
 	<div id="preloader">
 		<div class="loader-title">
 			<h1 style="margin-right:10px">Loading </h1>
@@ -247,7 +251,8 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<?php echo '<p>'.$event->DESC_DETAIL.'</p>' ?>	
+						<?php echo $event->DESC_DETAIL ?>
+
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url('uploads/').$event->POSTER_DETAIL; ?>" class="img-responsive thumbnail" alt="">
@@ -364,7 +369,7 @@
 		<div class="row section">
 			<div class="schedule">
 				<div class="schedule-message">
-					<p class="mini-title">PASKIBRA</p>
+					<p class="mini-title"><?php echo $data->SINGKATAN_SUB; ?></p>
 					<h1 id="title">The Member</h1>
 						<hr>
 					<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>
@@ -407,7 +412,7 @@
 					</p>
 				</div>
 				<div class="about-content">
-					<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra2.jpg" class="img-responsive thumbnail" alt="">
+					<img src="<?php echo base_url('uploads/').$data->FOTO_HEADER_SUB; ?>" class="img-responsive thumbnail" alt="">
 				</div>
 			</div>
 			<div class="feature">
@@ -469,9 +474,15 @@
 	</div>
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
+	<script>
+		if (screen && screen.width > 480) {
+		  document.write('<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.fullpage.min.js"><\/script>');
+		  document.write('<script src="<?php echo base_url(); ?>assets/front_end/js/fullpage-home.js"><\/script>');
+		  $('body').css('overflow', 'hidden');
+		}
+	</script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
-	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.fullpage.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 </body>
 </html>
@@ -494,7 +505,7 @@ $(document).ready(function() {
 	$gallery_totalrow = <?php echo $jumlahGallery; ?>;
 	$gallery_totalPage = ($gallery_totalrow/9); /// JUMLAH RECORD PER PAGE
 	galleryPagination(0);
-	for (var i = 1; i <= $gallery_totalPage+2; i++) {
+	for (var i = 1; i <= $gallery_totalPage+1; i++) {
 	 		$('.gallery-pagination').append('<a id="gallery-nav-'+(i-1)+'">'+i+'</a>');
 	 }
 	 $('#gallery-nav-0').addClass('pagination-active')
@@ -520,12 +531,6 @@ $(document).ready(function() {
 		$(this).addClass('pagination-active')
 		galleryPagination($start);
 	});
-
-
-
-
-
-
 
 
 
@@ -562,18 +567,6 @@ $(document).ready(function() {
 		$('[class*="tabel-"]').fadeOut('400');
 		$('.tabel-'+$id).fadeIn('400');
 	});
-
-/*FULLPAGE JS*/
-    $('#fullpage').fullpage({
-        menu: '#menu',
-        anchors: ['home', 'home-explain', 'event', 'detail-event', 'past-event', 'picture-gallery', 'form', 'member', 'about'],
-        autoScrolling: false,
-        responsiveWidth: 479,
-		afterResponsive: function(isResponsive){
-			
-		}
-    });/*SCHEDULE*/
-
 
 
 	  $("#owl-home").owlCarousel({

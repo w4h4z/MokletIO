@@ -331,7 +331,7 @@
 		<div class="row" id="section-2">
 			<div class="schedule">
 				<div class="schedule-message">
-					<p class="mini-title">PASKIBRA</p>
+					<p class="mini-title"><?php echo $data->SINGKATAN_SUB; ?></p>
 					<h1 id="title">The Member</h1>
 						<hr>
 					<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>

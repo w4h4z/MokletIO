@@ -19,6 +19,10 @@
 		background-color: #2A2A2A;
 		z-index: 2;
 	}
+	blockquote {
+		padding-left: 1.5rem;
+ 		border-left: 5px solid #B20009;
+	}
 	.nav-active{
 		border-bottom: 4px solid #B20009;
 	}
@@ -173,10 +177,7 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>MokletIO  so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-						Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-						<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-						<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p><blockquote>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</blockquote><P>exercitation ullamco laboris  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>	
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url(); ?>assets/front_end/images/alllogo.png" style="background-color: transparent;" class="img-responsive" alt="">
@@ -205,10 +206,7 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-						Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-						<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-						<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p><blockquote>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</blockquote><P>exercitation ullamco laboris  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>	
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra2.jpg" class="img-responsive thumbnail" alt="">
@@ -237,10 +235,7 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-						Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-						<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-						<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p><blockquote>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</blockquote><P>exercitation ullamco laboris  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>		
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url(); ?>assets/front_end/images/MokletLeague.jpg" class="img-responsive thumbnail" alt="">
@@ -279,7 +274,7 @@
 			<div style="position: relative;" id="carousel-container">				
 			    <div id="owl-home" class="owl-carousel owl-theme">
 			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/fullimage1.jpg" alt="The Last of us">
+			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra2.jpg" alt="The Last of us">
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
@@ -287,7 +282,7 @@
 			      	</div>
 			      </div>
 			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/fullimage2.jpg" alt="GTA V">
+			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra3.jpg" alt="GTA V">
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
@@ -295,7 +290,7 @@
 			      	</div>
 			      </div>
 			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/fullimage3.jpg" alt="Mirror Edge">
+			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="Mirror Edge">
 			      	<div class="owl-caption">
 			      		<h1>This event</h1>
 			      		<h4>Event</h4>
@@ -313,7 +308,7 @@
 					</h1>
 						<hr>
 					<p>
-						Make sure to visit the Instructions and Resources Page of this template to get the most of it. Don't forget that you can reach us in case you need help	
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 					</p>
 				</div>
 				<div class="about-content">
@@ -327,7 +322,7 @@
 					</div>
 					<div class="feature-content">
 						<h4>Daily Workshop</h4>
-						<p>This template comes with 40 pre build gradient icons, choose the one you like more!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -337,7 +332,7 @@
 
 					<div class="feature-content">
 						<h4>Q&A Sessions</h4>
-						<p>Would you like to have the Psd file of this Template? Sure! You can download it too.</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
 					</div>
 				</div>
 				<div class="feature-item">
@@ -347,7 +342,7 @@
 
 					<div class="feature-content">
 						<h4>Live Training</h4>
-						<p>Do you like the dual tone effect on the images? Download that too!</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
 					</div>
 				</div>
 			</div>

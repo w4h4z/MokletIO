@@ -140,8 +140,8 @@
         <li <?php if($this->uri->segment(2) == 'event'){echo 'style="background-color:#212121"';}?>><a href="<?php echo base_url('dashboard/event'); ?>"><i class="fa fa-calendar-check-o"></i> <span>Event</span></a></li>
         <li <?php if($this->uri->segment(2) == 'gallery'){echo 'style="background-color:#212121"';}?>><a href="<?php echo base_url('dashboard/gallery'); ?>"><i class="fa fa-picture-o"></i> <span>Gallery</span></a></li>
         <li class="header">HELP</li>
-        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>User Manual</span></a></li>
-        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Documentation</span></a></li>
+  <!--       <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>User Manual</span></a></li>
+        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Documentation</span></a></li> -->
         <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>About</span></a></li>
       </ul>
     </section>

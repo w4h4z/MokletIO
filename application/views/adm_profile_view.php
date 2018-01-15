@@ -5,6 +5,9 @@
   list-style: none;
   padding-left: 0;
   }
+  .sub-logo{
+    background: none;
+  }
   .icon-picker-list li {
   display: flex;
   flex: 0 0 20%;
@@ -117,7 +120,7 @@
                     <div class="row">
                       <div class="col-lg-6 col-xs-12">
                         <b>Logo :</b><br>
-                        <img src="<?php echo base_url();?>/uploads/<?php echo $sub->LOGO_SUB ;?>" alt="Avatar" style="width:50%">
+                        <img class="sub-logo" src="<?php echo base_url();?>/uploads/<?php echo $sub->LOGO_SUB ;?>" alt="Avatar" style="width:50%">
                       </div>
                       <div class="col-lg-6 col-xs-12">
                         <b>Header Photo :</b><br>
@@ -186,7 +189,7 @@
         <h4 class="modal-title">Edit Data Profile</h4>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url('profile/editProfile');?>" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('profile/editProfile');?>"  class="form-horizontal" method="post" enctype="multipart/form-data">
           <div class="form-body">
             <div class="form-group">
               <label class="control-label col-xs-2">Full Name</label>
@@ -203,7 +206,7 @@
             <div class="form-group">
               <label class="control-label col-xs-2">Description</label>
               <div class="col-xs-10">
-                <textarea class="form-control" name="descSub" id="descSub" required rows="5" placeholder="Description"><?php echo $sub->DESC_SUB ;?></textarea>
+                <textarea class="form-control ckeditor" name="descSub" id="descSub" required rows="5" placeholder="Description"><?php echo $sub->DESC_SUB ;?></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -254,7 +257,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Save</button>
       </form>
       </div>
     </div>
@@ -320,7 +323,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+        <button type="submit"  class="btn btn-primary">Save</button>
         </form>
       </div>
     </div>

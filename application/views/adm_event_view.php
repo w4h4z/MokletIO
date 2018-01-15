@@ -72,13 +72,13 @@
           }
           ?>
         <!-- /.box-header -->
-        <div class="box-body table-responsive">
+        <div class="box-body table-responsive ">
           <table id="event" class="table table-bordered table-striped table-hover">
             <thead>
               <tr>
                 <th>No</th>
                 <th>Event Name</th>
-                <th>Desc Event</th>
+                <th class="hidden-sm hidden-xs">Desc Event</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -90,7 +90,7 @@
                   <tr>
                     <td>'.$i++.'</td>
                     <td>'.$data->NAMA_EVENT.'</td>
-                    <td style="max-width:100px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">'.$data->DESC_DETAIL.'</td>
+                    <td style="max-width:100px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis" class="hidden-sm hidden-xs">'.$data->DESC_DETAIL.'</td>
                     <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal_detail_'.$data->ID_EVENT.'"><span class="glyphicon glyphicon-zoom-in"></span></button>
                                       <button class="btn btn-warning btn-sm edit" data-toggle="modal" id="modal1"  data-target="#modal_edit_'.$data->ID_EVENT.'"><span class="glyphicon glyphicon-pencil"></span></button>
                                       <a href="'.base_url('/event/deleteEvent/').''.$data->ID_DETAIL.'/'.$data->ID_EVENT.'" class="btn btn-danger btn-sm" onclick="return confirmDelete()"><span class="glyphicon glyphicon-trash"></span></a></td>
