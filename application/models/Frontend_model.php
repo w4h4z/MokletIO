@@ -66,6 +66,20 @@ class Frontend_model extends CI_Model {
 		return $this->db->select('*')->from('feature')->where('ID_SUB', $id_sub)->get()->result();
 	}
 
+	public function getLast3Event($id)
+	{
+		return $this->db->select('*')
+				 ->from('event_sub')
+				 ->join('sub_organ', 'sub_organ.ID_SUB=event_sub.ID_SUB')
+				 ->join('detail_event', 'detail_event.ID_DETAIL=event_sub.ID_DETAIL')
+				 ->where('sub_organ.ID_SUB', $id)
+				 ->ORDER_BY('event_sub.ID_EVENT','DESC')
+				 ->LIMIT(3)
+				 ->get()
+				 ->result();
+	}
+
+
 }
 
 /* End of file frontend_model.php */

@@ -260,30 +260,21 @@
 		<div class="row section" id="carousel"> <!-- Carousel -->
 			<div style="position: relative;" id="carousel-container">				
 			    <div id="owl-home" class="owl-carousel owl-theme">
-			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="The Last of us">
-			      	<div class="owl-caption">
-			      		<h1>This event</h1>
-			      		<h4>Event</h4>
-				   		<div class="caption-button">Info Lengkap</div>
-			      	</div>
-			      </div>
-			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="GTA V">
-			      	<div class="owl-caption">
-			      		<h1>This event</h1>
-			      		<h4>Event</h4>
-				   		<div class="caption-button">Info Lengkap</div>
-			      	</div>
-			      </div>
-			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="Mirror Edge">
-			      	<div class="owl-caption">
-			      		<h1>This event</h1>
-			      		<h4>Event</h4>
-				   		<div  class="caption-button">Info Lengkap</div>
-			      	</div>
-			      </div>
+			    <?php
+			    	foreach ($eventPast as $data) {
+			    		echo '
+			    		   <div class="item">
+					      	<img src="'.base_url().'uploads/'.$data->BANNER_DETAIL.'" alt="The Last of us">
+					      	<div class="owl-caption">
+					      		<h1>'.$data->NAMA_EVENT.'</h1>
+					      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
+						   		<div class="caption-button">Info Lengkap</div>
+					      	</div>
+					      </div>
+			    		';
+			    	}
+			    ?>
+			      
 			    </div>
 			</div>
 		</div>
@@ -466,6 +457,7 @@
 				</div>
 			</div>
 		</div>
+		
 	</div>
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
