@@ -186,6 +186,12 @@
 		</div>
 		<p><?php echo $data->NAMA_SUB; ?></p>
 	</div>
+
+	<div class="loader">		
+		<div class="loader-group">
+			<h1>Loading</h1>
+		</div>
+	</div>
 	<nav class="navigation" id="mainNav">
 		<ul class="navbar-responsive">
 		    <li><a href=""><?php echo $data->SINGKATAN_SUB; ?></a></li>
@@ -211,7 +217,7 @@
 				<a class="ardown fa fa-angle-down" data-menuanchor="home-explain" href="#home-explain"></a>
 			</div>		
 		</div>
-		<div class="row section" id="">
+		<div class="row section" id="home-explain">
 			<div class="intro1">
 				<div class="intro1-message">
 					<p class="mini-title"><?php echo $data->SINGKATAN_SUB; ?></p>
@@ -268,7 +274,7 @@
 					      	<div class="owl-caption">
 					      		<h1>'.$data->NAMA_EVENT.'</h1>
 					      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
-						   		<div class="caption-button">Info Lengkap</div>
+						   		<div id="past-event'.$data->ID_EVENT.'" class="caption-button">Info Lengkap</div>
 					      	</div>
 					      </div>
 			    		';
@@ -421,6 +427,13 @@
 			</div>
 		</div>
 
+		<div class="pct-modal-backdrop"><!-- MODAL ZOOM IMAGE -->
+			<div class="pct-modal-content">
+				<span class="fa fa-window-close-o"></span>
+			</div>
+		</div>
+
+
 		<div class="modal-background">
 			<div class="modal">
 				<div class="modal-header">
@@ -430,34 +443,12 @@
 				<div class="modal-body">
 					<div class="row">
 						<div class="modal-intro1">
-							<div class="modal-intro1-message">
-								<p class="mini-title">THE Commander</p>
-								<h1>Abel Lagi</h1>
-								<hr>
-								<h4>Komandan Pasukan Pengibar Bendera 2018</h4>
-							</div>
-							<div class="modal-intro1-content">
-								<div class="modal-intro1-img">
-									<img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="">
-								</div>
-								<div class="modal-intro1-desc">
-									<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-									Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-									<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-									<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
-
-									<p>We are so excited to introduce to you our new Webflow Template called Conference. This Template is fully responsive and CMS ready, no coding skills required!
-									Conference Template, also contains a lot of useful sections that you can edit or remove. </p>
-									<blockquote>This template comes with Psd files, icons to fully customize it...</blockquote>
-									<p>We hope you enjoy it using it as much as we did building it. Cheers!</p>	
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
@@ -472,7 +463,18 @@
 		  $('#member').removeAttr('id');
 		  $('#home-explain').removeAttr('id');
 		  $('#about').removeAttr('id');
-		} 
+		}else{
+			var $root = $('html, body');
+			$('a').click(function() {
+			    var href = $.attr(this, 'href');
+			    $root.animate({
+			        scrollTop: $(href).offset().top - 0
+			    }, 1000, function () {
+			        window.location.hash = href;
+			    });
+			    return false;
+			});
+		}
 	</script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
@@ -495,24 +497,53 @@
 $(document).ready(function() {
 	/*LOADING DATA*/
 	$('#sub-desc').html('<?php echo $data->DESC_SUB ?>')
-	$('event-desc').html('<?php echo $event->DESC_DETAIL ?>')
+	$('#event-desc').html('<?php echo $event->DESC_DETAIL ?>')
+
+
+	/*PAST EVENT*/
+	$('[id*="past-event"]').click(function() {
+		$('.loader').fadeIn('400');
+		$id_event = $(this).attr("id").slice(10);
+		pastEventLoad($id_event);
+	});
+
+	function pastEventLoad($id_event){
+		$('.modal-intro1').load("<?php echo site_url('index.php/page/modalPastEvent/')?>",{
+		 ID_EVENT: $id_event},
+		 	function(){
+				$('.loader').fadeOut('400');
+				$('.modal-background').fadeIn('slow');
+		 });
+	}
+	//Modal Past Event Close
+	$('.modal-close').click(function() {
+		$('.modal-background').fadeOut('slow');
+	});
+
+
+
+
+
 	/*PAGINATION*/
 	$current_page = 1;
 	$gallery_totalrow = <?php echo $jumlahGallery; ?>;
 	$gallery_totalPage = ($gallery_totalrow/9); /// JUMLAH RECORD PER PAGE
 	galleryPagination(0);
+
 	for (var i = 1; i <= $gallery_totalPage+1; i++) {
 	 		$('.gallery-pagination').append('<a id="gallery-nav-'+(i-1)+'">'+i+'</a>');
 	 }
 	 $('#gallery-nav-0').addClass('pagination-active')
+
 	function galleryPagination(start){
 		 $('.pct-container').load("<?php echo site_url('index.php/page/galleryPagination/')?>",{
 		 startPage: start},
 		 	function(){
-		 		animateImg()
-		 });
-		
+		 		animateImg();
+		 		zoomImage();
+		 });	
 	}
+
 	function animateImg(){
 		$('.pct-container img').addClass("hideme").viewportChecker({
 			    classToAdd: 'visible animated fadeInDownBig', // Class to add to the elements when they are visible
@@ -522,14 +553,25 @@ $(document).ready(function() {
 	/*MEMFUNGSIKAN NAVIGASI*/
 	$('.gallery-pagination a').click(function(event) {
 		event.preventDefault();
-		$start = $(this).attr("id").slice(-1) * 9;
+		$start = $(this).attr("id").slice(12) * 9;
 		$('[id*="gallery-nav"]').removeClass('pagination-active');
 		$(this).addClass('pagination-active')
 		galleryPagination($start);
 	});
 
+		/*IMAGE ZOOM*/
+	function zoomImage(){
+		$('.pct').click(function() {
+			var bgImage = $(this).css('background-image').replace(/^url|[\(\)]/g, '');
+			$('.pct-modal-content').css('background-image', 'url('+bgImage+')');
+			$('.pct-modal-backdrop').fadeIn(400);
+		});
+		$('.pct-modal-content span').click(function() {
+			$('.pct-modal-backdrop').fadeOut(400);
+		});
+	}
 
-
+	
 
 
 
@@ -624,14 +666,8 @@ $(document).ready(function() {
   	});
 
 
-	//Modal
 
-	$('.caption-button').click(function() {
-		$('.modal-background').fadeIn('slow');
-	});
-	$('.modal-close').click(function() {
-		$('.modal-background').fadeOut('slow');
-	});
+
 
 
   });

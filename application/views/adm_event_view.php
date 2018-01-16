@@ -196,7 +196,7 @@
       <div class="modal-body" style="height: 500px;overflow-y: scroll;">
         <div><!-- Event -->
           <div class="row">
-            <div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg')">
+            <div class="landing2" style="">
               <div class="landing2-message">
                 <h1>Event Title</h1>
                 <h4>Event Subtitle is Here</h4>
@@ -220,7 +220,7 @@
                 <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> 
               </div>
               <div class="intro1-img">
-                <img src="<?php echo base_url(); ?>assets/front_end/images/abel.jpg" class="img-responsive thumbnail" alt="" id="posterFoto">
+                <img src="" id="posterFoto">
               </div>
             </div>
           </div>
@@ -267,7 +267,7 @@
                     <?php echo $data->DESC_DETAIL ?>
                   </div>
                   <div class="intro1-img">
-                    <img src="<?php echo base_url(); ?>uploads/<?php echo $data->POSTER_DETAIL ?>" class="img-responsive thumbnail" alt="" id="posterFoto">
+                    <img src="<?php echo base_url(); ?>uploads/<?php echo $data->POSTER_DETAIL ?>" class="img-responsive thumbnail" alt="">
                   </div>
                 </div>
               </div>
@@ -365,6 +365,8 @@ foreach ($event as $data) {
         $('#modal1').click(function() {
           $('#modal_edit2').modal();
         });
+
+        
         $('#btnlivePreview').click(function() {
           $event_title= $("#event_title").val()
           $event_subtitle= $("#event_subtitle").val()

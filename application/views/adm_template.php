@@ -39,13 +39,9 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
+    
   <!-- jQuery 3 -->
   <script src="<?php echo base_url('assets/');?>bower_components/jquery/dist/jquery.min.js"></script>
-  <!-- CKEDITOR -->
-  <script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor.js"></script>
-  <!-- Bootstrap 3.3.7 -->
-  <script src="<?php echo base_url('assets/');?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-  
 <style >
   .appear{
     display: block;
@@ -174,8 +170,6 @@
 </div>
 <!-- ./wrapper -->
 
-<!-- jQuery 3 -->
-<script src="<?php echo base_url('assets/');?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('assets/');?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
@@ -202,6 +196,10 @@
 <!-- Owl Carousel -->
 <script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
 
+<!-- CKEDITOR -->
+<script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor.js"></script>
+<script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor-inline.js"></script>
+<!-- Bootstrap 3.3.7 -->
 <!-- page script -->
 <script>
   //Modal Fix
@@ -256,6 +254,7 @@
         ]
     })
   })
+
   $(function () {
     $('#event').DataTable({
       'paging'      : true,

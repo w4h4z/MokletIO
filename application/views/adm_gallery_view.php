@@ -32,13 +32,14 @@
   .gallery-button {
     bottom: 0px;
     position: absolute;
+    box-sizing: border-box;
     height: 270px;
-    width: 100%;
-    display: none;
     padding-left:37%;
+    display: none;
     padding-right:37%;
-    padding-top:142px;
-    padding-bottom:142px;
+    padding-top:91px;
+    padding-bottom:151px;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.75); 
   }
     .card:hover .gallery-button{
@@ -189,7 +190,6 @@
     }
  }
 
- $('fa-warning').siblings('p').contents().unwrap();
 </script>
 
 

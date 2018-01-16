@@ -91,7 +91,7 @@
         <h3 class="modal-title">New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="<?php echo base_url('member/addMember');?>" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('member/addMember');?>"  class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">
@@ -277,7 +277,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Edit New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="'.base_url('member/editNewMember/0/'.$data->ID_MEMBER.'/0').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="'.base_url('member/editNewMember/0/'.$data->ID_MEMBER.'/0').'"  class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">
@@ -394,7 +394,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Approval Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="'.base_url('member/approveMember/'.$data->ID_MEMBER.'').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="'.base_url('member/approveMember/'.$data->ID_MEMBER.'').'"  class="form-horizontal" method="post" enctype="multipart/form-data">
           <div class="form-group">
            <label class="control-label col-md-3">Tittle</label>
             <div class="col-md-9">
@@ -421,7 +421,7 @@ foreach ($member as $data) {
 
 
 <script>
-  function readURL(input) {
+  function add_readURL(input) {
     if (input.files && input.files[0]) {
       var reader = new FileReader();
   
@@ -434,7 +434,7 @@ foreach ($member as $data) {
   }
   
   $("#imgInp").change(function() {
-    readURL(this);
+    add_readURL(this);
   });
 
   function readURL(input) {

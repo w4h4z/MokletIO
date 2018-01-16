@@ -368,7 +368,22 @@ var dataProfile = {
 "warna_primary":"<?php echo $sub->PRIMARY_COLOR; ?>",
 "warna_secondary":"<?php echo $sub->SECONDARY_COLOR; ?>",
 }
-
+  /*CKEDITOR*/
+  CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar_Basic': [
+            ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+            ['Undo', 'Redo'],
+            ['Scayt'],
+            ['Link', 'Unlink', 'Anchor'],
+            ['Source'],
+            ['Maximize'],
+            ['Bold', 'Italic', 'Underline', 'RemoveFormat'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'],
+        ],
+        'toolbar': 'Basic',
+    },
+}
 
 $('#editProfileBtn').click(function(){
   $('#fullName').val(dataProfile.nama);

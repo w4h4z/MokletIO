@@ -90,7 +90,7 @@
         <h3 class="modal-title">New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="<?php echo base_url('member/addMember');?>" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('member/addMember');?>"  class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">
@@ -284,7 +284,7 @@ foreach ($member as $data) {
         <h3 class="modal-title">Edit New Member Form</h3>
       </div>
       <div class="modal-body form">
-        <form action="'.base_url('member/editNewMember/1/'.$data->ID_MEMBER.'').'" id="form" class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="'.base_url('member/editNewMember/1/'.$data->ID_MEMBER.'').'"  class="form-horizontal" method="post" enctype="multipart/form-data">
           <input type="hidden" value="" name="member_id"/>
           <div class="form-body">
             <div class="form-group">

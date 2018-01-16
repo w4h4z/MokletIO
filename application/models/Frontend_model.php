@@ -25,11 +25,12 @@ class Frontend_model extends CI_Model {
 						->get()
 						->result();
 	}
+
 	public function getEvent($id_sub)
 	{
 		$this->db->select('*')->from('event_sub')
 							  ->where('ID_SUB', $id_sub)
-							  ->order_by('TANGGAL_EVENT', 'ASC')
+							  ->order_by('TANGGAL_EVENT', 'DESC')
 							  ->join('detail_event', 'detail_event.ID_DETAIL=event_sub.ID_DETAIL');
 
 
@@ -39,7 +40,7 @@ class Frontend_model extends CI_Model {
 
 	public function getJumlahAnggota($id_sub)
 	{		
-		return $this->db->where('ID_SUB',$id_sub)->count_all('member_sub');
+		return $this->db->where('ID_SUB',$id_sub)->count_all_results('member_sub');
 	}
 
 	public function getGallery($start)
@@ -74,9 +75,14 @@ class Frontend_model extends CI_Model {
 				 ->join('detail_event', 'detail_event.ID_DETAIL=event_sub.ID_DETAIL')
 				 ->where('sub_organ.ID_SUB', $id)
 				 ->ORDER_BY('event_sub.ID_EVENT','DESC')
-				 ->LIMIT(3)
+				 ->LIMIT(3, 1)
 				 ->get()
 				 ->result();
+	}
+
+	public function getDetailEvent($id_event)
+	{
+		return $this->db->where('ID_EVENT', $id_event)->get('detail_event')->row();	
 	}
 
 

@@ -28,7 +28,6 @@ class Page extends CI_Controller {
 		//event past
 		$data['eventPast'] = $this->Frontend_model->getLast3Event($this->id_sub);
 		$this->load->view('experiment', $data);
-
 		$front = array(
 			'SUB' => $this->uri->segment(3)
 		);
@@ -51,6 +50,27 @@ class Page extends CI_Controller {
 			//$this->output->enable_profiler(TRUE);
 		//echo json_encode($data);
 		//echo json_encode(array("status" => TRUE));
+	}
+
+	public function modalPastEvent(){
+		$data = $this->Frontend_model->getDetailEvent($this->input->post('ID_EVENT'));
+		echo 	'<div class="modal-intro1-message">
+					<p class="mini-title">'.$data->NAMA_MINI_TITLE.'</p>
+					<h1>'.$data->NAMA_DETAIL.'</h1>
+					<hr>
+					<h4>'.$data->SUB_NAMA_TITLE.'</h4>
+				</div>
+				<div class="modal-intro1-content">
+					<div class="modal-intro1-img">
+						<img src="'.base_url('uploads/').$data->POSTER_DETAIL.'" class="img-responsive thumbnail" alt="">
+					</div>
+					<div class="modal-intro1-desc">
+							'.
+								$data->DESC_DETAIL
+							.'
+					</div>
+				</div>';
+		$this->output->enable_profiler(TRUE);
 	}
 
 }
