@@ -86,6 +86,63 @@ class Frontend_model extends CI_Model {
 	}
 
 
+
+
+		/* BELOW IS METHOD FOR HOME OF MOKLETIO*/
+
+
+
+
+
+	public function getAllEvent()
+	{
+		return $this->db->select('*')->from('event_sub')
+								  ->limit(2)
+								  ->order_by('TANGGAL_EVENT', 'DESC')
+								  ->join('detail_event', 'detail_event.ID_DETAIL=event_sub.ID_DETAIL')
+								  ->get()
+								  ->result();
+	}
+
+	public function getAllGallery($start)
+	{
+		$limit	= 9;
+		//$gal = $this->db->get('gallery_sub')->result();
+		 return $gal = $this->db->select('*')
+		 				->from('gallery_sub')
+		 				->join('sub_organ','sub_organ.ID_SUB=gallery_sub.ID_SUB')
+		 				->limit($limit,$start)
+						->order_by('ID_GAL', 'DESC')
+						->get()
+						->result();
+
+	
+	}
+
+	public function getJumlahAllGallery()
+	{		
+		return $this->db->count_all('gallery_sub');
+	}
+
+	public function getAllLast3Event()
+	{
+		return $this->db->select('*')
+				 ->from('event_sub')
+				 ->join('sub_organ', 'sub_organ.ID_SUB=event_sub.ID_SUB')
+				 ->join('detail_event', 'detail_event.ID_DETAIL=event_sub.ID_DETAIL')
+				 ->ORDER_BY('event_sub.ID_EVENT','DESC')
+				 ->LIMIT(3, 1)
+				 ->get()
+				 ->result();
+	}
+
+
+	public function addMember($data)
+	{
+		$this->db->insert('member_sub', $data);
+		return $this->db->insert_id();
+	}
+
 }
 
 /* End of file frontend_model.php */

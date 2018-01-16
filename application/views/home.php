@@ -23,6 +23,10 @@
 		padding-left: 1.5rem;
  		border-left: 5px solid #B20009;
 	}
+	.pagination-active{
+		background-color: #F7F7F7 !important;
+		color: #B20009 !important;
+	}
 	.nav-active{
 		border-bottom: 4px solid #B20009;
 	}
@@ -119,6 +123,11 @@
 		</div>
 		<p>Loading your web page</p>
 	</div>
+	<div class="loader">		
+		<div class="loader-group">
+			<h1>Loading</h1>
+		</div>
+	</div>
 	<nav class="navigation">
 		<ul class="navbar-responsive">
 		    <li><a href="">Telkom School</a></li>
@@ -177,7 +186,7 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p><blockquote>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</blockquote><P>exercitation ullamco laboris  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>	
+						<p>MokletIO yang memilki kepanjangan Moklet Info Organisasi adalah sebuah halaman web yang menyediakan informasi tentang organisasi dan sub organisasi yang ada di SMK Telkom Malang.</p><blockquote>To accomplish great things, we must not only act, but also dream, not only plan, but also believe.<br>-Anatole France-</blockquote><P>Siswa-siswi SMK Telkom Malang dapat mendaftarkan diri untuk bergabung dengan organisasi dan sub organisasi di SMK Telkom Malang melalui website MokletIO. Dengan kemudahan ini, diharapkan siswa-siswi SMK Telkom Malang lebih aktif berorganisasi, dapat menambah relasi, serta informasi bermanfaat lainnya. </p>	
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url(); ?>assets/front_end/images/alllogo.png" style="background-color: transparent;" class="img-responsive" alt="">
@@ -185,118 +194,69 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/paskibra.jpg')">
-				<div class="landing2-message">
-					<h1>PENGIBARAN 2018</h1>
-					<h4>Pengibaran Bendera 17 Agustus , Paskibra SMK Telkom Malang</h4>
-					<a href="www.google.com" class="button">
-						squad list
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="intro1">
-				<div class="intro1-message">
-					<p class="mini-title">Paskibra</p>
-					<h1>Pasukan Pengibar Bendera</h1>
-					<hr>
-					<h4>lorem ipsum dolor sit amet monggo sampean terusno aku ora apal bos</h4>
-				</div>
-				<div class="intro1-content">
-					<div class="intro1-desc">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p><blockquote>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</blockquote><P>exercitation ullamco laboris  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>	
-					</div>
-					<div class="intro1-img">
-						<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra2.jpg" class="img-responsive thumbnail" alt="">
+		<?php foreach ($event as $events): ?>
+			<div class="row">
+				<div class="landing2" style="background-image: url('<?php echo base_url('uploads/').$events->BANNER_DETAIL; ?>')">
+					<div class="landing2-message">
+						<h1><?php echo  $events->NAMA_EVENT ?></h1>
+						<h4><?php echo $events->SUB_NAMA_EVENT ?></h4>
+						<a class="ardown fa fa-angle-down" href="#detail-event-<?php echo $events->ID_EVENT ?>"></a>
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="landing2" style="background-image: url('<?php echo base_url(); ?>assets/front_end/images/MokletLeague.jpg')">
-				<div class="landing2-message">
-					<h1>Moklet League</h1>
-					<h4>Liga Futsal SMK Telkom Malang</h4>
-					<a href="www.google.com" class="button">
-						Standing
-					</a>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="intro1">
-				<div class="intro1-message">
-					<p class="mini-title">TSFC</p>
-					<h1>Telkom School Futsal Club</h1>
-					<hr>
-					<h4>lorem ipsum dolor sit amet monggo sampean terusno aku ora apal bos</h4>
-				</div>
-				<div class="intro1-content">
-					<div class="intro1-desc">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p><blockquote>nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit</blockquote><P>exercitation ullamco laboris  in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>		
+			<div class="row" id="detail-event-<?php echo $events->ID_EVENT ?>">
+				<div class="intro1">
+					<div class="intro1-message">
+						<p class="mini-title"><?php echo $events->NAMA_MINI_TITLE ?></p>
+						<h1><?php echo $events->NAMA_DETAIL ?></h1>
+						<hr>
+						<h4><?php echo $events->SUB_NAMA_TITLE ?></h4>
 					</div>
-					<div class="intro1-img">
-						<img src="<?php echo base_url(); ?>assets/front_end/images/MokletLeague.jpg" class="img-responsive thumbnail" alt="">
+					<div class="intro1-content">
+						<div class="intro1-desc">
+							<?php echo $events->DESC_DETAIL; ?>
+						</div>
+						<div class="intro1-img">
+							<img src="<?php echo base_url('uploads/').$events->POSTER_DETAIL; ?>" class="img-responsive thumbnail" alt="">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		<?php endforeach ?>		
 		<div class="row">
 			<div class="picture-gallery">
 				<div class="picture-gallery-message">
 					<p class="mini-title">DOKUMENTASI</p>
-					<h1>BULAN BAHASA 2017</h1>
+					<h1>SMK Telkom Malang</h1>
 						<hr>
-					<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>
+					<h4>Dokumentasi Kegiatan Siswa SMK Telkom Malang</h4>
 				</div>
 				<div class="picture-gallery-content">
 					<div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div>
-					<div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div><div class="pct-container">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg2.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg7.jpg" class="pct thumbnail" alt="">
-						<img  src="<?php echo base_url(); ?>assets/front_end/images/pg8.jpg" class="pct thumbnail" alt="">
-					</div>
 
+					</div>
+					<div class="gallery-pagination">
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="row" id="carousel">
 			<div style="position: relative;" id="carousel-container">				
 			    <div id="owl-home" class="owl-carousel owl-theme">
-			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra2.jpg" alt="The Last of us">
-			      	<div class="owl-caption">
-			      		<h1>This event</h1>
-			      		<h4>Event</h4>
-				   		<div href="" class="caption-button">Info Lengkap</div>
-			      	</div>
-			      </div>
-			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra3.jpg" alt="GTA V">
-			      	<div class="owl-caption">
-			      		<h1>This event</h1>
-			      		<h4>Event</h4>
-				   		<div href="" class="caption-button">Info Lengkap</div>
-			      	</div>
-			      </div>
-			      <div class="item">
-			      	<img src="<?php echo base_url(); ?>assets/front_end/images/paskibra4.jpg" alt="Mirror Edge">
-			      	<div class="owl-caption">
-			      		<h1>This event</h1>
-			      		<h4>Event</h4>
-				   		<div href="" class="caption-button">Info Lengkap</div>
-			      	</div>
-			      </div>
+			    	<?php
+				    	foreach ($eventPastAll as $data) {
+				    		echo '
+				    		   <div class="item">
+						      	<img src="'.base_url().'uploads/'.$data->BANNER_DETAIL.'" alt="The Last of us">
+						      	<div class="owl-caption">
+						      		<h1>'.$data->NAMA_EVENT.'</h1>
+						      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
+							   		<div id="past-event'.$data->ID_EVENT.'" class="caption-button">Info Lengkap</div>
+						      	</div>
+						      </div>
+				    		';
+				    	}
+			    	?>
 			    </div>
 			</div>
 		</div>
@@ -304,68 +264,73 @@
 			<div class="about" id="about">
 				<div class="about-message">
 					<span class="mini-title">about</span>
-					<h1>MokletIO
+					<h1>SMK Telkom Malang
 					</h1>
 						<hr>
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+						SMK Telkom Malang adalah SMK berakreditasi "A" di bawah naungan yayasan pendidikan Telkom. SMK yang berdiri sejak tahun 1922 ini terletak di Jalan Danau Ranau, Sawojajar, Malang. Motto SMK Telkom sendiri adalah Attitude is Everything.
 					</p>
 				</div>
 				<div class="about-content">
-					<img src="<?php echo base_url(); ?>assets/front_end/images/telkomSchool.jpg" class="img-responsive thumbnail" alt="">
+					<img src="<?php echo base_url(); ?>assets/front_end/images/telkomSchool.jpg" class="img-responsive" alt="">
 				</div>
 			</div>
 			<div class="feature">
 				<div class="feature-item">
 					<div class="feature-icon">
+						<span class="fa fa-mobile fa-3x"></span>
+					</div>
+					<div class="feature-content">
+						<h4>Responsive</h4>
+						<p>Website ini di desain dengan baik sehingga dapat diakses dan ditampilkan dengan baik di berbagai jenis erangkat</p>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-icon">
+						<span class="fa fa-clock-o fa-3x"></span>
+					</div>
+
+					<div class="feature-content">
+						<h4>Performa Tinggi</h4>
+						<p>Meminimalisasi penggunaan library serta manajemen kontent yang baik membuat website ini ringan dimuat</p>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-icon">
 						<span class="fa fa-calendar fa-3x"></span>
 					</div>
 					<div class="feature-content">
-						<h4>Daily Workshop</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-comments fa-3x"></span>
-					</div>
-
-					<div class="feature-content">
-						<h4>Q&A Sessions</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-volume-up fa-3x"></span>
-					</div>
-
-					<div class="feature-content">
-						<h4>Live Training</h4>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+						<h4>Manajemen</h4>
+						<p>Konten Manajemen yang baik dan penyajian informasi secara praktis akan mempermudah pengguna dalam menggunakan aplikasi ini</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
+		<div class="pct-modal-backdrop"><!-- MODAL ZOOM IMAGE -->
+			<div class="pct-modal-content">
+				<span class="fa fa-window-close-o"></span>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="logo">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mpk.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pustel.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/da.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/bdi.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/paski.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/palwaga.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pmr.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/comet.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/metic.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsbc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tscc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsfc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsvc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mac.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/memo.png" class="pct" alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mpk.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pustel.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/da.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/bdi.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/paski.png " alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/palwaga.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pmr.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/comet.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/metic.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsbc.png" alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tscc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsfc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsvc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mac.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/memo.png"  alt="">
 			</div>
 		</div>
 		<div class="row">
@@ -411,18 +376,76 @@ $(document).ready(function() {
 owl.owlCarousel();
 });
 
-//Scrolling ke id element
-/*var $root = $('html, body');
-$('a').click(function() {
-    var href = $.attr(this, 'href');
-    $root.animate({
-        scrollTop: $(href).offset().top - 0
-    }, 1000, function () {
-        window.location.hash = href;
-    });
-    return false;
-});
-*/
+/*IMAGE*/
+
+
+	/*PAGINATION*/
+	$current_page = 1;
+	$gallery_totalrow = <?php echo $jumlahAllGallery; ?>;
+	$gallery_totalPage = ($gallery_totalrow/9); /// JUMLAH RECORD PER PAGE
+	galleryPagination(0);
+
+	for (var i = 1; i <= $gallery_totalPage+1; i++) {
+	 		$('.gallery-pagination').append('<a id="gallery-nav-'+(i-1)+'">'+i+'</a>');
+	 }
+	 $('#gallery-nav-0').addClass('pagination-active')
+
+	function galleryPagination(start){
+		 $('.pct-container').load("<?php echo site_url('index.php/page/galleryAllPagination/')?>",{
+		 startPage: start},
+		 	function(){
+		 		$('.loader').fadeOut('400');
+		 		animateImg();
+		 		zoomImage();
+		 });	
+	}
+
+	function animateImg(){
+		$('.pct-container img').addClass("hideme").viewportChecker({
+			    classToAdd: 'visible animated fadeInDownBig', // Class to add to the elements when they are visible
+			    offset: -20    
+		});
+	}
+	/*MEMFUNGSIKAN NAVIGASI*/
+	$('.gallery-pagination a').click(function(event) {
+		event.preventDefault();
+		$('.loader').fadeIn(400);
+		$start = $(this).attr("id").slice(12) * 9;
+		$('[id*="gallery-nav"]').removeClass('pagination-active');
+		$(this).addClass('pagination-active')
+		galleryPagination($start);
+	});
+
+		/*IMAGE ZOOM*/
+	function zoomImage(){
+		$('.pct-container .pct').click(function() {
+			var bgImage = $(this).css('background-image').replace(/^url|[\(\)]/g, '');
+			$('.pct-modal-content').css('background-image', 'url('+bgImage+')');
+			$('.pct-modal-backdrop').fadeIn(400);
+		});
+		$('.pct-modal-content span').click(function() {
+			$('.pct-modal-backdrop').fadeOut(400);
+		});
+	}
+
+
+
+
+
+
+
+/* SCROLL TO ID*/
+var $root = $('html, body');
+	$('a').click(function() {
+	    var href = $.attr(this, 'href');
+	    $root.animate({
+	        scrollTop: $(href).offset().top - 0
+	    }, 1000, function () {
+	        window.location.hash = href;
+	    });
+	    return false;
+	});
+
 //Navigasi
 $(window).scroll(function() {
 	

@@ -122,34 +122,34 @@
 		    	<span class="fa fa-bars"></span>
 		    </button>
 		</ul>
-	    <ul class="navbar-nav">
+	   <ul class="navbar-nav">
 	        <li><a href="#" class="nav-brand">Telkom School</a></li><!--
 	     --><li id="organ"><a>Sub Organisasi <span class="fa fa-caret-down"></span></a>
 	     		<div class="dropdown">
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/BDI') ?>">BDI</a>
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/PASKIBRA') ?>">Paskibra</a>
-	     		    <a href="palwaga.html">Palwaga</a>
-	     		    <a href="">PMR</a>
-	     		    <a href="">Comet</a>
-	     		    <a href="metic.html">Metic</a>
-	     		    <a href="">TSBC</a>
-	     		    <a href="">TSCC</a>
-	     		    <a href="">TSFC</a>
-	     		    <a href="">TSVC</a>
-	     		    <a href="mac.html">MAC</a>
-	     		    <a href="memo.html">Memo</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/BDI/moklet') ?>">BDI</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PASKIBRA/moklet') ?>">Paskibra</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PALWAGA/moklet') ?>">Palwaga</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PMR/moklet') ?>">PMR</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/COMET/moklet') ?>">Comet</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/METIC/moklet') ?>l">Metic</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TSBC/moklet') ?>">TSBC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TScC/moklet') ?>">TSCC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TSFC/moklet') ?>">TSFC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/TSVC/moklet') ?>">TSVC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/MAC/moklet') ?>">MAC</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/MEMO/moklet') ?>">Memo</a>
 	     		</div>
 	     	</li><!--
 	     --><li id="organ"><a>Organisasi <span class="fa fa-caret-down"></span></a>
 	     		<div class="dropdown">
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/OSIS') ?>">OSIS</a>
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/MPK') ?>">MPK</a>
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/DA') ?>">DA</a>
-	     		    <a href="<?php echo base_url('index.php/page/sub_index/PUSTEL') ?>">PUSTEL</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/OSIS/moklet') ?>">OSIS</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/MPK/moklet') ?>">MPK</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/DA/moklet') ?>">DA</a>
+	     		    <a href="<?php echo base_url('index.php/page/sub_index/PUSTEL/moklet') ?>">PUSTEL</a>
 	     		</div>
 	     	</li><!-- 
 	     --><li>
-	     		<a>About</a>
+	     		<a href="<?php echo base_url('index.php/page/about') ?>">About</a>
 	     	</li>
 	    </ul>
 	</nav>
@@ -173,7 +173,7 @@
 				</div>
 				<div class="intro1-content">
 					<div class="intro1-desc">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p><blockquote>ut aliquip ex ea commodo consequat. Duis aute irure dolor</blockquote> <p>in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+						<p>MokletIO yang memilki kepanjangan Moklet Info Organisasi adalah sebuah halaman web yang menyediakan informasi tentang organisasi dan sub organisasi yang ada di SMK Telkom Malang.</p><blockquote>To accomplish great things, we must not only act, but also dream, not only plan, but also believe.<br>-Anatole France-</blockquote><P>Siswa-siswi SMK Telkom Malang dapat mendaftarkan diri untuk bergabung dengan organisasi dan sub organisasi di SMK Telkom Malang melalui website MokletIO. Dengan kemudahan ini, diharapkan siswa-siswi SMK Telkom Malang lebih aktif berorganisasi, dapat menambah relasi, serta informasi bermanfaat lainnya. </p>	
 					</div>
 					<div class="intro1-img">
 						<img src="<?php echo base_url(); ?>assets/front_end/images/alllogo.png" style="background-color: transparent;" class="img-responsive" alt="">
@@ -249,41 +249,40 @@
 					</h1>
 						<hr>
 					<p>
-						ut aliquip ex ea commodo consequat. Duis aute irure dolorut aliquip ex ea commodo consequat. Duis aute irure dolorut aliquip ex ea commodo consequat. Duis aute irure dolorut aliquip ex ea commodo consequat. Duis aute irure dolor
+						SMK Telkom Malang adalah SMK berakreditasi "A" di bawah naungan yayasan pendidikan Telkom. SMK yang berdiri sejak tahun 1922 ini terletak di Jalan Danau Ranau, Sawojajar, Malang. Motto SMK Telkom sendiri adalah Attitude is Everything.
 					</p>
 				</div>
 				<div class="about-content">
-					<img src="<?php echo base_url(); ?>assets/front_end/images/telkomSchool.jpg" class="img-responsive thumbnail" alt="">
+					<img src="<?php echo base_url(); ?>assets/front_end/images/telkomSchool.jpg" class="img-responsive" alt="">
 				</div>
 			</div>
 			<div class="feature">
 				<div class="feature-item">
 					<div class="feature-icon">
+						<span class="fa fa-mobile fa-3x"></span>
+					</div>
+					<div class="feature-content">
+						<h4>Responsive</h4>
+						<p>Website ini di desain dengan baik sehingga dapat diakses dan ditampilkan dengan baik di berbagai jenis erangkat</p>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-icon">
+						<span class="fa fa-clock-o fa-3x"></span>
+					</div>
+
+					<div class="feature-content">
+						<h4>Performa Tinggi</h4>
+						<p>Meminimalisasi penggunaan library serta manajemen kontent yang baik membuat website ini ringan dimuat</p>
+					</div>
+				</div>
+				<div class="feature-item">
+					<div class="feature-icon">
 						<span class="fa fa-calendar fa-3x"></span>
 					</div>
 					<div class="feature-content">
-						<h4>Daily Workshop</h4>
-						<p>ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-comments fa-3x"></span>
-					</div>
-
-					<div class="feature-content">
-						<h4>Q&A Sessions</h4>
-						<p>ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
-					</div>
-				</div>
-				<div class="feature-item">
-					<div class="feature-icon">
-						<span class="fa fa-volume-up fa-3x"></span>
-					</div>
-
-					<div class="feature-content">
-						<h4>Live Training</h4>
-						<p>ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
+						<h4>Manajemen</h4>
+						<p>Konten Manajemen yang baik dan penyajian informasi secara praktis akan mempermudah pengguna dalam menggunakan aplikasi ini</p>
 					</div>
 				</div>
 			</div>
@@ -291,22 +290,22 @@
 
 		<div class="row">
 			<div class="logo">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mpk.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pustel.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/da.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/bdi.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/paski.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/palwaga.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pmr.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/comet.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/metic.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsbc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tscc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsfc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsvc.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mac.png" class="pct" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/memo.png" class="pct" alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mpk.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pustel.png " alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/da.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/bdi.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/paski.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/palwaga.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pmr.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/comet.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/metic.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsbc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tscc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsfc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsvc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mac.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/memo.png"  alt="">
 			</div>
 		</div>
 		<div class="row">
@@ -375,13 +374,18 @@ $(window).scroll(function() {
 
 	});
 
-	///modal
-	$('.caption-button').click(function() {
-		$('.modal-background').fadeIn('slow');
+	/* SCROLL TO ID*/
+	var $root = $('html, body');
+	$('a').click(function() {
+	    var href = $.attr(this, 'href');
+	    $root.animate({
+	        scrollTop: $(href).offset().top - 0
+	    }, 1000, function () {
+	        window.location.hash = href;
+	    });
+	    return false;
 	});
-	$('.modal-close').click(function() {
-		$('.modal-background').fadeOut('slow');
-	});
+
 
 </script>
 </body>

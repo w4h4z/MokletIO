@@ -12,7 +12,10 @@ class Page extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('home');
+		$data['event'] = $this->Frontend_model->getAllEvent();
+		$data['jumlahAllGallery'] = $this->Frontend_model->getJumlahAllGallery($this->id_sub);
+		$data['eventPastAll'] = $this->Frontend_model->getAllLast3Event($this->id_sub);
+		$this->load->view('home', $data);
 	}
 
 	public function sub_index()
@@ -52,6 +55,15 @@ class Page extends CI_Controller {
 		//echo json_encode(array("status" => TRUE));
 	}
 
+	public function galleryAllPagination()
+	{
+
+		$data = $this->Frontend_model->getAllGallery($this->input->post('startPage'));
+		foreach ($data as $Gallery) {
+				echo '<div style="background-image:url('. base_url(); ?>uploads/<?php echo $Gallery->FOTO_GAL.')" class="pct thumbnail"></div>';
+			}		
+	}
+
 	public function modalPastEvent(){
 		$data = $this->Frontend_model->getDetailEvent($this->input->post('ID_EVENT'));
 		echo 	'<div class="modal-intro1-message">
@@ -70,8 +82,24 @@ class Page extends CI_Controller {
 							.'
 					</div>
 				</div>';
-		$this->output->enable_profiler(TRUE);
 	}
+
+	public function daftar()
+		{
+			$data = array(
+					'ID_SUB' => $this->input->post('id_sub'),
+					'NAMA_MEMBER' => $this->input->post('nama_member'),
+					'ANGKATAN_MEMBER' => $this->input->post('angkatan_member'),
+					'KELAS_MEMBER' => $this->input->post('kelas_member'),
+					'NO_HP_MEMBER' => $this->input->post('book_category'),
+					'ALASAN_MEMBER' => $this->input->post('alasan_meber'),
+
+					'FOTO_MEMBER' => $this->input->post('foto_member'),
+					'JABATAN_MEMBER' => 'Anggota'
+				);
+			$insert = $this->Frontend_model->addMember($data);
+			echo json_encode(array("status" => TRUE));
+		}
 
 }
 

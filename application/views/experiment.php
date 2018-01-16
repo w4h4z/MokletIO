@@ -270,7 +270,8 @@
 			    	foreach ($eventPast as $data) {
 			    		echo '
 			    		   <div class="item">
-					      	<img src="'.base_url().'uploads/'.$data->BANNER_DETAIL.'" alt="The Last of us">
+
+					      	<div style="background-image:url('.base_url().'uploads/'.$data->BANNER_DETAIL.')" class="owl-background"></div>
 					      	<div class="owl-caption">
 					      		<h1>'.$data->NAMA_EVENT.'</h1>
 					      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
@@ -280,14 +281,13 @@
 			    		';
 			    	}
 			    ?>
-			      
 			    </div>
 			</div>
 		</div>
 		<div class="row section"><!-- Picture Gallery -->
 			<div class="picture-gallery">
 				<div class="picture-gallery-message">
-					<p class="mini-title mini-title-gallery">DOKUMENTASI</p>
+					<p class="mini-title mini-title-gallery">Gallery</p>
 					<h1><?php echo $data->NAMA_SUB?></h1>
 						<hr class="hr-gallery">
 					<h4>Dokumentasi Kegiatan <?php echo $data->NAMA_SUB?></h4>
@@ -305,52 +305,61 @@
 		<div class="row section" id="form">
 			<div class="form-pendaftaran">
 				<div class="form-message">
-					<p class="mini-title mini-title-form">PASKIBRA</p>
+					<p class="mini-title mini-title-form"><?php echo $data->SINGKATAN_SUB ?></p>
 					<h1>Form Pendaftaran Anggota</h1>
 						<hr>
-					<h4>Etiam tristique, metus pretium rutrum elementum, risus tortor euismod urna, porta felis felis vel.</h4>
+					<h4>Form pendaftaran Anggota Baru <?php echo $data->SINGKATAN_SUB ?> SMK Telkom Malang</h4>
 				</div>
 				<div class="form-content">
 					<div class="form-photo">
 						<img src="#" alt="Your Photo" id="YourPhoto" class="img-responsive">
 					</div>
 					<div class="form">
-						<form class="" action="" method="">
+						<form class="" action="" method="" id="memberForm">
+							<input type="hidden" name="id_sub" value="<?php echo $data->ID_SUB ?>">
 							<div class="input-group-half">
 								<label for="nama">Nama</label>
-								<input type="text" class="form-input-half" name="nama">
+								<input type="text" class="form-input-half" name="nama_member">
 							</div>
 							<div class="input-group-half">
 								<label for="kelas">Kelas</label>
-								<select class="form-input-half" name="kelas">
-									<option value="">XRPL1</option>
-									<option value="">XRPL2</option>
-									<option value="">XRPL3</option>
-									<option value="">XRPL4</option>
-									<option value="">XRPL5</option>
-									<option value="">XRPL6</option>
-									<option value="">XTKJ1</option>
-									<option value="">XTKJ2</option>
-									<option value="">XTKJ3</option>
-									<option value="">XTKJ4</option>
-									<option value="">XTKJ5</option>
-									<option value="">XTKJ6</option>
+								<select class="form-input-half" name="kelas_member">
+									<option value="XRPL1">XRPL1</option>
+									<option value="XRPL2">XRPL2</option>
+									<option value="XRPL3">XRPL3</option>
+									<option value="XRPL4">XRPL4</option>
+									<option value="XRPL5">XRPL5</option>
+									<option value="XRPL6">XRPL6</option>
+									<option value="XTKJ1">XTKJ1</option>
+									<option value="XTKJ2">XTKJ2</option>
+									<option value="XTKJ3">XTKJ3</option>
+									<option value="XTKJ4">XTKJ4</option>
+									<option value="XTKJ5">XTKJ5</option>
+									<option value="XTKJ6">XTKJ6</option>
 								</select>
 							</div>
 							<div class="input-group">
+								<label for="email">Angkatan</label>
+								<input type="number" class="form-input" name="angkatan_member">
+							</div>
+							<div class="input-group">
+								<label for="email">Nomor Telp</label>
+								<input type="number" class="form-input" name="no_hp_member">
+							</div>
+							<div class="input-group">
 								<label for="email">Email</label>
-								<input type="Email" class="form-input" name="email">
+								<input type="Email" class="form-input" name="email_member">
 							</div>
 							<div class="input-group">
 								<label for="photo">Photo</label>
-								<input type="file" class="form-input" name="photo" id="photo">
+								<input type="file" class="form-input" name="foto_member" id="photo">
 							</div>
 							<div class="input-group">
 								<label for="keterangan">Alasan ingin bergabung</label>
-								<textarea class="form-input-textarea" name="keterangan"></textarea>
+								<textarea class="form-input-textarea" name="alasan_member"></textarea>
 							</div>
 							<div class="button-group">
-								<input type="submit" name="" value="Daftar" class="btn-submit">
+								<input type="submit" name="" id="buttonDaftar" value="Daftar" class="btn-submit">
 								<input type="reset" name="" value="Reset" class="btn-reset">
 							</div>
 						</form>
@@ -396,15 +405,15 @@
 			<div class="about">
 				<div class="about-message">
 					<span class="mini-title">about</span>
-					<h1><?php echo $data->NAMA_SUB ?>
+					<h1>SMK Telkom Malang
 					</h1>
 						<hr>
 					<p>
-						&emsp; <?php echo $data->DESC_SUB ?>
+						SMK Telkom Malang adalah SMK berakreditasi "A" di bawah naungan yayasan pendidikan Telkom. SMK yang berdiri sejak tahun 1922 ini terletak di Jalan Danau Ranau, Sawojajar, Malang. Motto SMK Telkom sendiri adalah Attitude is Everything.
 					</p>
 				</div>
 				<div class="about-content">
-					<img src="<?php echo base_url('uploads/').$data->FOTO_HEADER_SUB; ?>" class="img-responsive" alt="">
+					<img src="<?php echo base_url(); ?>assets/front_end/images/telkomSchool.jpg" class="img-responsive" alt="">
 				</div>
 			</div>
 			<div class="feature">
@@ -561,7 +570,7 @@ $(document).ready(function() {
 
 		/*IMAGE ZOOM*/
 	function zoomImage(){
-		$('.pct').click(function() {
+		$('.pct-container .pct').click(function() {
 			var bgImage = $(this).css('background-image').replace(/^url|[\(\)]/g, '');
 			$('.pct-modal-content').css('background-image', 'url('+bgImage+')');
 			$('.pct-modal-backdrop').fadeIn(400);
@@ -572,9 +581,32 @@ $(document).ready(function() {
 	}
 
 	
+	$('#buttonDaftar').click(function() {
+		/* Act on the event */
+		 // ajax adding data to database
+		 $('.loader').fadeIn(400);
+          $.ajax({
+            url : "<?php echo site_url('index.php/page/daftar')?>",
+            type: "POST",
+            data: $('#memberForm').serialize(),
+            dataType: "JSON",
+            success: function(data)
+            {
+               //if success close modal and reload ajax table
+               alert("Daftar Berhasil");
+              	$('.loader').fadeOut(400);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error adding / update data');
+              	$('.loader').fadeOut(400);
+            }
+        });
+	});
+		
 
 
-
+      
 	$warnaPrimer ="<?php echo $data->PRIMARY_COLOR; ?>";
 
 	/*SCHEDULE */
@@ -642,6 +674,8 @@ $(document).ready(function() {
 	   $('.navigation').addClass('nav-scroll');
 	   $('.navbar-nav li a:not(.nav-brand)').addClass('nav-onscroll');
 	});
+
+
 	$(window).scroll(function() {
 		
 	    if ($(document).scrollTop() > 0) {
