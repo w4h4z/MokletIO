@@ -315,11 +315,11 @@
 						<img src="#" alt="Your Photo" id="YourPhoto" class="img-responsive">
 					</div>
 					<div class="form">
-						<form class="" action="" method="" id="memberForm">
+						<form id="memberForm" enctype="multipart/form-data" method="post" action="<?php echo base_url('page/daftarMember'); ?>">
 							<input type="hidden" name="id_sub" value="<?php echo $data->ID_SUB ?>">
 							<div class="input-group-half">
 								<label for="nama">Nama</label>
-								<input type="text" class="form-input-half" name="nama_member">
+								<input type="text" class="form-input-half" name="nama_member" required>
 							</div>
 							<div class="input-group-half">
 								<label for="kelas">Kelas</label>
@@ -340,23 +340,23 @@
 							</div>
 							<div class="input-group">
 								<label for="email">Angkatan</label>
-								<input type="number" class="form-input" name="angkatan_member">
+								<input type="number" class="form-input" name="angkatan_member" required>
 							</div>
 							<div class="input-group">
 								<label for="email">Nomor Telp</label>
-								<input type="number" class="form-input" name="no_hp_member">
+								<input type="number" class="form-input" name="no_hp_member" required>
 							</div>
 							<div class="input-group">
 								<label for="email">Email</label>
-								<input type="Email" class="form-input" name="email_member">
+								<input type="Email" class="form-input" name="email_member" required>
 							</div>
 							<div class="input-group">
 								<label for="photo">Photo</label>
-								<input type="file" class="form-input" name="foto_member" id="photo">
+								<input type="file" class="form-input" name="foto_member" id="photo" required>
 							</div>
 							<div class="input-group">
 								<label for="keterangan">Alasan ingin bergabung</label>
-								<textarea class="form-input-textarea" name="alasan_member"></textarea>
+								<textarea class="form-input-textarea" name="alasan_member" required></textarea>
 							</div>
 							<div class="button-group">
 								<input type="submit" name="" id="buttonDaftar" value="Daftar" class="btn-submit">
@@ -488,8 +488,9 @@
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
-</body>
-</html>
+
+	<!-- Sweet Alert -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 <script>
@@ -581,28 +582,40 @@ $(document).ready(function() {
 	}
 
 	
-	$('#buttonDaftar').click(function() {
-		/* Act on the event */
-		 // ajax adding data to database
-		 $('.loader').fadeIn(400);
+/*	$('#buttonDaftar').click(function() {
           $.ajax({
-            url : "<?php echo site_url('index.php/page/daftar')?>",
-            type: "POST",
+            url : '<?php echo base_url('page/daftarMember'); ?>',
+            type: 'POST',
             data: $('#memberForm').serialize(),
-            dataType: "JSON",
-            success: function(data)
+            dataType: 'JSON',
+            success: function(r)
             {
-               //if success close modal and reload ajax table
-               alert("Daftar Berhasil");
-              	$('.loader').fadeOut(400);
-            },
-            error: function (jqXHR, textStatus, errorThrown)
-            {
-                alert('Error adding / update data');
-              	$('.loader').fadeOut(400);
+               if(r.success){
+					swal("Register Success", "Welcome !", "success");
+				} 
             }
         });
-	});
+	});*/
+
+/*	function addMember() {
+		event.preventDefault();
+		$data = $('#memberForm').serialize();
+
+		$.ajax({
+				url: '<?php echo base_url('page/daftarMember'); ?>',
+				data: data,
+				type: 'POST',
+				dataType: 'json',
+				success: function (r) {
+					if(!r.success){
+						swal("Register Failed", "You must fill all the form!", "error");
+					} else {
+						swal("Register Success", "Welcome !", "success");
+					}
+				}
+			})
+				
+	}*/
 		
 
 
@@ -708,3 +721,6 @@ $(document).ready(function() {
 		
 
 </script>
+
+</body>
+</html>

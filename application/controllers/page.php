@@ -101,6 +101,31 @@ class Page extends CI_Controller {
 			echo json_encode(array("status" => TRUE));
 		}
 
+	public function daftarMember()
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size']  = '2000';
+		$this->load->library('upload', $config);
+
+		$r = array(
+			'success' => false
+			);
+
+		if( $this->upload->do_upload('foto_member')){
+			$upload = $this->upload->data();
+			$foto = $upload['file_name'];
+
+			if($this->Frontend_model->insertMember($foto) == TRUE){
+				$r['success'] = true;
+			}
+		} else {
+			$r['success'] = false;
+		}
+		
+		alert('success');
+	}
+
 }
 
 /* End of file page.php */

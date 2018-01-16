@@ -143,6 +143,29 @@ class Frontend_model extends CI_Model {
 		return $this->db->insert_id();
 	}
 
+	public function insertMember($foto)
+	{
+		$data = array(
+					'ID_SUB' => $this->input->post('id_sub'),
+					'NAMA_MEMBER' => $this->input->post('nama_member'),
+					'ANGKATAN_MEMBER' => $this->input->post('angkatan_member'),
+					'KELAS_MEMBER' => $this->input->post('kelas_member'),
+					'NO_HP_MEMBER' => $this->input->post('no_hp_member'),
+					'EMAIL_MEMBER' => $this->input->post('email_member'),
+					'ALASAN_MEMBER' => $this->input->post('alasan_member'),
+					'FOTO_MEMBER' => $foto,
+					'JABATAN_MEMBER' => 'Anggota',
+					'STATUS_MEMBER'	=> '0'
+				);
+
+		$this->db->insert('member_sub', $data);
+
+		if ($this->db->affected_rows() == 0) {
+			return false;
+		}
+
+		return true;
+	}
 }
 
 /* End of file frontend_model.php */
