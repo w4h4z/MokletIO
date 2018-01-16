@@ -108,22 +108,20 @@ class Page extends CI_Controller {
 		$config['max_size']  = '2000';
 		$this->load->library('upload', $config);
 
-		$r = array(
-			'success' => false
-			);
-
 		if( $this->upload->do_upload('foto_member')){
 			$upload = $this->upload->data();
 			$foto = $upload['file_name'];
 
 			if($this->Frontend_model->insertMember($foto) == TRUE){
-				$r['success'] = true;
+				echo 'true';
+			} else {
+				echo 'false';
 			}
-		} else {
-			$r['success'] = false;
+		} else { 
+			echo $this->upload->display_errors();
 		}
 		
-		alert('success');
+		//echo json_encode($r);
 	}
 
 }
