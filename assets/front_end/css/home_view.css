@@ -458,10 +458,9 @@ hr{
 
 .owl-background{
   height: 800px;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
 }
 .owl-dots{
   position: absolute;
@@ -504,10 +503,9 @@ hr{
 }
 .owl-caption h1{
   color: white;
-    font-weight: lighter;
     text-transform: uppercase;
     font-size: 4em;
-    margin: 5% 0px 0px 0px;
+    margin: 0px;
 }
 .owl-caption h4{
   color: white;
@@ -652,7 +650,8 @@ hr{
   color: white;
   text-shadow: 6px 6px 6px solid #222222;
   z-index: 200;
-  right: 0;
+  right: -32px;
+  top: -32px;
   cursor: pointer;
 }
 /*  SPEAKER   */
@@ -1400,7 +1399,7 @@ and (max-device-width : 480px) {
  
   /*LOADER*/
   .loader{
-    padding-top: 50%;
+    padding-top: 62%;
     padding-bottom: 50%;
   }
   .loader > .loader-group h1{
@@ -1507,7 +1506,7 @@ and (max-device-width : 480px) {
  /*OWL Carousel*/
  /*Carousel*/
   .owl-caption {
-      font-size: 0.7em;
+    font-size: 0.7em;
     margin: 10px 10% 10px 10%;
     padding: 50% 0% 50% 0%;
   }
@@ -1515,23 +1514,26 @@ and (max-device-width : 480px) {
     height: 480px;
   }
   .owl-caption h1{
-      font-size: 1.9em;
+      font-size: 2em;
   }
   .owl-caption h4{
-      font-size: 0.9em;
+      font-size: 1.1em;
     margin: 10px 0px 10px 0px;
   }
   .owl-nav [class*='owl-'] i {
     font-size: 1em;
   }
   .caption-button{
-    font-size: 0.8em;
-    width: 60%;
+    font-size: 1em;
+    width: 40%;
   }
   /*PCT MODAL*/
   .pct-modal-content{
     max-width: 90%;
     max-height: 60%;
+  }
+  .pct-modal-content span{
+    right: 0px;
   }
 /* PICTURE GALLERY  */
 
@@ -1725,9 +1727,30 @@ and (max-device-width : 480px) {
     margin-right: 80%;
   }
 
+  /*Landscape*/
+@media only screen and (orientation:landscape) {
+
+  #preloader{
+    padding-top: 30%;
+    padding-bottom: 30%;
+  }
+  .loader-title{
+    padding-right: 30%;
+    padding-left: 30%;
+  }
+  .owl-caption{
+     padding: 40% 0% 30% 0%;
+  }
+
+  .pct-container .pct{
+    display: inline-block;
+    margin: 10px;
+  }
+}
 
 
 }
+
 
 
 @media only screen 
@@ -1871,31 +1894,20 @@ and (max-device-width : 768px) {
     text-align: center;
   }
 
-    /* SLIDE-SHOW  */
 
-  .slide-arrow-left, .slide-arrow-right{
-    font-size: 3em;
-  }
-  .slide-indicator{
-    position: absolute;
-    overflow: auto;
-    bottom: 5%;
-    text-align: center;
-    width: 100%;
-  }
-  .color-white{
-    background-color: white;
-  }
-  .circle{
-    display: inline-block;
-    border:2px solid white;
-    padding: 3px;
-    border-radius: 50%;
-  }
-  .slide-show{
-    display: none;
-  }
 
+
+/*OWL CAROUSEL*/
+  .owl-caption{
+    padding-top: 60%;
+    padding-bottom: 60%;
+  }
+  .owl-caption h1{
+      font-size: 2.3em;
+  }
+  .owl-caption h4{
+      font-size: 1.3em;
+  }
 
   /* FORM */
   .form-pendaftaran{
@@ -1912,7 +1924,8 @@ and (max-device-width : 768px) {
     padding: 0;
   }
   .pct{
-    max-width: 28%;
+    width: 45%;
+    height: 200px;
   }
   /*  SPEAKER  */
 
@@ -2004,6 +2017,24 @@ and (max-device-width : 768px) {
     max-width: 32%;
     max-height: 100px;
   }
+
+      /*Landscape*/
+  @media only screen and (orientation:landscape) {
+
+    #preloader{
+      padding-top: 20%;
+      padding-bottom: 20%;
+    }
+    .loader-title{
+      padding-right: 20%;
+      padding-left: 20%;
+    }
+
+    .pct-container .pct{
+      display: inline-block;
+      margin: 10px;
+    }
+  }
 }    
 
 
@@ -2035,7 +2066,7 @@ and (min-width: 768px) {
 
 /*Owl Carousel*/
  .owl-caption {
-    padding: 25% 0% 50% 0%;
+    padding: 30% 0% 50% 0%;
   }
   .owl-caption h1{
       font-size: 3em;

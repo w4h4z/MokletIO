@@ -2,7 +2,8 @@
 <html style="overflow:hidden;">
 <head>
 <meta charset=utf-8>
-<meta name=description content="">
+<meta name="keywords" content="Esktrakulikuler SMK Telkom Malang, SMK Telkom Malang, basket SMK Telkom Malang, Volley SMK Telkom Malang, Moba SMK Telkom Malang, Pencak SIlat SMK Telkom Malang, Organisasi SMK Telkom Malang,OSIS SMK Telkom Malang, MPK SMK Telkom Malang, Dewan AMbalan SMK Telkom Malang, DA SMK Telkom Malang, Pepustakaan SMK Telkom Malang, MAC SMK Telkom Malang, METIC SMK Telkom Malang, Comet SMK Telkom Malang, MR SMK Telkom Malang, Paskibra SMK Telkom Malang, Futsal SMK Telkom Malang, Mading SMK Telkom Malang ">
+<meta name=description content="Website ekskul SMK Telkom Malang">
 <meta name=viewport content="width=device-width, initial-scale=1">
 	<title>Event Telkom</title>
 
@@ -247,13 +248,14 @@
 				    	foreach ($eventPastAll as $data) {
 				    		echo '
 				    		   <div class="item">
-						      	<img src="'.base_url().'uploads/'.$data->BANNER_DETAIL.'" alt="The Last of us">
-						      	<div class="owl-caption">
-						      		<h1>'.$data->NAMA_EVENT.'</h1>
-						      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
-							   		<div id="past-event'.$data->ID_EVENT.'" class="caption-button">Info Lengkap</div>
-						      	</div>
-						      </div>
+							      	<div style="background-image:url('.base_url().'uploads/'.$data->BANNER_DETAIL.')" class="owl-background">
+								      	<div class="owl-caption">
+								      		<h1>'.$data->NAMA_EVENT.'</h1>
+								      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
+									   		<div id="past-event'.$data->ID_EVENT.'" class="caption-button">Info Lengkap</div>
+								      	</div>
+								    </div>
+					      		</div>
 				    		';
 				    	}
 			    	?>
@@ -302,6 +304,22 @@
 					<div class="feature-content">
 						<h4>Manajemen</h4>
 						<p>Konten Manajemen yang baik dan penyajian informasi secara praktis akan mempermudah pengguna dalam menggunakan aplikasi ini</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-background"><!-- MODAL PAST EVENT -->
+			<div class="modal">
+				<div class="modal-header">
+					<p class="modal-title">Past Event</p>				
+					<span class="modal-close">&times;</span>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+						<div class="modal-intro1">
+							
+						</div>
 					</div>
 				</div>
 			</div>
@@ -356,6 +374,30 @@ $(window).on('load', function(){
 });
 
 $(document).ready(function() {
+
+
+	/*PAST EVENT*/
+	$('[id*="past-event"]').click(function() {
+		$('.loader').fadeIn('400');
+		$id_event = $(this).attr("id").slice(10);
+		pastEventLoad($id_event);
+	});
+
+	function pastEventLoad($id_event){
+		$('.modal-intro1').load("<?php echo site_url('index.php/page/modalPastEvent/')?>",{
+		 ID_EVENT: $id_event},
+		 	function(){
+				$('.loader').fadeOut('400');
+				$('.modal-background').fadeIn('slow');
+		 });
+	}
+	//Modal Past Event Close
+	$('.modal-close').click(function() {
+		$('.modal-background').fadeOut('slow');
+	});
+
+
+
   $("#owl-home").owlCarousel({
       slideSpeed : 1000,
       paginationSpeed : 1000,

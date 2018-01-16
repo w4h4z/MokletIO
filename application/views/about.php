@@ -2,7 +2,8 @@
 <html style="overflow:hidden;">
 <head>
 <meta charset=utf-8>
-<meta name=description content="">
+<meta name="keywords" content="Esktrakulikuler SMK Telkom Malang, SMK Telkom Malang, basket SMK Telkom Malang, Volley SMK Telkom Malang, Moba SMK Telkom Malang, Pencak SIlat SMK Telkom Malang, Organisasi SMK Telkom Malang,OSIS SMK Telkom Malang, MPK SMK Telkom Malang, Dewan AMbalan SMK Telkom Malang, DA SMK Telkom Malang, Pepustakaan SMK Telkom Malang, MAC SMK Telkom Malang, METIC SMK Telkom Malang, Comet SMK Telkom Malang, MR SMK Telkom Malang, Paskibra SMK Telkom Malang, Futsal SMK Telkom Malang, Mading SMK Telkom Malang ">
+<meta name=description content="Website ekskul SMK Telkom Malang">
 <meta name=viewport content="width=device-width, initial-scale=1">
 	<title>Event Telkom</title>
 

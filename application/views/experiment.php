@@ -2,7 +2,8 @@
 <html>
 <head>
 <meta charset=utf-8>
-<meta name=description content="">
+<meta name="keywords" content="Esktrakulikuler SMK Telkom Malang, SMK Telkom Malang, basket SMK Telkom Malang, Volley SMK Telkom Malang, Moba SMK Telkom Malang, Pencak SIlat SMK Telkom Malang, Organisasi SMK Telkom Malang,OSIS SMK Telkom Malang, MPK SMK Telkom Malang, Dewan AMbalan SMK Telkom Malang, DA SMK Telkom Malang, Pepustakaan SMK Telkom Malang, MAC SMK Telkom Malang, METIC SMK Telkom Malang, Comet SMK Telkom Malang, MR SMK Telkom Malang, Paskibra SMK Telkom Malang, Futsal SMK Telkom Malang, Mading SMK Telkom Malang ">
+<meta name=description content="Website ekskul SMK Telkom Malang">
 <meta name=viewport content="width=device-width, initial-scale=1">
 	<title><?php echo $data->SINGKATAN_SUB; ?> - SMK TELKOM</title>
 
@@ -270,13 +271,13 @@
 			    	foreach ($eventPast as $data) {
 			    		echo '
 			    		   <div class="item">
-
-					      	<div style="background-image:url('.base_url().'uploads/'.$data->BANNER_DETAIL.')" class="owl-background"></div>
-					      	<div class="owl-caption">
-					      		<h1>'.$data->NAMA_EVENT.'</h1>
-					      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
-						   		<div id="past-event'.$data->ID_EVENT.'" class="caption-button">Info Lengkap</div>
-					      	</div>
+					      	<div style="background-image:url('.base_url().'uploads/'.$data->BANNER_DETAIL.')" class="owl-background">
+						      	<div class="owl-caption">
+						      		<h1>'.$data->NAMA_EVENT.'</h1>
+						      		<h4>'.$data->SUB_NAMA_EVENT.'</h4>
+							   		<div id="past-event'.$data->ID_EVENT.'" class="caption-button">Info Lengkap</div>
+						      	</div>
+						    </div>
 					      </div>
 			    		';
 			    	}
