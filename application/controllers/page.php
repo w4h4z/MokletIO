@@ -100,8 +100,6 @@ class Page extends CI_Controller {
 			echo json_encode(array("status" => TRUE));
 		}
 
-<<<<<<< HEAD
-=======
 	public function daftarMember()
 	{
 		$config['upload_path'] = './uploads/';
@@ -125,7 +123,6 @@ class Page extends CI_Controller {
 		//echo json_encode($r);
 	}
 
->>>>>>> 7ec54226c5aee44f949e7fd6809d89b96de40972
 }
 
 /* End of file page.php */
