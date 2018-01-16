@@ -316,7 +316,7 @@
 						<img src="#" alt="Your Photo" id="YourPhoto" class="img-responsive">
 					</div>
 					<div class="form">
-						<form id="memberForm" enctype="multipart/form-data" method="post" action="<?php echo base_url('page/daftarMember'); ?>">
+						<form id="memberForm" enctype="multipart/form-data">
 							<input type="hidden" name="id_sub" value="<?php echo $data->ID_SUB ?>">
 							<div class="input-group-half">
 								<label for="nama">Nama</label>
@@ -361,7 +361,7 @@
 							</div>
 							<div class="button-group">
 								<input type="submit" name="" id="buttonDaftar" value="Daftar" class="btn-submit">
-								<input type="reset" name="" value="Reset" class="btn-reset">
+								<input type="reset" name="" value="Reset" class="btn-reset" id="resetMember">
 							</div>
 						</form>
 					</div>
@@ -597,6 +597,29 @@ $(document).ready(function() {
             }
         });
 	});*/
+
+	$('#memberForm').submit(function(e){
+    e.preventDefault(); 
+         $.ajax({
+             url:'<?php echo base_url('page/daftarMember'); ?>',
+             type:"post",
+             data:new FormData(this),
+             processData:false,
+             contentType:false,
+             cache:false,
+             async:false,
+              success: function(data){
+                if(data == 'true'){
+                	swal("Register Success", "Welcome !", "success");
+                	document.getElementById("memberForm").reset();
+                } else if (data == 'false') {
+                	swal("Register Failed", "You must fill all the form!", "error");
+                } else {
+                	swal("Register Failed", data, "error");
+                }
+           }
+         });
+    }); 
 
 /*	function addMember() {
 		event.preventDefault();
