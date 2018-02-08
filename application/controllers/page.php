@@ -42,6 +42,14 @@ class Page extends CI_Controller {
 		$this->load->view('about');
 	}
 
+	public function sub_about(){
+		$this->id_sub = $this->Frontend_model->getIdsub($this->uri->segment(3));
+		$data['data'] = $this->Frontend_model->getSubBySingkatan($this->id_sub);
+		$data['anggota'] = $this->Frontend_model->getAnggotaAbout($this->id_sub);
+		$data['feature'] = $this->Frontend_model->getFeature($this->id_sub);
+		$this->load->view('sub_about', $data);
+	}
+
 	public function galleryPagination()
 	{
 		//echo $this->input->post('startPage');
@@ -84,25 +92,9 @@ class Page extends CI_Controller {
 				</div>';
 	}
 
-	public function daftar()
-		{
-			$data = array(
-					'ID_SUB' => $this->input->post('id_sub'),
-					'NAMA_MEMBER' => $this->input->post('nama_member'),
-					'ANGKATAN_MEMBER' => $this->input->post('angkatan_member'),
-					'KELAS_MEMBER' => $this->input->post('kelas_member'),
-					'NO_HP_MEMBER' => $this->input->post('book_category'),
-					'ALASAN_MEMBER' => $this->input->post('alasan_meber'),
-					'FOTO_MEMBER' => $this->input->post('foto_member'),
-					'JABATAN_MEMBER' => 'Anggota'
-				);
-			$insert = $this->Frontend_model->addMember($data);
-			echo json_encode(array("status" => TRUE));
-		}
-
 	public function daftarMember()
 	{
-		$config['upload_path'] = './uploads/';
+		$config['upload_path'] = './uploads/member';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_size']  = '2000';
 		$this->load->library('upload', $config);
@@ -121,6 +113,30 @@ class Page extends CI_Controller {
 		}
 		
 		//echo json_encode($r);
+	}
+
+
+	public function sendBugReport()
+	{	
+		$config['upload_path'] = './uploads/bugImageTemp/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']  = '1000';
+		$this->load->library('upload', $config);
+		
+		if ( ! $this->upload->do_upload('foto_bug')){
+			$errors = $this->upload->display_errors();
+			//echo json_encode(array("status" => $errors));
+			echo json_encode(array("status" => $this->input->post('email_reporter')));
+		}
+		else{
+			$data = $this->upload->data('file_name');
+
+			if($this->Frontend_model->sendMailBugReport($data) == TRUE){
+				echo json_encode(array("status" => "success"));
+			}else{
+				echo json_encode(array("status" => ""));
+			}
+		}
 	}
 
 }

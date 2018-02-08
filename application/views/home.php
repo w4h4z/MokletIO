@@ -28,6 +28,9 @@
 		background-color: #F7F7F7 !important;
 		color: #B20009 !important;
 	}
+	.social-media:hover{
+	  background-color: rgba(137, 1, 8, 0.8);
+	}
 	.nav-active{
 		border-bottom: 4px solid #B20009;
 	}
@@ -43,6 +46,10 @@
 	.nav-onscroll:hover{
 		border-bottom: 4px solid #B20009 !important;
 	}
+	.bug-report{
+	    background-color: #1b1b1b;
+	    color: white;
+	 }
 	.navbar-nav li a:not(.nav-brand){
 		color: #9A9A9A;
 	}
@@ -61,11 +68,14 @@
 	.feature-icon span, .modal-intro1-desc p:first-child:first-letter{
 		color: #B20009;
 	}
-
 	.schedule-navigation a:hover{
 	  border-bottom: 2px solid #B20009;
 	}
-	
+	input:focus, textarea:focus , select:focus{
+	  box-shadow: 0px 0px 10px #BD0000;
+	  border: 2px solid #BD0000;
+	}
+
     .modal-header{
      background-color: #BD0000;
     }
@@ -76,7 +86,12 @@
 	.mini-title{
     	color: #DEDEDE;
 	}
-
+	.bug-report-button{
+	 	background-color: #BD0000;   
+	  }
+	  .bug-title{
+	  	color: #ECECEC;
+	}
 	.feature{
 		background-color:#1D1D1D;
 	}
@@ -307,7 +322,82 @@
 					</div>
 				</div>
 			</div>
+			<div class="bug-report">
+				<button class="bug-report-button">Laporkan Bug</button>
+				<div class="form-container">
+					<div class="form-content">
+						<div class="form-message" style="padding-bottom: 40px;">
+							<p class="mini-title mini-title-form">Bug Report</p>
+							<h1>Form Laporan Masalah</h1>
+								<hr>
+							<h4>Form untuk melaporkan kesalahan sistem</h4>
+						</div>
+						<div class="form-photo">
+							<img src="#" alt="Foto Masalah" id="bug-photo-preview" class="img-responsive">
+						</div>
+						<div class="form-input-container">
+							<form id="bugForm" enctype="multipart/form-data">
+								<div class="input-group">
+									<label for="email">Lokasi Masalah</label>
+									<input type="text" class="form-input-full" name="masalah" required>
+								</div>
+								<div class="input-group">
+									<label for="email">Email Pelapor</label>
+									<input type="Email" class="form-input-full" name="email_reporter" required>
+								</div>
+								<div class="input-group">
+									<label for="photo">Nama Pelapor </label>
+									<input type="text" class="form-input-full" name="nama_reporter" required>
+								</div>
+								<!-- <div class="input-group">
+									<label for="photo">Screen Shoot Masalah </label>
+									<input type="file" class="form-input-full" name="foto_bug" id="bugPhoto" required style="background-color: white;">
+								</div> -->
+								<div class="input-group">
+									<label for="photo">Screenshoot Masalah</label>
+									<input type="file" class="form-input-full" name="foto_bug" id="bugPhoto" required>
+								</div>
+								<div class="input-group">
+									<label for="keterangan">Deskripsi Masalah</label>
+									<textarea class="form-input-textarea" name="deskripsi" required></textarea>
+								</div>
+								<div class="button-group">
+									<input type="submit" name="" id="buttonDaftar" value="Laporkan" class="btn-submit">
+									<input type="reset" name="" value="Reset" class="btn-reset" id="resetMember">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>				
+			</div>
+			<div class="logo">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mpk.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pustel.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/da.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/bdi.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/paski.png " alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/palwaga.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pmr.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/comet.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/metic.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsbc.png" alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tscc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsfc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsvc.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mac.png"  alt="">
+				<img  src="<?php echo base_url(); ?>assets/front_end/logo/memo.png"  alt="">
+			</div>
+			<div class="footer">
+				<a href="">&copy; 2018 SMK Telkom Malang</a>		
+			</div>
 		</div>
+
+
+
+
+
+		<!-- MOdal Area -->
 
 		<div class="modal-background"><!-- MODAL PAST EVENT -->
 			<div class="modal">
@@ -330,38 +420,14 @@
 				<span class="fa fa-window-close-o"></span>
 			</div>
 		</div>
-
-		<div class="row">
-			<div class="logo">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mpk.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pustel.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/da.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/bdi.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/paski.png " alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/palwaga.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/pmr.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/comet.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/metic.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsbc.png" alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tscc.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsfc.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/tsvc.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/mac.png"  alt="">
-				<img  src="<?php echo base_url(); ?>assets/front_end/logo/memo.png"  alt="">
-			</div>
-		</div>
-		<div class="row">
-			<div class="footer">
-				<a href="">&copy; 2018 SMK Telkom Malang</a>		
-			</div>
-		</div>
 	</div>
 
 	<script src="<?php echo base_url(); ?>assets/front_end/js/jquery.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/home_view.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/js/viewportchecker.js"></script>
 	<script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
+	<!-- Sweet Alert -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
 
 $(window).on('load', function(){ 
@@ -374,6 +440,35 @@ $(window).on('load', function(){
 });
 
 $(document).ready(function() {
+
+		/*BUg Report Button*/
+	$('.bug-report-button').click(function() {
+		$(this).siblings('.form-container').toggleClass('bug-form-scrolldown');
+	});
+	$('#bugForm').on('submit', function(event) {
+		var data = new FormData(document.getElementById("bugForm"));
+		event.preventDefault();
+		$.ajax({
+			url: "<?php echo base_url('index.php/page/sendBugReport') ?>",
+			data : data,
+            mimeType:"multipart/form-data",
+            processData: false,
+            contentType: false,
+			type: "POST",
+			dataType: "JSON",
+			success: function(){
+				swal("Report Success", "Bug Report ", "success");
+				window.history.replaceState(null, null, window.location.pathname);
+			},
+			error: function(){
+				swal("Report Failed", "Bug Report", "error");
+				window.history.replaceState(null, null, window.location.pathname);
+			}
+		})
+	});
+
+
+
 
 
 	/*PAST EVENT*/
@@ -443,7 +538,7 @@ owl.owlCarousel();
 	}
 
 	function animateImg(){
-		$('.pct-container img').addClass("hideme").viewportChecker({
+		$('.pct-container .pct').addClass("hideme").viewportChecker({
 			    classToAdd: 'visible animated fadeInDownBig', // Class to add to the elements when they are visible
 			    offset: -20    
 		});

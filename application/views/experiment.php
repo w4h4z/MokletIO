@@ -27,6 +27,12 @@
 		background-color: <?php echo $data->PRIMARY_COLOR; ?>;
 		z-index: 2;
 	}
+	input:focus, textarea:focus , select:focus{
+	  box-shadow: 0px 0px 10px <?php echo $data->SECONDARY_COLOR; ?>;
+	  border: 2px solid <?php echo $data->SECONDARY_COLOR; ?>;
+	}
+
+
 	.nav-active{
 		border-bottom: 4px solid <?php echo $data->SECONDARY_COLOR; ?>
 	}
@@ -51,8 +57,7 @@
 	.intro1-desc p:first-child:first-letter{
 	  color: <?php echo $data->SECONDARY_COLOR; ?> !important;
 	}
-
-	.ardown, .brand-scroll, hr:not(.hr-gallery), .picture-gallery, .caption-button {
+	.ardown, .brand-scroll, hr:not(.hr-gallery), .picture-gallery, .caption-button, .bug-report-button {
 		background-color: <?php echo $data->SECONDARY_COLOR; ?>;
 	}
 
@@ -66,6 +71,17 @@
 	.schedule-navigation-active{
 	  border-bottom: 2px solid <?php echo $data->SECONDARY_COLOR; ?>!important;
 	}
+
+
+
+	#form-pendaftaran{
+		background-color: #222222;
+		color: #E3E3E3 !important;
+	}
+
+
+
+
 	/*
 	html , body{
 	  background-color: #222222;
@@ -90,19 +106,16 @@
   	  			.navbar-nav li a:not(.nav-brand):hover{
 					color: black;
 				}
-  	  			.feature{
+  	  			.feature, .bug-report{
 	  	  			background-color:#E1E1E1;
 	  	  		}
 	  	  		.footer{
 					background-color: #D9D9D9;
 				}
-				.about, .schedule{
-					background-color: #212121>
-				}
-				.intro1-message, .schedule-content , .intro1-desc, .mini-title:not(.mini-title-gallery, mini-title-form), .schedule-table ,.about-message, .feature-content, .schedule-message, .schedule-navigation a, .footer a{
+				.intro1-message, .bug-report , .schedule-content , .intro1-desc, .bug-title, .mini-title:not(.mini-title-gallery, mini-title-form), .schedule-table ,.about-message, .feature-content, .schedule-message, .schedule-navigation a, .footer a{
 					color: #222222 !important ;
 				}
-				.form-message{
+				#form-pendaftaran .form-message{
 					color: #C5C5C5 !important ;
 				}
 				.schedule-table tr{
@@ -127,7 +140,7 @@
   	  		';
   	  	}else{
   	  		echo '
-	  	  		.feature{
+	  	  		.feature, .bug-report{
 	  	  			background-color:#1D1D1D;
 	  	  		}
 	  	  		.footer{
@@ -136,10 +149,7 @@
 				.form-message{
 					color: #C5C5C5 !important ;
 				}
-				.about, .schedule{
-					background-color: #212121>
-				}
-				.intro1-message, .schedule-content , .intro1-desc, .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
+				.intro1-message, .bug-report ,  .schedule-content , .intro1-desc, .bug-title , .mini-title, .about-message, .feature-content, .schedule-message, .navbar-nav li a, .schedule-, .schedule-navigation a, .footer a{
 					color: #C5C5C5 !important ;
 				}
 				.mini-title-gallery{
@@ -205,7 +215,7 @@
 	     --><li><a href="<?php echo base_url('index.php/page/') ?>">Home</a></li><!--
 	     --><li><a class="dont-return" data-menuanchor="event" href="#event">Event</a></li><!--
 	     --><li><a class="dont-return" data-menuanchor="member" href="#member">Member</a></li><!--
-	     --><li><a class="dont-return" data-menuanchor="about" href="#about">About</a></li>
+	     --><li><a class="dont-return" href="<?php echo base_url('index.php/page/sub_about/'.$data->SINGKATAN_SUB) ?>">About</a></li>
 	     	<li class="daftar dont-return"><a class="" data-menuanchor="form" href="#form">Daftar</a></li>
 	    </ul>
 	</nav>
@@ -304,7 +314,7 @@
 		</div>
 
 		<div class="row section" id="form">
-			<div class="form-pendaftaran">
+			<div class="form-container" id="form-pendaftaran">
 				<div class="form-message">
 					<p class="mini-title mini-title-form"><?php echo $data->SINGKATAN_SUB ?></p>
 					<h1>Form Pendaftaran Anggota</h1>
@@ -315,8 +325,8 @@
 					<div class="form-photo">
 						<img src="#" alt="Your Photo" id="YourPhoto" class="img-responsive">
 					</div>
-					<div class="form">
-						<form id="memberForm" enctype="multipart/form-data">
+					<div class="form-input-container">
+						<form id="memberForm" class="form" enctype="multipart/form-data">
 							<input type="hidden" name="id_sub" value="<?php echo $data->ID_SUB ?>">
 							<div class="input-group-half">
 								<label for="nama">Nama</label>
@@ -341,19 +351,19 @@
 							</div>
 							<div class="input-group">
 								<label for="email">Angkatan</label>
-								<input type="number" class="form-input" name="angkatan_member" required>
+								<input type="number" class="form-input-full" name="angkatan_member" required>
 							</div>
 							<div class="input-group">
 								<label for="email">Nomor Telp</label>
-								<input type="number" class="form-input" name="no_hp_member" required>
+								<input type="number" class="form-input-full" name="no_hp_member" required>
 							</div>
 							<div class="input-group">
 								<label for="email">Email</label>
-								<input type="Email" class="form-input" name="email_member" required>
+								<input type="Email" class="form-input-full" name="email_member" required>
 							</div>
 							<div class="input-group">
 								<label for="photo">Photo</label>
-								<input type="file" class="form-input" name="foto_member" id="photo" required>
+								<input type="file" class="form-input-full" name="foto_member" id="photo" required>
 							</div>
 							<div class="input-group">
 								<label for="keterangan">Alasan ingin bergabung</label>
@@ -430,20 +440,59 @@
 					</div>
 				<?php endforeach ?>
 			</div>
-		</div>
-		<div class="row">
+			<div class="bug-report">
+				<button class="bug-report-button">Laporkan Bug</button>
+				<div class="form-container">
+					<div class="form-content">
+						<div class="form-message" style="padding-bottom: 5%;">
+							<p class="mini-title mini-title-form">Bug Report</p>
+							<h1>Form Laporan Masalah</h1>
+								<hr>
+							<h4>Form untuk melaporkan kesalahan sistem</h4>
+						</div>
+						<div class="form-photo">
+							<img src="#" alt="Foto Masalah" id="bug-photo-preview" class="img-responsive">
+						</div>
+						<div class="form-input-container">
+							<form id="bugForm" enctype="multipart/form-data">
+								<div class="input-group">
+									<label for="email">Lokasi Masalah</label>
+									<input type="text" class="form-input-full" name="masalah" required>
+								</div>
+								<div class="input-group">
+									<label for="email">Email Pelapor</label>
+									<input type="Email" class="form-input-full" name="email_reporter" required>
+								</div>
+								<div class="input-group">
+									<label for="photo">Nama Pelapor </label>
+									<input type="text" class="form-input-full" name="nama_reporter" required>
+								</div>
+								<div class="input-group">
+									<label for="photo">Screen Shoot Masalah (optional)</label>
+									<input type="file" class="form-input-full" name="foto_bug" id="bugPhoto" required style="background-color: white;">
+								</div>
+								<div class="input-group">
+									<label for="keterangan">Deskripsi Masalah</label>
+									<textarea class="form-input-textarea" name="deskripsi" required></textarea>
+								</div>
+								<div class="button-group">
+									<input type="submit" name="" id="buttonDaftar" value="Laporkan" class="btn-submit">
+									<input type="reset" name="" value="Reset" class="btn-reset" id="resetMember">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>				
+			</div>
 			<div class="footer">
 				<a href="">&copy; 2018 SMK Telkom Malang</a>		
 			</div>
 		</div>
-
 		<div class="pct-modal-backdrop"><!-- MODAL ZOOM IMAGE -->
 			<div class="pct-modal-content">
 				<span class="fa fa-window-close-o"></span>
 			</div>
 		</div>
-
-
 		<div class="modal-background">
 			<div class="modal">
 				<div class="modal-header">
@@ -506,6 +555,43 @@
 
 
 $(document).ready(function() {
+
+
+
+
+
+		/*BUg Report Button*/
+	$('.bug-report-button').click(function() {
+		$(this).siblings('.form-container').toggleClass('bug-form-scrolldown');
+	});
+
+	$('#bugForm').on('submit', function(event) {
+		var data = new FormData(document.getElementById("bugForm"));
+		event.preventDefault();
+		$.ajax({
+			url: "<?php echo base_url('index.php/page/sendBugReport') ?>",
+			data : data,
+            mimeType:"multipart/form-data",
+            processData: false,
+            contentType: false,
+			type: "POST",
+			dataType: "JSON",
+			success: function(){
+				swal("Report Success", "Bug Report ", "success");
+			},
+			error: function(){
+				swal("Report Failed", "Bug Report", "error");
+			}
+		})
+	});
+
+
+
+
+
+
+
+
 	/*LOADING DATA*/
 	$('#sub-desc').html('<?php echo $data->DESC_SUB ?>')
 	$('#event-desc').html('<?php echo $event->DESC_DETAIL ?>')
@@ -556,7 +642,7 @@ $(document).ready(function() {
 	}
 
 	function animateImg(){
-		$('.pct-container img').addClass("hideme").viewportChecker({
+		$('.pct-container .pct').addClass("hideme").viewportChecker({
 			    classToAdd: 'visible animated fadeInDownBig', // Class to add to the elements when they are visible
 			    offset: -20    
 		});
@@ -617,6 +703,9 @@ $(document).ready(function() {
                 } else {
                 	swal("Register Failed", data, "error");
                 }
+           },
+           error: function(){
+           	alert("message?: DOMString")
            }
          });
     }); 

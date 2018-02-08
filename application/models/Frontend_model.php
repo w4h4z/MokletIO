@@ -26,6 +26,15 @@ class Frontend_model extends CI_Model {
 						->result();
 	}
 
+
+	public function getAnggotaAbout($id_sub){
+		return $this->db->where('member_sub.ID_SUB', $id_sub)
+						->where('member_sub.JABATAN_MEMBER !=', 'Anggota')
+						->limit(5)
+						->get('member_sub')
+						->result();
+	}
+
 	public function getEvent($id_sub)
 	{
 		$this->db->select('*')->from('event_sub')
@@ -165,6 +174,37 @@ class Frontend_model extends CI_Model {
 		}
 
 		return true;
+	}
+
+
+	public function sendMailBugReport($data){
+			$config = Array(
+			  'protocol' => 'smtp',
+			  'smtp_host' => 'ssl://smtp.googlemail.com',
+			  'smtp_port' => 465,
+			  'smtp_user' => 'ezaalfandy.ea@gmail.com', // change it to yours
+			  'smtp_pass' => 'ezaalfandy.ea', // change it to yours
+			  'mailtype' => 'html',
+			  'charset' => 'iso-8859-1',
+			  'wordwrap' => TRUE,
+			);
+		$this->load->library('email', $config);
+		$this->email->from('miftakhul_alfandy_24rpl@student.smktelkom-mlg.sch.id');
+		$this->email->to('miftakhul_alfandy_24rpl@student.smktelkom-mlg.sch.id');
+		$this->email->set_newline("\r\n");
+		$this->email->subject('Bug Report ->'.$this->input->post('masalah'));
+		$this->email->message($this->input->post('deskripsi'));
+		$this->email->attach('./upload/bugImageTemp/'.$data);
+
+		if ($this->email->send() == TRUE) {
+			$this->email->clear(TRUE);
+			unlink('./uploads/bugImageTemp/'.$data);
+			return TRUE;
+		}else{
+			$this->email->clear(TRUE);
+			unlink('./uploads/bugImageTemp/'.$data);
+			return FALSE;
+		}
 	}
 }
 

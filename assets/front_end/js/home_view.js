@@ -83,6 +83,25 @@ $(document).ready(function(){
 	$("#photo").change(function(){
 	    readURL(this);
 	});
+
+
+
+//  Foto Bug
+	function readURL(input) {
+	 if (input.files && input.files[0]) {
+	        var reader = new FileReader();
+
+	        reader.onload = function (e) {
+	            $('#bug-photo-preview').attr('src', e.target.result);
+	        }
+
+	        reader.readAsDataURL(input.files[0]);
+	   }
+	}
+
+	$("#bugPhoto").change(function(){
+	    readURL(this);
+	});
 	
   	$(window).scroll(function() {
 	    if ($('#form').scrollTop() > 0) {

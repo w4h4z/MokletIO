@@ -20,6 +20,15 @@
 		background-color: #2A2A2A;
 		z-index: 2;
 	}
+	.bug-report{
+	    background-color: #1b1b1b;
+	 }
+	.bug-report-button{
+	 	background-color: #BD0000;   
+	 }
+	.bug-title{
+	  	color: #ECECEC;
+	}
 	.nav-active{
 		border-bottom: 4px solid #B20009;
 	}
@@ -68,7 +77,9 @@
 	.mini-title{
     	color: #DEDEDE;
 	}
-
+	.speaker-content{
+		color: #E1E1E1;
+	}
 	.feature{
 		background-color:#1D1D1D;
 	}
@@ -288,7 +299,49 @@
 				</div>
 			</div>
 		</div>
-
+		<div class="row">
+			<div class="bug-report">
+					<button class="bug-report-button">Laporkan Bug</button>
+					<div class="form">
+						<div class="form-content">
+							<div class="form-photo">
+								<img src="#" alt="Foto Masalah" id="bug-photo-preview" class="img-responsive">
+							</div>
+							<div class="form">\
+								<form id="bugForm" enctype="multipart/form-data">
+									<span class="mini-title">Mokletio</span>
+									<h1 class="bug-title">Laporkan Kesalahan Sistem</h1>
+									<hr>
+									<div class="input-group">
+										<label for="email">Lokasi Masalah</label>
+										<input type="text" class="form-input" name="masalah" required>
+									</div>
+									<div class="input-group">
+										<label for="email">Email Pelapor</label>
+										<input type="Email" class="form-input" name="email_reporter" required>
+									</div>
+									<div class="input-group">
+										<label for="photo">Nama Pelapor </label>
+										<input type="text" class="form-input" name="nama_reporter" required>
+									</div>
+									<div class="input-group">
+										<label for="photo">Screen Shoot Masalah </label>
+										<input type="file" class="form-input" name="foto_bug" id="bugPhoto" required style="background-color: white;">
+									</div>
+									<div class="input-group">
+										<label for="keterangan">Deskripsi Masalah</label>
+										<textarea class="form-input-textarea" name="deskripsi" required></textarea>
+									</div>
+									<div class="button-group">
+										<input type="submit" name="" id="buttonDaftar" value="Laporkan" class="btn-submit">
+										<input type="reset" name="" value="Reset" class="btn-reset" id="resetMember">
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>				
+			</div>
+		</div>
 		<div class="row">
 			<div class="logo">
 				<img  src="<?php echo base_url(); ?>assets/front_end/logo/osis.png"  alt="">
@@ -344,6 +397,10 @@ $('a').click(function() {
     return false;
 });
 */
+	/*BUg Report Button*/
+	$('.bug-report-button').click(function() {
+		$(this).siblings('.form').toggleClass('bug-form-scrolldown');
+	});
 //Navigasi
 $(window).scroll(function() {
 	

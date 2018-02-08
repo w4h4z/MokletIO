@@ -762,9 +762,6 @@ hr{
     top: 0;
   }
 }
-.social-media:hover{
-  background-color: rgba(137, 1, 8, 0.8);
-}
 .social-media:hover a:nth-child(1){
   animation-name: social;
   animation-duration: 0.6s;
@@ -801,7 +798,6 @@ hr{
 .speaker-content h1{
   font-size: 2.5em;
   line-height: 90%;
-  color: #C5C5C5;
   font-family: Segoe UI semibold;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -810,7 +806,6 @@ hr{
 .speaker-content hr{
   height: 5px;
   border:none;
-  background-color: #891522;
   margin:0;
   width: 20%;
   margin-top: 1%;
@@ -818,14 +813,12 @@ hr{
 }
 
 .speaker-content p:not(.mini-title) {
-  color: #A5A4A4;
   font-family: calibri;
   font-size: 1.3em;
 }
 
 
 .speaker-content h4 {
-  color: #A5A4A4;
   font-weight: lighter;
   margin-top: 3%;
   margin-bottom: 5%;
@@ -924,6 +917,45 @@ hr{
   font-family: calibri;
   margin: 0px;
 }
+
+  /*Bug Report*/
+  .bug-report{
+    padding-left: 10%;
+    padding-right: 10%;  
+  }
+  .bug-report-button{
+    width: 30%;
+    border:0px;
+    padding: 5px;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+  }
+  .bug-report-button ~ .form-container{
+    padding-top: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    padding: 0px;
+    -webkit-transition: all .8s ease;
+       -moz-transition: all .8s ease;
+        -ms-transition: all .8s ease;
+         -o-transition: all .8s ease;
+            transition: all .8s ease;
+  }
+  .bug-form-scrolldown{
+    max-height: 700px !important;
+    padding: 0% 10% 10% 10% !important;
+  }
+  .bug-title{
+    margin: 0px;
+  }
+  .bug-title + hr{
+    width: 30%;
+    margin-right: 70%;
+  }
 
 /* SCHDULE  */
 .schedule{
@@ -1067,17 +1099,13 @@ hr{
 
 /* LAin Lain */
 
-.form-pendaftaran{
+.form-container{
   width: 100%;
   overflow: auto;
   padding: 10%;
-  background-color: #191919;
 }
 .form-message{
   text-align: center;
-}
-.form-message .mini-title{
-  color: white;
 }
 .form-message h1{
   font-size: 3em;
@@ -1112,6 +1140,11 @@ hr{
   max-height: 320px;
 }
 .form{
+  width: 100%;
+  float: left;
+  overflow: auto;
+}
+.form-input-container{
   width: 50%;
   float: left;
   overflow: auto;
@@ -1122,7 +1155,6 @@ hr{
   padding: 1%;
 }
 .input-group-half label{
-  color: white;
   display: block;
   width: 100%;
   font-size: 1em;
@@ -1148,12 +1180,10 @@ hr{
 }
 
 .input-group label{
-  color: white;
   width: 100%;
   display: block;
-  font-style: 1em;
 }
-.form-input{
+.form-input-full{
   width: 100%;
   padding: 1% 3% 1% 3%;
   border-radius: 5px;
@@ -1197,10 +1227,6 @@ hr{
 }
 .btn-reset:hover{
   background-color: #830100;
-}
-input:focus, textarea:focus , select:focus{
-  box-shadow: 0px 0px 10px #BD0000;
-  border: 2px solid #BD0000;
 }
 
 
@@ -1414,7 +1440,7 @@ and (max-device-width : 480px) {
     font-size: 0.8em;
   }
 
-  .intro1-message h1, .speaker-content h1 , .intro2-message h1, .owl-caption h1 , .schedule-message h1, .about-message h1,  .picture-gallery-message h1 , .form-message h1{
+  .intro1-message h1, .bug-title, .speaker-content h1 , .intro2-message h1, .owl-caption h1 , .schedule-message h1, .about-message h1,  .picture-gallery-message h1 , .form-message h1{
     font-size: 1.7em;
   }
   .intro1-message h4, .speaker-content h4 , .intro2-message h4, .schedule-message h4, .about-message h4, .picture-gallery-message h4, .speaker-message h4, .form-message h4{
@@ -1535,6 +1561,39 @@ and (max-device-width : 480px) {
   .pct-modal-content span{
     right: 0px;
   }
+
+    /*Bug Report*/
+  .bug-report{
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .bug-report-button{
+    width: 70%;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    margin: auto;
+  }
+  #bugForm  span{
+    display: block;
+    text-align: center;
+  }
+  .bug-title{
+    text-align: center;
+  }
+  .bug-form-scrolldown{
+    max-height: 700px !important;
+    padding: 0% 10% 10% 10% !important;
+  }
+  .bug-title + hr{
+    margin-left: 40%;
+    margin-right: 40%;
+    width: 20%;
+    margin-right: 70%;
+  }
+
+
 /* PICTURE GALLERY  */
 
   .picture-gallery{
@@ -1554,6 +1613,9 @@ and (max-device-width : 480px) {
 
 
   /* FORM */
+  .form-input-container{
+    width: 100%;
+  }
   .form-photo{
     width: 100%;
     margin-right: 0%;
@@ -1645,7 +1707,7 @@ and (max-device-width : 480px) {
 
   .logo img{
     background-color: transparent;
-    max-width: 50%;
+    max-width: 20%;
     max-height: 100px;
   }
 
@@ -1728,25 +1790,25 @@ and (max-device-width : 480px) {
   }
 
   /*Landscape*/
-@media only screen and (orientation:landscape) {
+  @media only screen and (orientation:landscape) {
 
-  #preloader{
-    padding-top: 30%;
-    padding-bottom: 30%;
-  }
-  .loader-title{
-    padding-right: 30%;
-    padding-left: 30%;
-  }
-  .owl-caption{
-     padding: 40% 0% 30% 0%;
-  }
+    #preloader{
+      padding-top: 30%;
+      padding-bottom: 30%;
+    }
+    .loader-title{
+      padding-right: 30%;
+      padding-left: 30%;
+    }
+    .owl-caption{
+       padding: 40% 0% 30% 0%;
+    }
 
-  .pct-container .pct{
-    display: inline-block;
-    margin: 10px;
+    .pct-container .pct{
+      display: inline-block;
+      margin: 10px;
+    }
   }
-}
 
 
 }
@@ -1910,7 +1972,7 @@ and (max-device-width : 768px) {
   }
 
   /* FORM */
-  .form-pendaftaran{
+  .form{
     padding: 10% 5% 10% 5% !important;
   }
 /* PICTURE GALLERY  */
