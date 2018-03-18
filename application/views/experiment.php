@@ -395,7 +395,7 @@
 					</h4>
 				</div>
 				<div class="picture-gallery-content">
-					<img src="<?php echo base_url('assets/images/Struktur.png') ?>" alt="" id="pct-struktur">
+					<img src="<?php echo base_url(); ?>uploads/<?php echo $data->struktur; ?>" alt="" id="pct-struktur">
 				</div>
 			</div>
 		</div>

@@ -95,6 +95,19 @@ class Profile_model extends CI_Model {
 		return true;
 	}
 
+	public function editStructure($structure)
+	{
+		$data = array('struktur' 	=> $structure
+					);
+
+		$this->db->where('ID_SUB', $this->session->userdata('userId'))->update('sub_organ', $data);
+
+		if($this->db->affected_rows() == 0){
+			return false;
+		}	
+		return true;
+	}
+
 }
 
 /* End of file profile_model.php */

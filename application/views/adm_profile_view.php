@@ -136,6 +136,51 @@
               <!-- /.box -->
             </div>
           </div>
+
+          <div class="row">
+            <div class="col-lg-12 col-xs-12">
+              <div class="box box-info">
+                <div class="box-body box-profile" style="text-align: center;">
+                  <h4><b>Organization Structure</b></h4>
+                  <img src="<?php echo base_url(); ?>uploads/<?php echo $sub->struktur ;?>" style="width: 100%;margin-bottom: 15px">
+                  <a href="#" data-toggle="modal" data-target="#editStructure" class="btn btn-primary btn-block">Edit</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+<!-- Modal -->
+<div id="editStructure" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Organization Structure</h4>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url('profile/editStructure');?>"  class="form-horizontal" method="post" enctype="multipart/form-data">
+          <div class="form-body">
+            <div class="form-group">
+              <label class="control-label col-xs-2">Organization Structure Photo</label>
+              <div class="col-xs-10">
+                <input name="structurePhoto" class="form-control" type="file" required>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
           <div class="row">
             <?php
             $i = 1;

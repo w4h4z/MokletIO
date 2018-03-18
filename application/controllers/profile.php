@@ -103,6 +103,29 @@ class Profile extends CI_Controller {
 		}
 	}
 
+	public function editStructure()
+	{
+		$config['upload_path'] = './uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$config['max_size']  = '2000';
+		$this->load->library('upload', $config);
+		
+		if( $this->upload->do_upload('structurePhoto')){
+				$uploadStructure = $this->upload->data();
+				$name = $uploadStructure['file_name'];
+				if($this->profile_model->editStructure($name) == TRUE){
+					$this->session->set_flashdata('success', 'Edit data success');
+					redirect('dashboard/profile');
+				} else {
+					$this->session->set_flashdata('failed', 'Edit data failed');
+					redirect('dashboard/profile');
+				}
+			} else {
+				$this->session->set_flashdata('failed', $this->upload->display_errors());
+		    	redirect('dashboard/profile');
+			}
+	}
+
 }
 
 /* End of file profile.php */
