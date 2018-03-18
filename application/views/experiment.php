@@ -50,7 +50,7 @@
 	.navbar-nav li a:not(.nav-brand){
 		color: #9A9A9A;
 	}
-    .modal-header{
+    .modal-header, #struktur-organisasi{
      background-color: <?php echo $data->SECONDARY_COLOR;  ?>;
     }
 
@@ -378,6 +378,28 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="row section"><!-- Picture Gallery -->
+			<div class="picture-gallery">
+				<div class="picture-gallery-message">
+					<p class="mini-title mini-title-gallery">Organization Structure</p>
+					<h1><?php echo $data->NAMA_SUB?></h1>
+						<hr class="hr-gallery">
+					<h4>Struktur Organisasi <?php echo $data->NAMA_SUB?> tahun <?php if (date('m') > 7)
+						{// IKI OTOMATIS MENYESUAIKAN PERIODE JABATAN PER BULAN 7
+							echo date('Y').'/'.date('Y', strtotime('+1 year'));
+						}else{
+							echo date('Y', strtotime('-1 year')).'/'.date('Y');
+						} ?>
+						
+					</h4>
+				</div>
+				<div class="picture-gallery-content">
+					<img src="<?php echo base_url('assets/images/Struktur.png') ?>" alt="" id="pct-struktur">
+				</div>
+			</div>
+		</div>
+
 		<div class="row section" id="member">
 			<div class="schedule">
 				<div class="schedule-message">
