@@ -205,10 +205,12 @@
  <!-- Owl Carousel -->
  <script src="<?php echo base_url(); ?>assets/front_end/owlcarousel/owl.carousel.min.js"></script>
  <!-- CKEDITOR -->
- <script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor.js"></script>
- <script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor-inline.js"></script>
+ <script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor.js"></script><!-- 
+ <script src="<?php echo base_url('assets/');?>dist/js/ckeditor/ckeditor-inline.js"></script> -->
   <!-- Waiting Dialog -->
   <script src="<?php echo base_url('assets/dist/js/waitingfor.js');?>""></script>
+  <!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
  <!-- Bootstrap 3.3.7 -->
  <!-- page script -->
  <script>

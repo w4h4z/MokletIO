@@ -211,7 +211,7 @@
         <h4 class="modal-title">Edit Data Profile</h4>
       </div>
       <div class="modal-body">
-        <form action="<?php echo base_url('profile/editProfile');?>"  class="form-horizontal" method="post" enctype="multipart/form-data">
+        <form action="<?php echo base_url('profile/editProfile');?>"  class="form-horizontal" method="post" enctype="multipart/form-data" id="form-editProfile">
           <div class="form-body">
             <div class="form-group">
               <label class="control-label col-xs-2 col-lg-2">Full Name</label>
@@ -226,7 +226,7 @@
             <div class="form-group">
               <label class="control-label col-xs-2">Description</label>
               <div class="col-xs-10">
-                <textarea class="form-control ckeditor" name="descSub" id="descSub" required rows="5" placeholder="Description"></textarea>
+                <textarea class="form-control" name="descSub" id="descSub" required rows="5" placeholder="Description"></textarea>
               </div>
             </div>
             <div class="form-group">
@@ -251,11 +251,11 @@
               <label class="control-label col-xs-2 col-lg-2" style="text-align:left;">Secondary Color</label>
               <div class="col-xs-10 col-lg-4">
                <div class="col-xs-10 col-lg-6">
-                  <input type="text" required name="secondaryCol" id="secondaryCol" class="form-control my-colorpicker1" value="">
-                </div>
-                <div id="secondaryCol-sample" class="col-lg-6">
-                  <!-- SECONDARY COLOR SAMPLE -->
-                </div>
+                <input type="text" required name="secondaryCol" id="secondaryCol" class="form-control my-colorpicker1" value="">
+              </div>
+              <div id="secondaryCol-sample" class="col-lg-6">
+                <!-- SECONDARY COLOR SAMPLE -->
+              </div>
             </div>
 
           </div>
@@ -380,43 +380,48 @@
 
 
 <script>
-/*
-  $('#form-addSuratMasuk').on('submit', function(event) {
-        event.preventDefault();
-        var data = new FormData(document.getElementById("form-addSuratMasuk"));
-       // data.append("fileToUpload", blobFile);
-        $.ajax({
-            url : "<?php echo base_url('index.php/Sekretaris/addSurat/Masuk') ?>",
-            data : data,
-            type: "POST",
-            async: false,
-            mimeType:"multipart/form-data",
-            processData: false,
-            contentType: false,
-            dataType : "JSON",
-            success: function(data){
-                loadTabel();
-                $('#modal_add').modal('hide');
-            },
-            error : function(jqXHR, textStatus, errorThrown){
-                alert("Insert Data Gagal")
-            }
-        })
+  jQuery(document).ready(function($) {
+    CKEDITOR.replace('descSub'); // Active ckeditor
 
-      });*/
-      $('#editProfileBtn').click(function() {
+
+    $('#form-editProfile').on('submit', function(event) {
+      waitingDialog.show('Loading');
+      event.preventDefault();
+      var data = new FormData(document.getElementById("form-editProfile"));
+       // data.append("fileToUpload", blobFile);
+       $.ajax({
+        url : "<?php echo base_url('index.php/Profile/editProfile') ?>",
+        data : data,
+        type: "POST",
+        async: false,
+        mimeType:"multipart/form-data",
+        processData: false,
+        contentType: false,
+        dataType : "JSON",
+        success: function(data){
+          waitingDialog.hide();
+          swal("Success", "Edit Data Success", "success");
+        },
+        error : function(jqXHR, textStatus, errorThrown){
+          swal("Error", "Please Contact Administrator", "warning");
+          waitingDialog.hide();
+        }
+      })
+
+     });
+
+    $('#editProfileBtn').click(function() {
         waitingDialog.show('Loading');
         $.getJSON('<?php echo base_url('profile/getProfile')?>', function(dataProfile, textStatus) {
-           $('#fullName').val(dataProfile.NAMA_SUB);
-           $('#acronymName').val(dataProfile.SINGKATAN_SUB);
-           $('#descSub').val("dataProfile.DESC_SUB");
-           if (dataProfile.PRIMARY_COLOR == "#222222") {
-              $('[name="primaryCol"]').attr('checked', false);
-              $('#dark').attr('checked', true);
-            }else{
-              $('[name="primaryCol"]').attr('checked', false);
-              $('#light').attr('checked', true);
-            }
+          $('#fullName').val(dataProfile.NAMA_SUB);
+          $('#acronymName').val(dataProfile.SINGKATAN_SUB);
+          if (dataProfile.PRIMARY_COLOR == "#222222") {
+            $('[name="primaryCol"]').attr('checked', false);
+            $('#dark').attr('checked', true);
+          }else{
+            $('[name="primaryCol"]').attr('checked', false);
+            $('#light').attr('checked', true);
+          }
           $('#secondaryCol-sample').css('background-color', dataProfile.SECONDARY_COLOR);
           $('#primaryCol').val(dataProfile.PRIMARY_COLOR);
           $('#secondaryCol').val(dataProfile.SECONDARY_COLOR);
@@ -426,33 +431,33 @@
         });
       });
 
-      $('[name="secondaryCol"]').change(function(event) {
-        $('#secondaryCol-sample').css('background-color', $(this).val());
-      });
+    $('[name="secondaryCol"]').change(function(event) {
+      $('#secondaryCol-sample').css('background-color', $(this).val());
+    });
 
-      var dataProfile = {
-        "nama":"<?php echo $sub->NAMA_SUB; ?>",
-        "singkatan":"<?php echo $sub->SINGKATAN_SUB; ?>",
-        "deskripsi":"<?php echo $sub->DESC_SUB; ?>",
-        "warna_primary":"<?php echo $sub->PRIMARY_COLOR; ?>",
-        "warna_secondary":"<?php echo $sub->SECONDARY_COLOR; ?>",
-      }
-      /*CKEDITOR*/
-      CKEDITOR_CONFIGS = {
-        'default': {
-          'toolbar_Basic': [
-          ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
-          ['Undo', 'Redo'],
-          ['Scayt'],
-          ['Link', 'Unlink', 'Anchor'],
-          ['Source'],
-          ['Maximize'],
-          ['Bold', 'Italic', 'Underline', 'RemoveFormat'],
-          ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'],
-          ],
-          'toolbar': 'Basic',
-        },
-      }
+    var dataProfile = {
+      "nama":"<?php echo $sub->NAMA_SUB; ?>",
+      "singkatan":"<?php echo $sub->SINGKATAN_SUB; ?>",
+      "deskripsi":"<?php echo $sub->DESC_SUB; ?>",
+      "warna_primary":"<?php echo $sub->PRIMARY_COLOR; ?>",
+      "warna_secondary":"<?php echo $sub->SECONDARY_COLOR; ?>",
+    }
+    /*CKEDITOR*/
+    CKEDITOR_CONFIGS = {
+      'default': {
+        'toolbar_Basic': [
+        ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord'],
+        ['Undo', 'Redo'],
+        ['Scayt'],
+        ['Link', 'Unlink', 'Anchor'],
+        ['Source'],
+        ['Maximize'],
+        ['Bold', 'Italic', 'Underline', 'RemoveFormat'],
+        ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote'],
+        ],
+        'toolbar': 'Basic',
+      },
+    }
 
 /*  $('#editProfileBtn').click(function(){
     $('#fullName').val(dataProfile.nama);
@@ -619,5 +624,7 @@ $('.icon-picker-list').html('');
     //Colorpicker
     $('.my-colorpicker1').colorpicker()
   })
-  
+});
+
+
 </script>
