@@ -95,11 +95,25 @@ class Profile_model extends CI_Model {
 		return true;
 	}
 
+<<<<<<< HEAD
 	public function getProfile()
 	{
 		return $this->db->where('ID_SUB', $this->session->userdata('userId'))
 						->get('sub_organ')
 						->row();
+=======
+	public function editStructure($structure)
+	{
+		$data = array('struktur' 	=> $structure
+					);
+
+		$this->db->where('ID_SUB', $this->session->userdata('userId'))->update('sub_organ', $data);
+
+		if($this->db->affected_rows() == 0){
+			return false;
+		}	
+		return true;
+>>>>>>> e6d99c50887f44dfa315724a333865c48e6acb29
 	}
 
 }
