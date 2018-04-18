@@ -103,6 +103,12 @@ class Profile extends CI_Controller {
 		}
 	}
 
+	public function getProfile()
+	{
+		$data = $this->profile_model->getProfile();
+		echo json_encode($data);
+	}
+
 }
 
 /* End of file profile.php */

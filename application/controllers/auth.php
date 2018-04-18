@@ -19,21 +19,15 @@ class Auth extends CI_Controller {
 
 	public function login()
 	{
-		if($this->input->post('username') == '' || $this->input->post('password') == ''){
-			echo 'false';
-			return;
-		}
 
 		$username = $this->input->post('username');
 		$pass = $this->input->post('password');
 
 		if (!$this->auth_model->login($username, $pass)) {
-			echo 'false';
-			return;
+			echo json_encode(array("status" => "gagal"));
+		}else{
+			echo json_encode(array("status" => "berhasil"));
 		}
-
-		echo 'true';
-		return;
 	}
 
 	public function logout()

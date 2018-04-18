@@ -95,6 +95,13 @@ class Profile_model extends CI_Model {
 		return true;
 	}
 
+	public function getProfile()
+	{
+		return $this->db->where('ID_SUB', $this->session->userdata('userId'))
+						->get('sub_organ')
+						->row();
+	}
+
 }
 
 /* End of file profile_model.php */

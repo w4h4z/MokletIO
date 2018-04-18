@@ -11,19 +11,18 @@ class Auth_model extends CI_Model {
 
 		if ($this->db->affected_rows() == 0) {
 			return false;
+		}else{
+			$admin = $query->row_array();
+			$session = array(
+					'logged' 	=> true,
+					'userId' 	=> $admin['ID_SUB'],
+					'username'	=> $admin['USERNAME'] 
+			);
+			$this->session->set_userdata($session);
+			return true;
 		}
 
-		$admin = $query->row_array();
-
-		$session = array(
-				'logged' 	=> true,
-				'userId' 	=> $admin['ID_SUB'],
-				'username'	=> $admin['USERNAME'] 
-		);
-
-		$this->session->set_userdata($session);
-
-		return true;
+		
 	}
 	
 	public function getAccount($id)

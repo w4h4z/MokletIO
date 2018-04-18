@@ -22,84 +22,78 @@
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<![endif]-->
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href=""><b>Moklet</b> Info Organization</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="login-box-body">
-    <p class="login-box-msg">Sign in to start your session</p>
-    <div class="alert alert-danger" id="failed" style="display: none">Login Failed</div>
-    <div class="alert alert-success" id="success" style="display: none">Login Success</div>
-    <form id="login" method="post">
-      <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="username" placeholder="Username" required>
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Password" required>
-        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-      </div>
-      <div class="row">
-        <!-- /.col -->
-        <div class="col-xs-12">
-          <button type="submit" name="submit" onclick="login()" class="btn btn-primary btn-block btn-flat">Sign In</button>
+  <div class="login-box">
+    <div class="login-logo">
+      <a href=""><b>Moklet</b> Info Organization</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+      <div class="alert alert-danger" id="failed" style="display: none">Login Failed</div>
+      <div class="alert alert-success" id="success" style="display: none">Login Success</div>
+      <form id="login" method="post">
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control" name="username" placeholder="Username" required>
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
-        <!-- /.col -->
-      </div>
-    </form>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" name="password" placeholder="Password" required>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-xs-12">
+            <button type="submit" name="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
 
+    </div>
+    <!-- /.login-box-body -->
   </div>
-  <!-- /.login-box-body -->
-</div>
-<!-- /.login-box -->
+  <!-- /.login-box -->
 
-<!-- jQuery 3 -->
-<script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js');?>"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
+  <!-- jQuery 3 -->
+  <script src="<?php echo base_url('assets/bower_components/jquery/dist/jquery.min.js');?>"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="<?php echo base_url('assets/bower_components/bootstrap/dist/js/bootstrap.min.js');?>"></script>
+  <!-- Sweet Alert -->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Waiting Dialog -->
+  <script src="<?php echo base_url('assets/dist/js/waitingfor.js');?>""></script>
 
-<!-- Sweet Alert -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script type="text/javascript">
-  function login() {
-    event.preventDefault();
-    data = $('#login').serialize();
-
-    $.ajax({
-      url : '<?php echo base_url('auth/login');?>',
-      type : 'POST',
-      dataType : 'json',
-      data : data,
-      success: function(r) {
-        if(r){
-          /*$('#success').slideUp();
-          $('#success').slideDown();
-          $('#failed').css('display','none');*/
-
-          swal("Login Success", "You will redirect soon!", "success");
-
-          setTimeout(function(){
-            location.reload();
-          },500);
-        } else {
-          /*$('#failed').slideUp();
-          $('#failed').slideDown();
-          $('#success').css('display','none');*/
-
-          swal("Login Failed", "Username or Password Wrong!", "error");
-          
-        }
-      }
+  <script type="text/javascript">
+    jQuery(document).ready(function($) {
+      $('[name="submit"]').click(function(event) {
+        event.preventDefault();
+        var username = $('[name="username"]').val();
+        var password = $('[name="password"]').val();
+        if ($('[name="username"]').val() == "" || $('[name="password"]').val() == "") {
+          swal("Username or Password Are Empty", "Please Check Again !", "warning");
+        }else{
+         $.post('<?php echo base_url('auth/login');?>', {username : username , password : password}, function(data) {
+          if (data.status == "berhasil") {
+            waitingDialog.show('Logging in');
+            setTimeout(function() {
+              location.reload();
+            }, 1000);
+          }else{
+            swal("Wrong Username or Password", "Please Check Again !", "warning");
+          }
+        }, "json");
+       }
+     });
     });
-  }
-</script>
+
+
+
+  </script>
 </body>
 </html>

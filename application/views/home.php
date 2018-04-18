@@ -7,6 +7,7 @@
 <meta name=viewport content="width=device-width, initial-scale=1">
 	<title>Event Telkom</title>
 
+	<link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url(); ?>assets/mokletio.ico"/>
 	<link href="<?php echo base_url(); ?>assets/front_end/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/home_view.css"  type="text/css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/front_end/css/animate.css"  type="text/css">
