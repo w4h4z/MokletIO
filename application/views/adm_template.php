@@ -210,11 +210,12 @@
   <!-- Waiting Dialog -->
   <script src="<?php echo base_url('assets/dist/js/waitingfor.js');?>""></script>
   <!-- Sweet Alert -->
-  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="<?php echo base_url('assets/');?>dist/js/sweetalert.js"></script>
  <!-- Bootstrap 3.3.7 -->
  <!-- page script -->
  <script>
   jQuery(document).ready(function() {
+    
     $('.sidebar-menu li').click(function() {
       $('.sidebar-menu li').removeClass('menu-active');
       $(this).addClass('menu-active');

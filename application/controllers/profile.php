@@ -28,15 +28,12 @@ class Profile extends CI_Controller {
 				$uploadHeader = $this->upload->data();
 				$nameHeader = $uploadHeader['file_name'];
 				if($this->profile_model->editProfileHeader($id, $nameHeader) == TRUE){
-					$this->session->set_flashdata('success', 'Edit data success');
-					redirect('dashboard/profile');
+					echo json_encode(array("status" => true));
 				} else {
-					$this->session->set_flashdata('failed', 'Edit data failed');
-					redirect('dashboard/profile');
+					echo json_encode(array("status" => false, "message" => 1));
 				}
 			} else {
-				$this->session->set_flashdata('failed', $this->upload->display_errors());
-		    	redirect('dashboard/profile');
+				echo json_encode(array("status" => false, "message" => $this->upload->display_errors()));
 			}
 		}
 
@@ -45,25 +42,20 @@ class Profile extends CI_Controller {
 				$uploadLogo = $this->upload->data();
 				$nameLogo = $uploadLogo['file_name'];
 				if($this->profile_model->editProfileLogo($id, $nameLogo) == TRUE){
-					$this->session->set_flashdata('success', 'Edit data success');
-					redirect('dashboard/profile');
+					echo json_encode(array("status" => true));
 				} else {
-					$this->session->set_flashdata('failed', 'Edit data failed');
-					redirect('dashboard/profile');
+					echo json_encode(array("status" => false, "message" => 2));
 				}
 			} else {
-				$this->session->set_flashdata('failed', $this->upload->display_errors());
-		    	redirect('dashboard/profile');
+				echo json_encode(array("status" => false, "message" => $this->upload->display_errors()));
 			}
 		}
 
 		if($_FILES['headerPhoto']['error'] == UPLOAD_ERR_NO_FILE && $_FILES['logoPhoto']['error'] == UPLOAD_ERR_NO_FILE){
 			if($this->profile_model->editProfile($id) == TRUE){
-				$this->session->set_flashdata('success', 'Edit data success');
-				redirect('dashboard/profile');
+				echo json_encode(array("status" => true));
 			} else {
-				$this->session->set_flashdata('failed', 'Edit data failed');
-				redirect('dashboard/profile');
+				echo json_encode(array("status" => false, "message" => 3));
 			}
 		}
 
@@ -75,40 +67,89 @@ class Profile extends CI_Controller {
 					$uploadLogo = $this->upload->data();
 					$nameLogo = $uploadLogo['file_name'];
 					if($this->profile_model->editProfileUpload($id, $nameHeader, $nameLogo) == TRUE){
-						$this->session->set_flashdata('success', 'Edit data success');
-						redirect('dashboard/profile');
+						echo json_encode(array("status" => true));
 					} else {
-						$this->session->set_flashdata('failed', 'Edit data failed');
-						redirect('dashboard/profile');
+						echo json_encode(array("status" => false, "message" => 4));
 					}
 				} else {
-					$this->session->set_flashdata('failed', $this->upload->display_errors());
-			    	redirect('dashboard/profile');
+					echo json_encode(array("status" => false, "message" => $this->upload->display_errors()));
 				}
 			} else {
-				$this->session->set_flashdata('failed', $this->upload->display_errors());
-			    redirect('dashboard/profile');
+				echo json_encode(array("status" => false, "message" => $this->upload->display_errors()));
 			}
 		}
 	}
 
-	public function editFeature($id)
+	public function editFeature()
 	{
-		if($this->profile_model->editFeature($id) == true){
-			$this->session->set_flashdata('success', 'Edit data success');
-			redirect('dashboard/profile');
+		$id = $this->input->post('id_feature');
+		if($this->session->userdata('logged')){
+			if($this->profile_model->editFeature($id) == true){
+				echo json_encode(array("status" => true, "tes" => "tes"));
+			} else {
+				echo json_encode(array("status" => false));
+			}
 		} else {
-			$this->session->set_flashdata('failed', 'Edit data failed');
-			redirect('dashboard/profile');
+			redirect('auth');
 		}
 	}
 
-<<<<<<< HEAD
-	public function getProfile()
+	public function load_profile() // untuk mereload konten profile setelah edit (sebagai pengganti page resfresh)
 	{
-		$data = $this->profile_model->getProfile();
-		echo json_encode($data);
-=======
+		if($this->session->userdata('logged')){
+			$id = $this->session->userdata('userId');
+			$data['sub'] = $this->profile_model->getSubById($id);
+			echo json_encode($data);
+		} else {
+			redirect('auth');
+		}
+	}
+
+	public function load_structure() // untuk mereload konten profile setelah edit (sebagai pengganti page resfresh)
+	{
+		if($this->session->userdata('logged')){
+			$id = $this->session->userdata('userId');
+			$data['sub'] = $this->profile_model->getSubById($id);
+			echo json_encode($data);
+		} else {
+			redirect('auth');
+		}
+	}
+
+	public function load_feature() // untuk mereload konten profile setelah edit (sebagai pengganti page resfresh)
+	{
+		if($this->session->userdata('logged')){
+			$id = $this->session->userdata('userId');
+			$data= $this->profile_model->feature($id);
+			echo json_encode($data);
+		} else {
+			redirect('auth');
+		}
+	}
+
+
+
+	public function getProfile()
+	{	
+		if($this->session->userdata('logged')){
+			$data = $this->profile_model->getProfile();
+			echo json_encode($data);
+		} else {
+			redirect('auth');
+		}
+	}
+
+	public function getSpecificFeature()
+	{
+		if($this->session->userdata('logged')){
+			$data = $this->profile_model->getSpecificFeature();
+			echo json_encode($data);
+		} else {
+			redirect('auth');
+		}
+	}
+
+
 	public function editStructure()
 	{
 		$config['upload_path'] = './uploads/';
@@ -120,17 +161,14 @@ class Profile extends CI_Controller {
 				$uploadStructure = $this->upload->data();
 				$name = $uploadStructure['file_name'];
 				if($this->profile_model->editStructure($name) == TRUE){
-					$this->session->set_flashdata('success', 'Edit data success');
-					redirect('dashboard/profile');
+					echo json_encode(array("status" => true));
 				} else {
-					$this->session->set_flashdata('failed', 'Edit data failed');
-					redirect('dashboard/profile');
+					echo json_encode(array("status" => false));
 				}
 			} else {
-				$this->session->set_flashdata('failed', $this->upload->display_errors());
-		    	redirect('dashboard/profile');
+		    	echo json_encode(array("status" => false, "message" => $this->upload->display_errors()));
 			}
->>>>>>> e6d99c50887f44dfa315724a333865c48e6acb29
+
 	}
 
 }

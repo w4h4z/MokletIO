@@ -120,32 +120,32 @@
               <div class="box box-primary">
                 <div class="box-body box-profile">
                   <img class="profile-user-img img-responsive img-circle" src="<?php echo base_url();?>/uploads/<?php echo $sub->LOGO_SUB ;?>" alt="User profile picture">
-                  <h3 class="profile-username text-center"><?php echo $sub->NAMA_SUB ;?></h3>
-                  <p class="text-muted text-center"><?php echo $sub->SINGKATAN_SUB ;?></p>
+                  <h3 class="profile-username text-center" id="nama_sub_text"><?php echo $sub->NAMA_SUB ;?></h3>
+                  <p class="text-muted text-center" id="singkatan_sub_text"><?php echo $sub->SINGKATAN_SUB ;?></p>
                   <ul class="list-group list-group-unbordered">
                     <li class="list-group-item">
                       <b>Description : </b>
-                      <p><?php echo $sub->DESC_SUB ;?></p>
+                      <p id="desc_sub_text"><?php echo $sub->DESC_SUB ;?></p>
                     </li>
                     <li class="list-group-item">
                       <b>Primary Color : </b> 
                       <div class="pull-right" style="background-color:<?php echo $sub->PRIMARY_COLOR ;?> ; width: 25px;height: 25px"></div>
-                      <a class="pull-right" style="margin-right: 10px"> <?php echo $sub->PRIMARY_COLOR ;?> </a>
+                      <a class="pull-right" style="margin-right: 10px" id="primaryCol"> <?php echo $sub->PRIMARY_COLOR ;?> </a>
                     </li>
                     <li class="list-group-item">
                       <b>Secondary Color : </b> 
                       <div class="pull-right" style="background-color: <?php echo $sub->SECONDARY_COLOR ;?>; width: 25px;height: 25px"></div>
-                      <a class="pull-right" style="margin-right: 10px"> <?php echo $sub->SECONDARY_COLOR ;?> </a>
+                      <a class="pull-right" style="margin-right: 10px" id="secondaryCol"> <?php echo $sub->SECONDARY_COLOR ;?> </a>
                     </li>
                     <li class="list-group-item">
                       <div class="row">
                         <div class="col-lg-6 col-xs-12">
                           <b>Logo :</b><br>
-                          <img class="sub-logo" src="<?php echo base_url();?>/uploads/<?php echo $sub->LOGO_SUB ;?>" alt="Avatar" style="width:50%">
+                          <img class="sub-logo" src="<?php echo base_url();?>/uploads/<?php echo $sub->LOGO_SUB ;?>" alt="Avatar" style="width:50%" id="logo_img">
                         </div>
                         <div class="col-lg-6 col-xs-12">
                           <b>Header Photo :</b><br>
-                          <img src="<?php echo base_url();?>/uploads/<?php echo $sub->FOTO_HEADER_SUB ;?>" alt="Avatar" style="width:50%">
+                          <img src="<?php echo base_url();?>/uploads/<?php echo $sub->FOTO_HEADER_SUB ;?>" alt="Avatar" style="width:50%" id="header_img">
                         </div>
                       </div>
                     </li>
@@ -163,7 +163,7 @@
               <div class="box box-info">
                 <div class="box-body box-profile" style="text-align: center;">
                   <h4><b>Organization Structure</b></h4>
-                  <img src="<?php echo base_url(); ?>uploads/<?php echo $sub->struktur ;?>" style="width: 100%;margin-bottom: 15px">
+                  <img src="<?php echo base_url(); ?>uploads/<?php echo $sub->struktur ;?>" id="struktur_img" style="width: 100%;margin-bottom: 15px" id="structure_img">
                   <a href="#" data-toggle="modal" data-target="#editStructure" class="btn btn-primary btn-block">Edit</a>
                 </div>
               </div>
@@ -171,34 +171,6 @@
           </div>
 
 
-<!-- Modal -->
-<div id="editStructure" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Organization Structure</h4>
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo base_url('profile/editStructure');?>"  class="form-horizontal" method="post" enctype="multipart/form-data">
-          <div class="form-body">
-            <div class="form-group">
-              <label class="control-label col-xs-2">Organization Structure Photo</label>
-              <div class="col-xs-10">
-                <input name="structurePhoto" class="form-control" type="file" required>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save</button>
-      </form>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -216,15 +188,14 @@
               <div class="box-body">
               <div class="text-center">
               <div>
-              <span class="'.$data->ICON_FEATURE.' fa-3x dataIcon"></span>
-              <span class="idFeature" style="display: none">'.$data->ID_FEATURE.'</span>
+              <span class="'.$data->ICON_FEATURE.' fa-3x dataIcon" id="icon_feature_'.$i.'"></span>
               </div>
               <div>
-              <h4><b>'.$data->NAMA_FEATURE.'</b></h4>
-              <p>'.$data->DESC_FEATURE.'</p>
+              <h4 id="nama_feature_'.$i.'"><b>'.$data->NAMA_FEATURE.'</b></h4>
+              <p id="desc_feature_'.$i.'">'.$data->DESC_FEATURE.'</p>
               </div>
               <hr>
-              <button class="btn btn-block btn-primary editFeatureBtn"  data-toggle="modal" data-target="#editFeature">Edit</button>
+              <button class="btn btn-block btn-primary editFeatureBtn"  onclick="editFeature('.$data->ID_FEATURE.')" data-toggle="modal" data-target="#editFeature">Edit</button>
               </div>
               </div>
               <!-- /.box-body -->
@@ -249,83 +220,83 @@
 <!-- Modal -->
 <div id="editProfile" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Edit Data Profile</h4>
-      </div>
-      <div class="modal-body">
-        <form action="<?php echo base_url('profile/editProfile');?>"  class="form-horizontal" method="post" enctype="multipart/form-data" id="form-editProfile">
-          <div class="form-body">
-            <div class="form-group">
-              <label class="control-label col-xs-2 col-lg-2">Full Name</label>
-              <div class="col-xs-10 col-lg-4">
-                <input name="fullName" id="fullName" required placeholder="Full Name" class="form-control" type="text" value="">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Edit Data Profile</h4>
+        </div>
+        <div class="modal-body">
+          <form  class="form-horizontal" enctype="multipart/form-data" id="form-editProfile">
+            <div class="form-body">
+              <div class="form-group">
+                <label class="control-label col-xs-2 col-lg-2">Full Name</label>
+                <div class="col-xs-10 col-lg-4">
+                  <input name="fullName" id="fullName" required placeholder="Full Name" class="form-control" type="text" value="">
+                </div>
+                <label class="control-label col-xs-2 col-lg-1" style="text-align: left;">Acronym</label>
+                <div class="col-xs-10 col-lg-5" style="text-align: left;">
+                  <input name="acronymName" id="acronymName" required placeholder="Acronym" class="form-control" type="text" value="">
+                </div>
               </div>
-              <label class="control-label col-xs-2 col-lg-1" style="text-align: left;">Acronym</label>
-              <div class="col-xs-10 col-lg-5" style="text-align: left;">
-                <input name="acronymName" id="acronymName" required placeholder="Acronym" class="form-control" type="text" value="">
+              <div class="form-group">
+                <label class="control-label col-xs-2">Description</label>
+                <div class="col-xs-10">
+                  <textarea class="form-control" id="descSub" required rows="5" placeholder="Description"></textarea>
+                </div>
               </div>
+              <div class="form-group">
+                <label class="control-label col-xs-2 col-lg-2">Primary Color</label>
+                <div class="col-xs-10 col-lg-4">
+                  <label class="radio-inline col-lg-3">
+                    <input type="radio" name="primaryCol" value="#222222" id="dark"> Dark
+                    <span class="sample-color"></span>
+                  </label>
+                  <div class="col-lg-3 sample-color" style="background-color: #222222; color:white;">
+                    <!-- SAMPLE COLOR DARK -->
+                  </div>
+                  <label class="radio-inline col-lg-3">
+                    <input type="radio" name="primaryCol" value="#e9e9e9" id="light"> Light
+                  </label>
+                  <div class="col-lg-3 sample-color" style="background-color: #e9e9e9">
+                    <!-- SAMPLE COLOR IGHT -->
+                  </div>
+                </div>
+
+
+                <label class="control-label col-xs-2 col-lg-2" style="text-align:left;">Secondary Color</label>
+                <div class="col-xs-10 col-lg-4">
+                 <div class="col-xs-10 col-lg-6">
+                  <input type="text" required name="secondaryCol" id="secondaryCol" class="form-control my-colorpicker1" value="">
+                </div>
+                <div id="secondaryCol-sample" class="col-lg-6">
+                  <!-- SECONDARY COLOR SAMPLE -->
+                </div>
+              </div>
+
             </div>
+
             <div class="form-group">
-              <label class="control-label col-xs-2">Description</label>
+              <label class="control-label col-xs-2">Logo</label>
               <div class="col-xs-10">
-                <textarea class="form-control" name="descSub" id="descSub" required rows="5" placeholder="Description"></textarea>
+                <input name="logoPhoto" class="form-control" type="file" id="imgInp1">
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-xs-2 col-lg-2">Primary Color</label>
-              <div class="col-xs-10 col-lg-4">
-                <label class="radio-inline col-lg-3">
-                  <input type="radio" name="primaryCol" value="#222222" id="dark"> Dark
-                  <span class="sample-color"></span>
-                </label>
-                <div class="col-lg-3 sample-color" style="background-color: #222222; color:white;">
-                  <!-- SAMPLE COLOR DARK -->
-                </div>
-                <label class="radio-inline col-lg-3">
-                  <input type="radio" name="primaryCol" value="#e9e9e9" id="light"> Light
-                </label>
-                <div class="col-lg-3 sample-color" style="background-color: #e9e9e9">
-                  <!-- SAMPLE COLOR IGHT -->
-                </div>
+              <label class="control-label col-xs-2">Header Photo</label>
+              <div class="col-xs-10">
+                <input name="headerPhoto" class="form-control" type="file" id="imgInp">
               </div>
-
-
-              <label class="control-label col-xs-2 col-lg-2" style="text-align:left;">Secondary Color</label>
-              <div class="col-xs-10 col-lg-4">
-               <div class="col-xs-10 col-lg-6">
-                <input type="text" required name="secondaryCol" id="secondaryCol" class="form-control my-colorpicker1" value="">
-              </div>
-              <div id="secondaryCol-sample" class="col-lg-6">
-                <!-- SECONDARY COLOR SAMPLE -->
-              </div>
-            </div>
-
-          </div>
-
-          <div class="form-group">
-            <label class="control-label col-xs-2">Logo</label>
-            <div class="col-xs-10">
-              <input name="logoPhoto" class="form-control" type="file" id="imgInp1">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="control-label col-xs-2">Header Photo</label>
-            <div class="col-xs-10">
-              <input name="headerPhoto" class="form-control" type="file" id="imgInp">
             </div>
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary" id="save_profile">Save</button>
+        </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Save</button>
-      </form>
     </div>
   </div>
-</div>
 </div>
 
 
@@ -342,6 +313,7 @@
         <form action="" id="formFeature" class="form-horizontal" method="post" enctype="multipart/form-data">
           <div class="form-body">
             <div class="form-group">
+              <input type="hidden" name="id_feature" id="id_feature">
               <label class="control-label col-lg-2 col-xs-12 col-md-2" style="text-align: left">Name</label>
               <div class="col-lg-10 col-xs-12 col-md-10">
                 <input name="name" placeholder="Name" id="nama" class="form-control" type="text" value="">
@@ -387,7 +359,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          <button type="submit"  class="btn btn-primary">Save</button>
+          <button type="button"  class="btn btn-primary" id="save_feature">Save</button>
         </form>
       </div>
     </div>
@@ -424,18 +396,60 @@
 </div>
 
 
+<!-- Modal -->
+<div id="editStructure" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Edit Organization Structure</h4>
+      </div>
+      <div class="modal-body">
+        <form action="<?php echo base_url('profile/editStructure');?>"  class="form-horizontal" method="post" enctype="multipart/form-data" id="editStruktur">
+          <div class="form-body">
+            <div class="form-group">
+              <label class="control-label col-xs-12 col-lg-5">Organization Structure Photo</label>
+              <div class="col-xs-12 col-lg-7">
+                <input name="structurePhoto" class="form-control" type="file" required>
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" id="save_structure">Save</button>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <script>
-  jQuery(document).ready(function($) {
+
+
+
+    function editFeature(id_feature){
+      $.getJSON('<?php echo base_url('profile/getSpecificFeature/') ?>'+id_feature, function(json, textStatus) {
+        $('#id_feature').val(json.ID_FEATURE);
+        $('#nama').val(json.NAMA_FEATURE);
+        $('#desc').val(json.DESC_FEATURE);
+        $('#icon-input').val(json.ICON_FEATURE);
+        $('#preview-icon').addClass(json.ICON_FEATURE);
+      });
+    }
+  jQuery(document).ready(function() {
     CKEDITOR.replace('descSub'); // Active ckeditor
 
-
-    $('#form-editProfile').on('submit', function(event) {
+    $('#save_profile').click(function(event) {
       waitingDialog.show('Loading');
       event.preventDefault();
       var data = new FormData(document.getElementById("form-editProfile"));
+      data.append('descSub', CKEDITOR.instances['descSub'].getData());
        // data.append("fileToUpload", blobFile);
        $.ajax({
-        url : "<?php echo base_url('index.php/Profile/editProfile') ?>",
+        url : "<?php echo base_url('profile/editProfile') ?>",
         data : data,
         type: "POST",
         async: false,
@@ -444,6 +458,42 @@
         contentType: false,
         dataType : "JSON",
         success: function(data){
+
+          if (data.status == true) {
+            waitingDialog.hide();
+            swal("Success", "Edit Data Success", "success");
+            reload_profile();
+          }else{
+            waitingDialog.hide();
+            swal("Error", "Please Contact Administrator", "warning");
+          }
+        },
+        error : function(jqXHR, textStatus, errorThrown){
+          waitingDialog.hide();
+          swal("Error", "Please Contact Administrator", "warning");
+        }
+      });       
+       $('#editProfile').modal('hide');
+     });
+
+
+
+    $('#save_structure').click(function(event) {
+      waitingDialog.show('Loading');
+      event.preventDefault();
+      var data = new FormData(document.getElementById("editStruktur"));
+       // data.append("fileToUpload", blobFile);
+       $.ajax({
+        url : "<?php echo base_url('profile/editStructure') ?>",
+        data : data,
+        type: "POST",
+        async: false,
+        mimeType:"multipart/form-data",
+        processData: false,
+        contentType: false,
+        dataType : "JSON",
+        success: function(data){
+          reload_structure();
           waitingDialog.hide();
           swal("Success", "Edit Data Success", "success");
         },
@@ -452,29 +502,39 @@
           waitingDialog.hide();
         }
       })
+       $('#editStructure').modal('hide');
+    });
 
-     });
+    $('#save_feature').click(function() {
+      $.post('<?php echo base_url('profile/editFeature') ?>', $('#formFeature').serialize(), function(data, textStatus, xhr) {
+        $('#editFeature').modal('hide');
+        if (data.status == true) {
+          swal("Success", "Edit Data Success", "success");
+          reload_feature();
+        }else{
+           swal("Error", "Please Contact Administrator", "warning");
+        }
+      },"json");
+    });
+  
 
     $('#editProfileBtn').click(function() {
-        waitingDialog.show('Loading');
-        $.getJSON('<?php echo base_url('profile/getProfile')?>', function(dataProfile, textStatus) {
-          $('#fullName').val(dataProfile.NAMA_SUB);
-          $('#acronymName').val(dataProfile.SINGKATAN_SUB);
-          if (dataProfile.PRIMARY_COLOR == "#222222") {
-            $('[name="primaryCol"]').attr('checked', false);
-            $('#dark').attr('checked', true);
-          }else{
-            $('[name="primaryCol"]').attr('checked', false);
-            $('#light').attr('checked', true);
-          }
-          $('#secondaryCol-sample').css('background-color', dataProfile.SECONDARY_COLOR);
-          $('#primaryCol').val(dataProfile.PRIMARY_COLOR);
-          $('#secondaryCol').val(dataProfile.SECONDARY_COLOR);
-          CKEDITOR.instances['descSub'].setData(dataProfile.DESC_SUB);
-          waitingDialog.hide();
-          $('#myModal').modal('show');
-        });
+      $.getJSON('<?php echo base_url('profile/getProfile')?>', function(dataProfile, textStatus) {
+        $('#fullName').val(dataProfile.NAMA_SUB);
+        $('#acronymName').val(dataProfile.SINGKATAN_SUB);
+        if (dataProfile.PRIMARY_COLOR == "#222222") {
+          $('[name="primaryCol"]').attr('checked', false);
+          $('#dark').attr('checked', true);
+        }else{
+          $('[name="primaryCol"]').attr('checked', false);
+          $('#light').attr('checked', true);
+        }
+        $('#secondaryCol-sample').css('background-color', dataProfile.SECONDARY_COLOR);
+        $('#primaryCol').val(dataProfile.PRIMARY_COLOR);
+        $('#secondaryCol').val(dataProfile.SECONDARY_COLOR);
+        CKEDITOR.instances['descSub'].setData(dataProfile.DESC_SUB);
       });
+    });
 
     $('[name="secondaryCol"]').change(function(event) {
       $('#secondaryCol-sample').css('background-color', $(this).val());
@@ -504,6 +564,38 @@
       },
     }
 
+    function reload_profile(){// reload ulang data setelah melakukan perubahan data
+      $.getJSON('<?php echo base_url('Profile/load_profile') ?>', function(json, textStatus) {
+          $('#nama_sub_text').html(json.sub.NAMA_SUB)
+          $('#singkatan_sub_text').html(json.sub.SINGKATAN_SUB)
+          $('#desc_sub_text').html(json.sub.DESC_SUB)
+          $('#primaryCol').html(json.sub.PRIMARY_COLOR)
+          $('#primaryCol').siblings('div').css('backgroundColor', json.sub.PRIMARY_COLOR);
+          $('#secondaryCol').html(json.sub.SECONDARY_COLOR)
+          $('#secondaryCol').siblings('div').css('backgroundColor', json.sub.SECONDARY_COLOR);
+          $('#logo_img').attr('src', '<?php echo base_url('/uploads/') ?>'+json.sub.LOGO_SUB);
+          $('#header_img').attr('src', '<?php echo base_url('/uploads/') ?>'+json.sub.FOTO_HEADER_SUB);
+      });
+    }
+
+    function reload_structure(){// reload ulang data setelah melakukan perubahan data
+      $.getJSON('<?php echo base_url('Profile/load_structure') ?>', function(json, textStatus) {
+          $('#struktur_img').attr('src', '<?php echo base_url('/uploads/') ?>'+json.sub.struktur);
+      });
+    }
+
+    function reload_feature(){
+      $.getJSON('<?php echo base_url('Profile/load_feature') ?>', function(json, textStatus) {
+        var a =1;
+        for (i in json) {
+          $('#icon_feature_'+a).addClass(json[i].ICON_FEATURE);
+          $('#nama_feature_'+a).html(json[i].NAMA_FEATURE);
+          $('#desc_feature_'+a).html(json[i].DESC_FEATURE);
+          a++;
+        }
+      });
+    }
+
 /*  $('#editProfileBtn').click(function(){
     $('#fullName').val(dataProfile.nama);
     $('#acronymName').val(dataProfile.singkatan);
@@ -523,6 +615,7 @@ foreach ($feature as $data) {
   ';
 }?>
 
+
 $('#editFeatureBtn').click(function(){
   $('#nama').val(dataFeature.nama);
   $('#desc').val(dataFeature.desc);
@@ -530,7 +623,7 @@ $('#editFeatureBtn').click(function(){
 });*/
 
 
-$('.editFeatureBtn').click(function() {
+/*$('.editFeatureBtn').click(function() {
   var icon = $(this).siblings('div').children('span').attr('class').split(' ')[1];
   var nama = $(this).siblings('div').children('h4').children('b').html();
   var desc = $(this).siblings('div').children('p').html();
@@ -544,7 +637,7 @@ $('.editFeatureBtn').click(function() {
 });
 
 
-
+*/
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();

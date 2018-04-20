@@ -8,6 +8,15 @@ class Profile_model extends CI_Model {
 		return $this->db->select('*')->from('feature')->where('ID_SUB', $id)->get()->result();
 	}
 
+	public function getSpecificFeature()
+	{
+		return $this->db->where('ID_SUB', $this->session->userdata('userId'))
+						->where('ID_FEATURE', $this->uri->segment(3))
+						->get('feature')
+						->row();
+	}
+
+
 	public function editProfileUpload($id, $headerPhoto, $logoPhoto)
 	{
 		$data = array('NAMA_SUB' 		=> $this->input->post('fullName'), 
@@ -95,13 +104,23 @@ class Profile_model extends CI_Model {
 		return true;
 	}
 
-<<<<<<< HEAD
 	public function getProfile()
 	{
 		return $this->db->where('ID_SUB', $this->session->userdata('userId'))
 						->get('sub_organ')
 						->row();
-=======
+    }
+
+    public function getAccount($id)
+	{
+		return $this->db->select('*')->from('user_account')->where('ID_SUB',$id)->get()->row();
+	}
+
+	public function getSubById($id)
+	{
+		return $this->db->where('ID_SUB',$id)->get('sub_organ')->row();
+	}
+    
 	public function editStructure($structure)
 	{
 		$data = array('struktur' 	=> $structure
@@ -113,7 +132,7 @@ class Profile_model extends CI_Model {
 			return false;
 		}	
 		return true;
->>>>>>> e6d99c50887f44dfa315724a333865c48e6acb29
+
 	}
 
 }
