@@ -222,7 +222,7 @@
     });
     $('#proposal').click(function () {
       $('.content-wrapper').load('<?php echo base_url('dashboard/proposal') ?>', function(){
-
+        getProposal();
       });
     });
 
@@ -265,8 +265,6 @@
 
   });
 
-
-
   //Modal Fix
   $('#editFeature, #editProfile').on('show.bs.modal', function () {
     $('body').css("padding-right", "0px");
@@ -280,8 +278,8 @@
       $('#dropdown-sub').siblings('.dropdown-menu').removeClass('appear');
     }
   });
- /* $(function () {
-    $('#newMember').DataTable({
+  $(function () {
+    $('#newMemberTable').DataTable(/*{
       'paging'      : true,
       'lengthChange': true,
       'searching'   : true,
@@ -317,10 +315,10 @@
       'colvis'
 
       ]
-    })
+    }*/)
   })
 
-  $(function () {
+/*  $(function () {
     $('#event').DataTable({
       'paging'      : true,
       'lengthChange': true,
@@ -330,6 +328,29 @@
       'autoWidth'   : true
     })
   })*/
+
+  function getProposal() {
+    $.ajax({
+        url: '<?php echo base_url('proposal/getProposal'); ?>',
+        dataType: 'JSON',
+        success: function (r) {
+          html = '';
+          no = 1;
+          $.each(r, function(key, data) {
+            html += '\
+            <tr>\
+            <td>'+ no +'</td>\
+            <td>'+ data.judul +'</td>\
+            <td>'+ data.tgl +'</td>\
+            <td>'+ data.keterangan +'</td>\
+            <td><a href="./uploads/proposal/'+data.file+'" target="_blank" class="btn btn-info" style="margin-right: 10px">Open Proposal</a><button class="btn btn-warning btnEditFileProposal" data-toggle="modal" data-target="#modal_form_update_file" onclick="getFileProposal('+data.id_proposal+')">Edit File</button></td>\
+            <td><button class="btn btn-warning" style="margin-right: 10px" data-target="#modal_form_update" data-toggle="modal" onclick="getDetailProposal('+data.id_proposal+')">Edit</button><button class="btn btn-danger" onclick="confirmDelete('+data.id_proposal+')">Delete</button></td>';
+            no++;
+          });
+          $('#dataProposal').html(html);
+        }
+      })
+  }
 </script>
 
 <!-- Bootstrap modal -->

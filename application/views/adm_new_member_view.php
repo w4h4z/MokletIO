@@ -36,7 +36,7 @@
             ?>
             <!-- /.box-header -->
             <div class="box-body table-responsive">
-              <table id="newMember" class="table table-bordered table-striped table-hover">
+              <table id="newMemberTable" class="table table-bordered table-striped table-hover">
                 <thead>
                   <tr>
                     <th>No</th>
@@ -298,7 +298,7 @@
     <div class="form-group">
     <label class="control-label col-md-3">Class *</label>
     <div class="col-md-9">
-    <select class="form-control" id="kelas" name="kelas">
+    <select class="form-control" name="kelas">
     <option value="XRPL1">XRPL1</option>
     <option value="XRPL2">XRPL2</option>
     <option value="XRPL3">XRPL3</option>
@@ -359,7 +359,7 @@
     <div class="form-group">
     <label class="control-label col-md-3">Photo</label>
     <div class="col-md-9">
-    <input name="photoMember1" class="form-control" type="file" id="imgInp1">
+    <input name="photoMember1" class="form-control imgInp1" type="file">
     </div>
     </div>
     <div class="form-group">
@@ -452,7 +452,7 @@
       }
     }
     
-    $("#imgInp1").change(function() {
+    $(".imgInp1").change(function() {
       readURL(this);
     });
 

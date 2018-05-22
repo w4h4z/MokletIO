@@ -100,7 +100,14 @@ class Dashboard extends CI_Controller {
 
 	public function proposal()
 	{
-		$this->load->view('adm_proposal');
+		if($this->session->userdata('logged')){
+			$id = $this->session->userdata('userId');
+			$data['sub'] = $this->dashboard_model->getSubById($id);
+			$data['account'] = $this->auth_model->getAccount($id);
+			$this->load->view('adm_proposal', $data);
+		} else {
+			redirect('auth');
+		}
 	}
 
 }

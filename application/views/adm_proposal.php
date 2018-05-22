@@ -1,342 +1,305 @@
 
-
-  <!-- Content Header (Page header) -->
   <section class="content-header">
     <h1>
-      Simple Tables
-      <small>preview of simple tables</small>
+      Manage Proposal
+      <small><?php echo $sub->SINGKATAN_SUB ;?></small>
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="#">Tables</a></li>
-      <li class="active">Simple</li>
-    </ol>
   </section>
-
   <!-- Main content -->
   <section class="content">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="box">
-          <div class="box-header with-border">
-            <h3 class="box-title">Bordered Table</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body">
-            <table class="table table-bordered">
-              <tbody><tr>
-                <th style="width: 10px">#</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
-              </tr>
-              <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-red">55%</span></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-yellow">70%</span></td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-light-blue">30%</span></td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-green">90%</span></td>
-              </tr>
-            </tbody></table>
-          </div>
-          <!-- /.box-body -->
-          <div class="box-footer clearfix">
-            <ul class="pagination pagination-sm no-margin pull-right">
-              <li><a href="#">«</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">»</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- /.box -->
-
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Condensed Full Width Table</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body no-padding">
-            <table class="table table-condensed">
-              <tbody><tr>
-                <th style="width: 10px">#</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
-              </tr>
-              <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-red">55%</span></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-yellow">70%</span></td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-light-blue">30%</span></td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-green">90%</span></td>
-              </tr>
-            </tbody></table>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
-      <div class="col-md-6">
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Simple Full Width Table</h3>
-
-            <div class="box-tools">
-              <ul class="pagination pagination-sm no-margin pull-right">
-                <li><a href="#">«</a></li>
-                <li><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">»</a></li>
-              </ul>
-            </div>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body no-padding">
-            <table class="table">
-              <tbody><tr>
-                <th style="width: 10px">#</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
-              </tr>
-              <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-red">55%</span></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-yellow">70%</span></td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-light-blue">30%</span></td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-green">90%</span></td>
-              </tr>
-            </tbody></table>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-
-        <div class="box">
-          <div class="box-header">
-            <h3 class="box-title">Striped Full Width Table</h3>
-          </div>
-          <!-- /.box-header -->
-          <div class="box-body no-padding">
-            <table class="table table-striped">
-              <tbody><tr>
-                <th style="width: 10px">#</th>
-                <th>Task</th>
-                <th>Progress</th>
-                <th style="width: 40px">Label</th>
-              </tr>
-              <tr>
-                <td>1.</td>
-                <td>Update software</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-red">55%</span></td>
-              </tr>
-              <tr>
-                <td>2.</td>
-                <td>Clean database</td>
-                <td>
-                  <div class="progress progress-xs">
-                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-yellow">70%</span></td>
-              </tr>
-              <tr>
-                <td>3.</td>
-                <td>Cron job running</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-light-blue">30%</span></td>
-              </tr>
-              <tr>
-                <td>4.</td>
-                <td>Fix and squish bugs</td>
-                <td>
-                  <div class="progress progress-xs progress-striped active">
-                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
-                  </div>
-                </td>
-                <td><span class="badge bg-green">90%</span></td>
-              </tr>
-            </tbody></table>
-          </div>
-          <!-- /.box-body -->
-        </div>
-        <!-- /.box -->
-      </div>
-      <!-- /.col -->
-    </div>
-    <!-- /.row -->
     <div class="row">
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Responsive Hover Table</h3>
+            <h3 class="box-title">Data Proposal</h3>
+            <br>
+            <br>
+            <button class="btn btn-primary" data-toggle="modal" data-target="#modal_form" id="btnTambahProposal"><span class="glyphicon glyphicon-plus"></span> Add New Proposal</button>
+            <!-- /.box-header -->
+            <div class="box-body table-responsive">
+              <table id="newMember" class="table table-bordered table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Tittle</th>
+                    <th>Date</th>
+                    <th>Keterangan</th>
+                    <th>File</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="dataProposal">
+                  
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
 
-            <div class="box-tools">
-              <div class="input-group input-group-sm" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
 
-                <div class="input-group-btn">
-                  <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+  <!-- Bootstrap modal -->
+  <div class="modal fade" id="modal_form" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">New Proposal Form</h3>
+        </div>
+        <div class="modal-body form">
+          <form class="form-horizontal" method="post" enctype="multipart/form-data" id="tambahProposal">
+            <input type="hidden" value="" name="member_id"/>
+            <div class="form-body">
+              <div class="form-group">
+                <label class="control-label col-md-3">Tittle *</label>
+                <div class="col-md-9">
+                  <input name="tittle" placeholder="Tittle" class="form-control" type="text" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3">Keterangan</label>
+                <div class="col-md-9">
+                  <textarea name="keterangan" class="form-control" placeholder="Keterangan"></textarea>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3">File *</label>
+                <div class="col-md-9">
+                  <input name="fileProposal" class="form-control" type="file" required>
                 </div>
               </div>
             </div>
           </div>
-          <!-- /.box-header -->
-          <div class="box-body table-responsive no-padding">
-            <table class="table table-hover">
-              <tbody><tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th>Reason</th>
-              </tr>
-              <tr>
-                <td>183</td>
-                <td>John Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-success">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-              <tr>
-                <td>219</td>
-                <td>Alexander Pierce</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-warning">Pending</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-              <tr>
-                <td>657</td>
-                <td>Bob Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-primary">Approved</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-              <tr>
-                <td>175</td>
-                <td>Mike Doe</td>
-                <td>11-7-2014</td>
-                <td><span class="label label-danger">Denied</span></td>
-                <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-              </tr>
-            </tbody></table>
-          </div>
-          <!-- /.box-body -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+            <input type="submit" name="submit" class="btn btn-primary" value="Save" onclick="insertProposal()">
+          </form>
         </div>
-        <!-- /.box -->
       </div>
+      <!-- /.modal-content -->
     </div>
-  </section>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- End Bootstrap modal -->
 
+
+   <!-- Bootstrap modal -->
+  <div class="modal fade" id="modal_form_update" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">Edit Proposal Form</h3>
+        </div>
+        <div class="modal-body form">
+          <form class="form-horizontal" method="post" enctype="multipart/form-data" id="editProposal">
+            <input type="hidden" id="idProposal" name="idProposal"/>
+            <div class="form-body">
+              <div class="form-group">
+                <label class="control-label col-md-3">Tittle *</label>
+                <div class="col-md-9">
+                  <input name="tittle" placeholder="Tittle" class="form-control" type="text" id="tittleProposal" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3">Keterangan</label>
+                <div class="col-md-9">
+                  <textarea name="keterangan" class="form-control" placeholder="Keterangan" id="ketProposal"></textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+            <input type="submit" name="submit" class="btn btn-primary" value="Save" onclick="updateProposal()">
+          </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- End Bootstrap modal -->
+
+     <!-- Bootstrap modal -->
+  <div class="modal fade" id="modal_form_update_file" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">Edit File Proposal Form</h3>
+        </div>
+        <div class="modal-body form">
+          <form class="form-horizontal" method="post" enctype="multipart/form-data" id="editFileProposal">
+            <input type="hidden" id="idProposalFile" name="idProposal"/>
+            <div class="form-body">
+              <div class="form-group">
+                <label class="control-label col-md-3">Select File</label>
+                <div class="col-md-9">
+                  <input type="file" name="fileProposal" class="form-control" required>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+            <input type="submit" name="submit" class="btn btn-primary" value="Save" onclick="updateFileProposal()">
+          </form>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+  <!-- End Bootstrap modal -->
+
+
+<script>
+
+  $('#btnTambahProposal').on('click', function() {
+    event.preventDefault();
+    document.getElementById("tambahProposal").reset();
+  });
+
+  $('.btnEditFileProposal').on('click', function() {
+    event.preventDefault();
+    alert('a');
+    //document.getElementById("editFileProposal").reset();
+  });
+
+  function insertProposal() {
+    event.preventDefault();
+    var data = new FormData(document.getElementById("tambahProposal"));
+
+      $.ajax({
+        url: "<?php echo base_url('proposal/insert'); ?>",
+        data: data,
+        type: "POST",
+        mimeType: "multipart/form-data",
+        processData: false,
+        contentType: false,
+        dataType: "JSON",
+        success: function(data){
+          if(data.status == false){
+            swal('Insert data failed', data.error, 'error')
+          } else {
+            swal('Insert data success', '', 'success')
+            getProposal();
+            $('#modal_form').modal('hide');
+          }
+        }
+      });
+  }
+
+    function confirmDelete(id) {
+     swal({
+       title: "Are you sure?",
+       text: "Once deleted, you will not be able to recover the data !",
+       icon: "warning",
+       buttons: true,
+       dangerMode: true,
+     })
+     .then((willDelete) => {
+       if (willDelete) {
+         deleteProposal(id);
+       } 
+     });
+  }
+
+  function deleteProposal(id) {
+    $.ajax({
+      url: '<?php echo base_url('proposal/delete/'); ?>'+id,
+      type: 'POST',
+      dataType: 'JSON',
+      success: function (r) {
+        if (r.status == true) {
+          getProposal();
+          swal('Delete data success','','success')
+        } else {
+          swal('Delete data failed','','error')
+        }
+      }
+    })
+  }
+
+  function getDetailProposal(id) {
+    $.ajax({
+      url: '<?=base_url('proposal/getDetailProposal/')?>'+id,
+      dataType: 'JSON',
+      success: function (r) {
+        $('#idProposal').val(r.id_proposal)
+        $('#tittleProposal').val(r.judul);
+        $('#ketProposal').val(r.keterangan);
+      }
+    })
+  }
+
+  function updateProposal() {
+    event.preventDefault();
+    data = $('#editProposal').serialize();
+
+    $.ajax({
+      url: '<?=base_url('proposal/update')?>',
+      type: 'POST',
+      dataType: 'JSON',
+      data: data,
+      success: function (r) {
+        if (r.status == true && r.error == '') {
+          getProposal();
+          swal('Update data success','','success')
+          $('#modal_form_update').modal('hide');
+        } else if(r.status == true && r.error != '') {
+          swal('Update data failed',r.error,'warning')
+        } else {
+          swal('Update data failed',r.error,'error')
+        }
+      }
+    })
+  }
+
+  function getFileProposal(id) {
+    $.ajax({
+      url: '<?=base_url('proposal/getDetailProposal/')?>'+id,
+      dataType: 'JSON',
+      success: function (r) {
+        $('#idProposalFile').val(r.id_proposal)
+      }
+    })
+  }
+
+  function updateFileProposal() {
+    event.preventDefault();
+    var data = new FormData(document.getElementById("editFileProposal"));
+
+    $.ajax({
+      url: '<?=base_url('proposal/updateFileProposal')?>',
+      type: 'POST',
+      mimeType: "multipart/form-data",
+      processData: false,
+      contentType: false,
+      dataType: 'JSON',
+      data: data,
+      success: function (r) {
+        if(r.status != true){
+            swal('Update data failed', r.error, 'error')
+          } else {
+            swal('Update data success', '', 'success')
+            getProposal();
+            $('#modal_form_update_file').modal('hide');
+          }
+      }
+    })
+  }
+
+</script>
